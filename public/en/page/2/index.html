@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.151.0">
+	<meta name="generator" content="Hugo 0.151.0"><script src="/devlogs/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=devlogs/livereload" data-no-instant defer></script>
   
     <title>smvasconcelos | DevLogs</title>
   
@@ -12,7 +12,7 @@
 
   <meta name="robots" content="noodp" />
 
-<link rel="canonical" href="https://smvasconcelos.github.io/devlogs/en/" />
+<link rel="canonical" href="http://localhost:1313/devlogs/en/" />
 
 
 
@@ -25,15 +25,15 @@
   
   
   
-  <link rel="stylesheet" href="https://smvasconcelos.github.io/devlogs/styles.css">
+  <link rel="stylesheet" href="http://localhost:1313/devlogs/styles.css">
 
 
 
-<link rel="stylesheet" href="https://smvasconcelos.github.io/devlogs/style.css">
+<link rel="stylesheet" href="http://localhost:1313/devlogs/style.css">
 
 
 
-  <link rel="shortcut icon" href="https://smvasconcelos.github.io/devlogs/favicon.png">
+  <link rel="shortcut icon" href="http://localhost:1313/devlogs/favicon.png">
 
 
 
@@ -45,11 +45,11 @@
 <meta property="og:type" content="website" />
 <meta property="og:title" content="smvasconcelos | DevLogs">
 <meta property="og:description" content="A simple DevLogs" />
-<meta property="og:url" content="https://smvasconcelos.github.io/devlogs/en/" />
+<meta property="og:url" content="http://localhost:1313/devlogs/en/" />
 <meta property="og:site_name" content="smvasconcelos | DevLogs" />
 
   
-    <meta property="og:image" content="https://smvasconcelos.github.io/devlogs/favicon.png">
+    <meta property="og:image" content="http://localhost:1313/devlogs/favicon.png">
   
 
 <meta property="og:image:width" content="1200">
@@ -71,7 +71,7 @@
 <script>
   window.addEventListener('DOMContentLoaded', (event) => {
     new PagefindUI({
-      element: ".search",
+      element: "#search",
       showSubResults: false,
       showImages: false,
       showMeta: false,
@@ -81,7 +81,7 @@
 
   
   document.addEventListener('focusin', (e) => {
-    if (e.target && e.target.matches('.search input')) {
+    if (e.target && e.target.matches('#search input')) {
       const drawer = document.querySelector('.pagefind-ui__drawer');
       if (drawer && e.target.value.trim() !== '' && drawer.classList.contains('pagefind-ui__hidden')) {
         drawer.classList.remove('pagefind-ui__hidden');
@@ -92,7 +92,7 @@
   
   document.addEventListener('click', (e) => {
     console.log({ e });
-    const searchEl = document.querySelector(".search");
+    const searchEl = document.querySelector("#search");
     const drawer = document.querySelector(".pagefind-ui__drawer");
     if (searchEl && drawer && !searchEl.contains(e.target) && !drawer.classList.contains('pagefind-ui__hidden') && !e.target.classList.contains('pagefind-ui__button')) {
       drawer.classList.add('pagefind-ui__hidden');
@@ -125,16 +125,16 @@
 
     </div>
     
-    <div class="search"></div>
+    <div id="search"></div>
     
     <ul class="menu menu--desktop menu--language-selector">
   <li class="menu__trigger">English&nbsp;▾</li>
   <li>
     <ul class="menu__dropdown">
       
-      <li><a href="https://smvasconcelos.github.io/devlogs/en/">English</a></li>
+      <li><a href="http://localhost:1313/devlogs/en/">English</a></li>
       
-      <li><a href="https://smvasconcelos.github.io/devlogs/pt/">Português</a></li>
+      <li><a href="http://localhost:1313/devlogs/pt/">Português</a></li>
       
     </ul>
   </li>
@@ -162,7 +162,7 @@
   
   <article class="post on-list">
     <h1 class="post-title">
-      <a href="https://smvasconcelos.github.io/devlogs/en/posts/default/">Test post</a>
+      <a href="http://localhost:1313/devlogs/en/posts/default/">Test post</a>
     </h1>
 
     <div class="post-meta"><time class="post-date">2025-10-05</time>
@@ -173,9 +173,9 @@
     
     <span class="post-tags">
       
-      #<a href="https://smvasconcelos.github.io/devlogs/en/%20tags/init/">init</a>&nbsp;
+      #<a href="http://localhost:1313/devlogs/en/%20tags/init/">init</a>&nbsp;
       
-      #<a href="https://smvasconcelos.github.io/devlogs/en/%20tags/blog/">blog</a>&nbsp;
+      #<a href="http://localhost:1313/devlogs/en/%20tags/blog/">blog</a>&nbsp;
       
     </span>
     
