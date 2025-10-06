@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on </title>
-    <link>/devlogs/pt/tags/blog/</link>
+    <link>https://smvasconcelos.github.io/devlogs/pt/tags/blog/</link>
     <description>Recent content in Blog on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt</language>
-    <lastBuildDate>Sun, 05 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="/devlogs/pt/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://smvasconcelos.github.io/devlogs/pt/tags/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Git init</title>
-      <link>/devlogs/pt/posts/default-2/</link>
+      <link>https://smvasconcelos.github.io/devlogs/pt/posts/default-2/</link>
       <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>/devlogs/pt/posts/default-2/</guid>
+      <guid>https://smvasconcelos.github.io/devlogs/pt/posts/default-2/</guid>
       <description>&lt;h1 id=&#34;testando-gpu-em-vm-com-hyper-v&#34;&gt;Testando GPU em VM com Hyper-V&lt;/h1&gt;
 &lt;p&gt;Hoje resolvi fazer um teste rápido no meu ambiente de virtualização usando o &lt;strong&gt;Hyper-V&lt;/strong&gt;.
 A ideia era ver como a GPU aparecia dentro de uma VM Linux quando o &lt;strong&gt;Enhanced Session Mode&lt;/strong&gt; está habilitado.&lt;/p&gt;</description>
@@ -39,10 +39,10 @@ Esse foi só um teste, mas já deu para entender melhor como o Hyper-V lida com 
     
     <item>
       <title>Git init</title>
-      <link>/devlogs/pt/posts/default-3/</link>
+      <link>https://smvasconcelos.github.io/devlogs/pt/posts/default-3/</link>
       <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>/devlogs/pt/posts/default-3/</guid>
+      <guid>https://smvasconcelos.github.io/devlogs/pt/posts/default-3/</guid>
       <description>&lt;h1 id=&#34;testando-gpu-em-vm-com-hyper-v&#34;&gt;Testando GPU em VM com Hyper-V&lt;/h1&gt;
 &lt;p&gt;Hoje resolvi fazer um teste rápido no meu ambiente de virtualização usando o &lt;strong&gt;Hyper-V&lt;/strong&gt;.
 A ideia era ver como a GPU aparecia dentro de uma VM Linux quando o &lt;strong&gt;Enhanced Session Mode&lt;/strong&gt; está habilitado.&lt;/p&gt;</description>
@@ -69,10 +69,10 @@ Esse foi só um teste, mas já deu para entender melhor como o Hyper-V lida com 
     
     <item>
       <title>Git init</title>
-      <link>/devlogs/pt/posts/default/</link>
+      <link>https://smvasconcelos.github.io/devlogs/pt/posts/default/</link>
       <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>/devlogs/pt/posts/default/</guid>
+      <guid>https://smvasconcelos.github.io/devlogs/pt/posts/default/</guid>
       <description>&lt;h1 id=&#34;testando-gpu-em-vm-com-hyper-v&#34;&gt;Testando GPU em VM com Hyper-V&lt;/h1&gt;
 &lt;p&gt;Hoje resolvi fazer um teste rápido no meu ambiente de virtualização usando o &lt;strong&gt;Hyper-V&lt;/strong&gt;.
 A ideia era ver como a GPU aparecia dentro de uma VM Linux quando o &lt;strong&gt;Enhanced Session Mode&lt;/strong&gt; está habilitado.&lt;/p&gt;</description>
