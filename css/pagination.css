@@ -22,7 +22,6 @@
   align-items: center;
   justify-content: center;
   min-width: 36px;
-  max-width: 36px;
   height: 36px;
   border-radius: 6px;
   text-decoration: none;
@@ -31,6 +30,11 @@
   cursor: pointer;
   color: white;
   font-weight: 500;
+}
+
+.post.on-list .button.previous,
+.post.on-list .button.next {
+  max: ;-width: 36px;
 }
 
 /* números das páginas */
