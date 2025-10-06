@@ -69,3 +69,44 @@ html {
 ::-webkit-scrollbar {
     width: 12px;
 }
+
+
+@media screen and (max-width: 520px) {
+  .footer__inner span {
+    font-size: 10px;
+  }
+
+  .header__inner {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .footer__inner span {
+    font-size: 12px;
+  }
+
+  .header__inner {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+  }
+
+  .pagefind-ui__drawer:not(.pagefind-ui__hidden) {
+    width: 100%;
+    z-index: 99;
+    border: 2px solid var(--accent);
+  }
+
+}
+
+@media screen and (max-width: 700px) {
+  .menu--language-selector {
+    display: flex !important;
+  }
+
+  .menu--language-selector .menu__trigger  {
+    display: block;
+  }
+}

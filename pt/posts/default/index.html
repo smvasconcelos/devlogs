@@ -72,7 +72,7 @@
 <script>
   window.addEventListener('DOMContentLoaded', (event) => {
     new PagefindUI({
-      element: "#search",
+      element: ".search",
       showSubResults: false,
       showImages: false,
       showMeta: false,
@@ -82,7 +82,7 @@
 
   
   document.addEventListener('focusin', (e) => {
-    if (e.target && e.target.matches('#search input')) {
+    if (e.target && e.target.matches('.search input')) {
       const drawer = document.querySelector('.pagefind-ui__drawer');
       if (drawer && e.target.value.trim() !== '' && drawer.classList.contains('pagefind-ui__hidden')) {
         drawer.classList.remove('pagefind-ui__hidden');
@@ -93,7 +93,7 @@
   
   document.addEventListener('click', (e) => {
     console.log({ e });
-    const searchEl = document.querySelector("#search");
+    const searchEl = document.querySelector(".search");
     const drawer = document.querySelector(".pagefind-ui__drawer");
     if (searchEl && drawer && !searchEl.contains(e.target) && !drawer.classList.contains('pagefind-ui__hidden') && !e.target.classList.contains('pagefind-ui__button')) {
       drawer.classList.add('pagefind-ui__hidden');
@@ -125,8 +125,9 @@
 
     </div>
     
+    <div class="search"></div>
     
-      <ul class="menu menu--desktop menu--language-selector">
+    <ul class="menu menu--desktop menu--language-selector">
   <li class="menu__trigger">Português&nbsp;▾</li>
   <li>
     <ul class="menu__dropdown">
@@ -141,7 +142,6 @@
 
     
   </div>
-  
 </header>
 
 
@@ -238,12 +238,11 @@ Esse foi só um teste, mas já deu para entender melhor como o Hyper-V lida com 
     <footer class="footer">
   <div class="footer__inner">
     
-      <div class="copyright copyright--user">
-        <span>© 2025 <a href='https://smvasconcelos.github.io/resume/'>Samuel Vasconcelos</a>. Todos os direitos reservados.</span>
-    
-      <span>:: <a href="https://github.com/mirus-ua/hugo-theme-re-terminal" target="_blank">Theme</a> made by <a href="https://github.com/mirus-ua" target="_blank">Mirus</a></span>
+    <div class="copyright copyright--user">
+      <span>© 2025 <a href='https://smvasconcelos.github.io/resume/'>Samuel Vasconcelos</a>. Todos os direitos reservados.</span>
+      
       </div>
-  </div>
+    </div>
 </footer>
 
 
