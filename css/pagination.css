@@ -1,0 +1,66 @@
+.pagination{
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.pagination__buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pagination__numbers {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+/* botões de seta */
+.button.previous,
+.button.next {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  text-decoration: none;
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.06);
+  cursor: pointer;
+  color: white;
+  font-weight: 500;
+}
+
+/* números das páginas */
+.pagination__numbers .page,
+.pagination__numbers a.page {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 .6rem;
+  border-radius: 6px;
+  text-decoration: none;
+  border: 2px solid rgba(255,255,255,0.06);
+  transition: border-color 100ms ease-in-out;
+}
+
+/* página atual */
+.pagination__numbers .current {
+  border-color: var(--accent);;
+  font-weight: 700;
+}
+
+/* hover/focus */
+.pagination__numbers a.page:hover,
+.button.previous:hover,
+.button.next:hover,
+.pagination__numbers a.page:focus,
+.button.previous:focus,
+.button.next:focus {
+  border-color: var(--accent);;
+  font-weight: 500;
+  background-color: transparent !important;
+}

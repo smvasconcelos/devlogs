@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title></title>
+    <link>/pt/</link>
+    <description>Recent content on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt</language>
+    <lastBuildDate>Sun, 05 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="/pt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git init</title>
+      <link>/pt/posts/default-2/</link>
+      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
+      
+      <guid>/pt/posts/default-2/</guid>
+      <description>&lt;h1 id=&#34;testando-gpu-em-vm-com-hyper-v&#34;&gt;Testando GPU em VM com Hyper-V&lt;/h1&gt;
+&lt;p&gt;Hoje resolvi fazer um teste rápido no meu ambiente de virtualização usando o &lt;strong&gt;Hyper-V&lt;/strong&gt;.
+A ideia era ver como a GPU aparecia dentro de uma VM Linux quando o &lt;strong&gt;Enhanced Session Mode&lt;/strong&gt; está habilitado.&lt;/p&gt;</description>
+      <content>&lt;h1 id=&#34;testando-gpu-em-vm-com-hyper-v&#34;&gt;Testando GPU em VM com Hyper-V&lt;/h1&gt;
+&lt;p&gt;Hoje resolvi fazer um teste rápido no meu ambiente de virtualização usando o &lt;strong&gt;Hyper-V&lt;/strong&gt;.
+A ideia era ver como a GPU aparecia dentro de uma VM Linux quando o &lt;strong&gt;Enhanced Session Mode&lt;/strong&gt; está habilitado.&lt;/p&gt;
+&lt;p&gt;Rodei o comando:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;garuda-inxi
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;E para minha surpresa, apareceu a mensagem:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;no PCI devices found&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Isso acontece porque, com o Enhanced Session, a placa de vídeo &lt;strong&gt;não é passada como um dispositivo PCI real&lt;/strong&gt; para a VM.
+Em vez disso, o Hyper-V cria um &lt;strong&gt;adaptador de vídeo virtual&lt;/strong&gt; que usa os recursos da GPU do host de forma compartilhada.
+Por isso, ferramentas como &lt;code&gt;inxi&lt;/code&gt; ou &lt;code&gt;lspci&lt;/code&gt; não conseguem listar a placa física.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;quando-usar-passthrough-de-gpu&#34;&gt;Quando usar passthrough de GPU&lt;/h2&gt;
+&lt;p&gt;Se o objetivo fosse usar a GPU de forma direta (com passthrough real), seria necessário configurar o &lt;strong&gt;DDA (Discrete Device Assignment)&lt;/strong&gt; ou partir para outro hypervisor, como &lt;strong&gt;Proxmox&lt;/strong&gt; ou &lt;strong&gt;VMware&lt;/strong&gt;, que oferecem suporte mais completo para esse tipo de uso.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;conclusão&#34;&gt;Conclusão&lt;/h2&gt;
+&lt;p&gt;Para tarefas gráficas leves, o modo atual já funciona bem.
+Esse foi só um teste, mas já deu para entender melhor como o Hyper-V lida com &lt;strong&gt;aceleração gráfica em VMs Linux&lt;/strong&gt;.&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Git init</title>
+      <link>/pt/posts/default-3/</link>
+      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
+      
+      <guid>/pt/posts/default-3/</guid>
+      <description>&lt;h1 id=&#34;testando-gpu-em-vm-com-hyper-v&#34;&gt;Testando GPU em VM com Hyper-V&lt;/h1&gt;
+&lt;p&gt;Hoje resolvi fazer um teste rápido no meu ambiente de virtualização usando o &lt;strong&gt;Hyper-V&lt;/strong&gt;.
+A ideia era ver como a GPU aparecia dentro de uma VM Linux quando o &lt;strong&gt;Enhanced Session Mode&lt;/strong&gt; está habilitado.&lt;/p&gt;</description>
+      <content>&lt;h1 id=&#34;testando-gpu-em-vm-com-hyper-v&#34;&gt;Testando GPU em VM com Hyper-V&lt;/h1&gt;
+&lt;p&gt;Hoje resolvi fazer um teste rápido no meu ambiente de virtualização usando o &lt;strong&gt;Hyper-V&lt;/strong&gt;.
+A ideia era ver como a GPU aparecia dentro de uma VM Linux quando o &lt;strong&gt;Enhanced Session Mode&lt;/strong&gt; está habilitado.&lt;/p&gt;
+&lt;p&gt;Rodei o comando:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;garuda-inxi
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;E para minha surpresa, apareceu a mensagem:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;no PCI devices found&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Isso acontece porque, com o Enhanced Session, a placa de vídeo &lt;strong&gt;não é passada como um dispositivo PCI real&lt;/strong&gt; para a VM.
+Em vez disso, o Hyper-V cria um &lt;strong&gt;adaptador de vídeo virtual&lt;/strong&gt; que usa os recursos da GPU do host de forma compartilhada.
+Por isso, ferramentas como &lt;code&gt;inxi&lt;/code&gt; ou &lt;code&gt;lspci&lt;/code&gt; não conseguem listar a placa física.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;quando-usar-passthrough-de-gpu&#34;&gt;Quando usar passthrough de GPU&lt;/h2&gt;
+&lt;p&gt;Se o objetivo fosse usar a GPU de forma direta (com passthrough real), seria necessário configurar o &lt;strong&gt;DDA (Discrete Device Assignment)&lt;/strong&gt; ou partir para outro hypervisor, como &lt;strong&gt;Proxmox&lt;/strong&gt; ou &lt;strong&gt;VMware&lt;/strong&gt;, que oferecem suporte mais completo para esse tipo de uso.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;conclusão&#34;&gt;Conclusão&lt;/h2&gt;
+&lt;p&gt;Para tarefas gráficas leves, o modo atual já funciona bem.
+Esse foi só um teste, mas já deu para entender melhor como o Hyper-V lida com &lt;strong&gt;aceleração gráfica em VMs Linux&lt;/strong&gt;.&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Git init</title>
+      <link>/pt/posts/default/</link>
+      <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
+      
+      <guid>/pt/posts/default/</guid>
+      <description>&lt;h1 id=&#34;testando-gpu-em-vm-com-hyper-v&#34;&gt;Testando GPU em VM com Hyper-V&lt;/h1&gt;
+&lt;p&gt;Hoje resolvi fazer um teste rápido no meu ambiente de virtualização usando o &lt;strong&gt;Hyper-V&lt;/strong&gt;.
+A ideia era ver como a GPU aparecia dentro de uma VM Linux quando o &lt;strong&gt;Enhanced Session Mode&lt;/strong&gt; está habilitado.&lt;/p&gt;</description>
+      <content>&lt;h1 id=&#34;testando-gpu-em-vm-com-hyper-v&#34;&gt;Testando GPU em VM com Hyper-V&lt;/h1&gt;
+&lt;p&gt;Hoje resolvi fazer um teste rápido no meu ambiente de virtualização usando o &lt;strong&gt;Hyper-V&lt;/strong&gt;.
+A ideia era ver como a GPU aparecia dentro de uma VM Linux quando o &lt;strong&gt;Enhanced Session Mode&lt;/strong&gt; está habilitado.&lt;/p&gt;
+&lt;p&gt;Rodei o comando:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;garuda-inxi
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;E para minha surpresa, apareceu a mensagem:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;no PCI devices found&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Isso acontece porque, com o Enhanced Session, a placa de vídeo &lt;strong&gt;não é passada como um dispositivo PCI real&lt;/strong&gt; para a VM.
+Em vez disso, o Hyper-V cria um &lt;strong&gt;adaptador de vídeo virtual&lt;/strong&gt; que usa os recursos da GPU do host de forma compartilhada.
+Por isso, ferramentas como &lt;code&gt;inxi&lt;/code&gt; ou &lt;code&gt;lspci&lt;/code&gt; não conseguem listar a placa física.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;quando-usar-passthrough-de-gpu&#34;&gt;Quando usar passthrough de GPU&lt;/h2&gt;
+&lt;p&gt;Se o objetivo fosse usar a GPU de forma direta (com passthrough real), seria necessário configurar o &lt;strong&gt;DDA (Discrete Device Assignment)&lt;/strong&gt; ou partir para outro hypervisor, como &lt;strong&gt;Proxmox&lt;/strong&gt; ou &lt;strong&gt;VMware&lt;/strong&gt;, que oferecem suporte mais completo para esse tipo de uso.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;conclusão&#34;&gt;Conclusão&lt;/h2&gt;
+&lt;p&gt;Para tarefas gráficas leves, o modo atual já funciona bem.
+Esse foi só um teste, mas já deu para entender melhor como o Hyper-V lida com &lt;strong&gt;aceleração gráfica em VMs Linux&lt;/strong&gt;.&lt;/p&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>
