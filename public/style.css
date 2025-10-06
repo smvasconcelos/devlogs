@@ -1,0 +1,71 @@
+@import url('./css/pagination.css');
+@import url('./css/search.css');
+
+:root {
+  --background: #222 !important;
+  --pagefind-ui-text: var(--accent) !important;
+  --pagefind-ui-border: var(--accent) !important;
+}
+
+.post.on-list {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.post:not(.on-list) {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.post.post-title:first-of-type {
+  margin-top: 0 !important;
+}
+
+.content {
+  padding-bottom: 1rem !important;
+}
+
+.post-title {
+  font-size: 2rem !important;
+}
+
+.post.on-list > div * {
+  font-size: 14px !important;
+}
+
+.post.on-list .post-content {
+  margin-top: 0 !important;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem 0 !important;
+  opacity: 1 !important;
+  z-index: 1000;
+}
+
+
+html {
+    scrollbar-color: var(--accent) var(--background);
+    scrollbar-width: thin;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--accent);
+    border-radius: 20px;
+    border: 3px solid var(--background);
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}

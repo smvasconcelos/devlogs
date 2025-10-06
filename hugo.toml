@@ -1,0 +1,117 @@
+baseurl = "/"
+languageCode = "en-us"
+# Add it only if you keep the theme in the `themes` directory.
+pagination.pagerSize = 2
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = true
+theme = "re-terminal"
+summaryLength = 30
+
+[params]
+  # dir name of your main content (default is `content/posts`).
+  # the list of set content will show up on your index page (baseurl).
+  contentTypeName = "posts"
+
+  # ["orange", "blue", "red", "green", "pink", "paper"]
+  themeColor = "orange"
+
+  # if you set this to 0, only submenu trigger will be visible
+  showMenuItems = 2
+
+  # show selector to switch language
+  showLanguageSelector = true
+
+  # set theme to full screen width
+  fullWidthTheme = false
+
+  # center theme with default width
+  centerTheme = true
+
+  # if your resource directory contains an image called `cover.(jpg|png|webp)`,
+  # then the file will be used as a cover automatically.
+  # With this option you don't have to put the `cover` param in a front-matter.
+  autoCover = true
+
+  # set post to show the last updated
+  # If you use git, you can set `enableGitInfo` to `true` and then post will automatically get the last updated
+  showLastUpdated = false
+
+  # set a custom favicon (default is a `themeColor` square)
+  favicon = "favicon.ico"
+
+  # Provide a string as a prefix for the last update date. By default, it looks like this: 2020-xx-xx [Updated: 2020-xx-xx] :: Author
+  # updatedDatePrefix = "Updated"
+
+  # set all headings to their default size (depending on browser settings)
+  # oneHeadingSize = true # default
+
+  # whether to show a page's estimated reading time
+  readingTime = true
+
+  # whether to show a table of contents
+  # can be overridden in a page's front-matter
+  Toc = true
+
+[languages]
+
+  [languages.en]
+    languageName = "English"
+
+    [languages.en.params]
+      title = "DevLogs"
+      subtitle = "A simple DevLogs"
+      owner = ""
+      keywords = ""
+      copyright = "© 2025 <a href='https://smvasconcelos.github.io/resume/'>Samuel Vasconcelos</a>. All rights reserved."
+      menuMore = "Show more"
+      readMore = "Read more"
+      readOtherPosts = "Read other posts"
+      newerPosts = "Newer posts"
+      olderPosts = "Older posts"
+      missingContentMessage = "Page not found..."
+      missingBackButtonLabel = "Back to home page"
+      minuteReadingTime = "min read"
+      words = "words"
+      TocTitle = "Table of Contents"
+
+
+      [languages.en.params.logo]
+        logoText = "smvasconcelos | DevLogs"
+        logoHomeLink = "/"
+
+      # [languages.en.menu]
+      #   [[languages.en.menu.main]]
+      #     identifier = "about"
+      #     name = "About"
+      #     url = "https://smvasconcelos.github.io/resume/"
+
+
+  [languages.pt]
+    languageName = "Português"
+
+    [languages.pt.params]
+      title = "DevLogs"
+      subtitle = "Um simples DevLogs"
+      owner = ""
+      keywords = ""
+      copyright = "© 2025 <a href='https://smvasconcelos.github.io/resume/'>Samuel Vasconcelos</a>. Todos os direitos reservados."
+      menuMore = "Ver mais"
+      readMore = "Ler mais"
+      readOtherPosts = "Leia outras postagens"
+      newerPosts = "Postagens mais novas"
+      olderPosts = "Postagens mais velhas"
+      missingContentMessage = "Página não encontrada..."
+      missingBackButtonLabel = "Voltar para tela de início"
+      minuteReadingTime = "min - leitura"
+      words = "palavras"
+      TocTitle = "Sumário"
+
+      [languages.pt.params.logo]
+        logoText = "smvasconcelos | DevLogs"
+        logoHomeLink = "/"
+
+      # [languages.pt.menu]
+      #   [[languages.pt.menu.main]]
+      #     identifier = "about"
+      #     name = "Sobre mim"
+      #     url = "https://smvasconcelos.github.io/resume/"

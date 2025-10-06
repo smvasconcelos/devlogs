@@ -1,0 +1,89 @@
+.pagefind-ui__search-clear {
+  display: none !important;
+}
+
+.pagefind-ui__search-input {
+  background: transparent !important;
+  color: var(--accent) !important;
+  border: 2px solid var(--accent) !important;
+  padding: 3px !important;
+  height: unset !important;
+  text-indent: 25px !important;
+  font: inherit !important;
+  appearance: none !important;
+  border-radius: unset !important;
+  outline: none !important;
+  margin-left: 2px !important;
+}
+
+.pagefind-ui__form::before {
+  top: 10px !important;
+  left: 10px !important;
+}
+
+.pagefind-ui__drawer:not(.pagefind-ui__hidden) {
+  padding: 1rem;
+  position: absolute;
+  top: 45px;
+  max-height: 300px;
+  overflow: auto;
+  width: calc(100% + 200px);
+  right: 0;
+  background-color: var(--background);
+  z-index: 99;
+  border: 2px solid var(--accent);
+}
+
+.pagefind-ui__drawer .pagefind-ui__message {
+  padding: 0 !important;
+  font-weight: 500 !important;
+}
+
+.pagefind-ui__results-area {
+  margin-top: 0 !important;
+}
+
+.pagefind-ui__drawer button {
+  width: 100%;
+  margin: 0;
+}
+
+.pagefind-ui__result {
+  padding: 15px 0 !important;
+  border-top-style: dotted !important;
+}
+
+.pagefind-ui__result-inner {
+  margin-top: 0 !important;
+}
+
+#search {
+  position: relative;
+}
+
+#search * {
+  font-family: 'Fira Code', Monaco, Consolas, Ubuntu Mono, monospace !important;
+}
+
+
+#search mark {
+  background-color: var(--accent) !important;
+  color: #000 !important;
+}
+
+
+#search .pagefind-ui__result:last-of-type {
+  border-bottom: none !important;
+}
+
+#search .pagefind-ui__result:first-of-type {
+  margin-top: 10px;
+}
+
+.pagefind-ui__button {
+  margin: 0 !important;
+  background-color: transparent !important;
+  border-radius: unset !important;
+  border-color: var(--accent) !important;
+  color: var(--accent) !important;
+}

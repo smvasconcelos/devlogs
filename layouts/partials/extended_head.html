@@ -1,0 +1,33 @@
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+<script src="/pagefind/pagefind-ui.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    new PagefindUI({
+      element: "#search",
+      showSubResults: false,
+      showImages: false,
+      showMeta: false,
+      excerptLength: 20,
+    });
+  });
+
+  // Reabre o drawer quando o input tem valor
+  document.addEventListener('focusin', (e) => {
+    if (e.target && e.target.matches('#search input')) {
+      const drawer = document.querySelector('.pagefind-ui__drawer');
+      if (drawer && e.target.value.trim() !== '' && drawer.classList.contains('pagefind-ui__hidden')) {
+        drawer.classList.remove('pagefind-ui__hidden');
+      }
+    }
+  });
+
+  // Fecha ao clicar fora
+  document.addEventListener('click', (e) => {
+    console.log({ e });
+    const searchEl = document.querySelector("#search");
+    const drawer = document.querySelector(".pagefind-ui__drawer");
+    if (searchEl && drawer && !searchEl.contains(e.target) && !drawer.classList.contains('pagefind-ui__hidden') && !e.target.classList.contains('pagefind-ui__button')) {
+      drawer.classList.add('pagefind-ui__hidden');
+    }
+  });
+</script>
