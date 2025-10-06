@@ -2,19 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://smvasconcelos.github.io/devlogs/pt/</loc>
-    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://smvasconcelos.github.io/devlogs/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://smvasconcelos.github.io/devlogs/pt/"
-                />
-  </url><url>
     <loc>https://smvasconcelos.github.io/devlogs/pt/tags/blog/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -91,6 +78,19 @@
                 rel="alternate"
                 hreflang="pt"
                 href="https://smvasconcelos.github.io/devlogs/pt/posts/"
+                />
+  </url><url>
+    <loc>https://smvasconcelos.github.io/devlogs/pt/</loc>
+    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://smvasconcelos.github.io/devlogs/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://smvasconcelos.github.io/devlogs/pt/"
                 />
   </url><url>
     <loc>https://smvasconcelos.github.io/devlogs/pt/tags/</loc>

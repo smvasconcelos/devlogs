@@ -7,11 +7,14 @@ defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = true
 theme = "re-terminal"
 summaryLength = 30
+title = "smvasconcelos | DevLogs"
 
 [params]
   # dir name of your main content (default is `content/posts`).
   # the list of set content will show up on your index page (baseurl).
   contentTypeName = "posts"
+
+  Title = "smvasconcelos | DevLogs"
 
   # ["orange", "blue", "red", "green", "pink", "paper"]
   themeColor = "orange"
