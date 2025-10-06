@@ -2,120 +2,120 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/en/</loc>
+    <loc>/devlogs/en/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="/pt/"
+                href="/devlogs/pt/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/"
+                href="/devlogs/en/"
                 />
   </url><url>
-    <loc>/en/tags/blog/</loc>
+    <loc>/devlogs/en/tags/blog/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="/pt/tags/blog/"
+                href="/devlogs/pt/tags/blog/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/tags/blog/"
+                href="/devlogs/en/tags/blog/"
                 />
   </url><url>
-    <loc>/en/tags/init/</loc>
+    <loc>/devlogs/en/tags/init/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="/pt/tags/init/"
+                href="/devlogs/pt/tags/init/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/tags/init/"
+                href="/devlogs/en/tags/init/"
                 />
   </url><url>
-    <loc>/en/posts/</loc>
+    <loc>/devlogs/en/posts/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="/pt/posts/"
+                href="/devlogs/pt/posts/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/posts/"
+                href="/devlogs/en/posts/"
                 />
   </url><url>
-    <loc>/en/tags/</loc>
+    <loc>/devlogs/en/tags/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="/pt/tags/"
+                href="/devlogs/pt/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/tags/"
+                href="/devlogs/en/tags/"
                 />
   </url><url>
-    <loc>/en/posts/default-2/</loc>
+    <loc>/devlogs/en/posts/default-2/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="/pt/posts/default-2/"
+                href="/devlogs/pt/posts/default-2/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/posts/default-2/"
+                href="/devlogs/en/posts/default-2/"
                 />
   </url><url>
-    <loc>/en/posts/default-3/</loc>
+    <loc>/devlogs/en/posts/default-3/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="/pt/posts/default-3/"
+                href="/devlogs/pt/posts/default-3/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/posts/default-3/"
+                href="/devlogs/en/posts/default-3/"
                 />
   </url><url>
-    <loc>/en/posts/default/</loc>
+    <loc>/devlogs/en/posts/default/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="/pt/posts/default/"
+                href="/devlogs/pt/posts/default/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/posts/default/"
+                href="/devlogs/en/posts/default/"
                 />
   </url><url>
-    <loc>/en/categories/</loc>
+    <loc>/devlogs/en/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="/pt/categories/"
+                href="/devlogs/pt/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/en/categories/"
+                href="/devlogs/en/categories/"
                 />
   </url>
 </urlset>
