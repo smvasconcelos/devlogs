@@ -2,7 +2,7 @@ baseURL = "https://smvasconcelos.github.io/devlogs/"
 
 languageCode = "en-us"
 # Add it only if you keep the theme in the `themes` directory.
-pagination.pagerSize = 2
+pagination.pagerSize = 10
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = true
 theme = "re-terminal"

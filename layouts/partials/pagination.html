@@ -1,33 +1,31 @@
 {{ $p := .Paginator }}
 {{ if gt $p.TotalPages 1 }}
-<blockquote>
-  <div class="pagination">
-    <div class="pagination__buttons">
+<div class="pagination">
+  <div class="pagination__buttons">
 
-      {{ if $p.HasPrev }}
-      <a href="{{ $p.Prev.URL }}" class="button previous" aria-label="Página anterior" title="Página anterior">
-        &lt;
-      </a>
+    {{ if $p.HasPrev }}
+    <a href="{{ $p.Prev.URL }}" class="button previous" aria-label="Página anterior" title="Página anterior">
+      &lt;
+    </a>
+    {{ end }}
+
+    <nav class="pagination__numbers" role="navigation" aria-label="Paginação">
+      {{ range $i, $pager := $p.Pagers }}
+      {{ $num := add $i 1 }}
+      {{ if eq $num $p.PageNumber }}
+      <span class="page current" aria-current="page">{{ $num }}</span>
+      {{ else }}
+      <a href="{{ $pager.URL }}" class="page" title="Ir para página {{ $num }}">{{ $num }}</a>
       {{ end }}
-
-      <nav class="pagination__numbers" role="navigation" aria-label="Paginação">
-        {{ range $i, $pager := $p.Pagers }}
-        {{ $num := add $i 1 }}
-        {{ if eq $num $p.PageNumber }}
-        <span class="page current" aria-current="page">{{ $num }}</span>
-        {{ else }}
-        <a href="{{ $pager.URL }}" class="page" title="Ir para página {{ $num }}">{{ $num }}</a>
-        {{ end }}
-        {{ end }}
-      </nav>
-
-      {{ if $p.HasNext }}
-      <a href="{{ $p.Next.URL }}" class="button next" aria-label="Próxima página" title="Próxima página">
-        &gt;
-      </a>
       {{ end }}
+    </nav>
 
-    </div>
+    {{ if $p.HasNext }}
+    <a href="{{ $p.Next.URL }}" class="button next" aria-label="Próxima página" title="Próxima página">
+      &gt;
+    </a>
+    {{ end }}
+
   </div>
-</blockquote>
+</div>
 {{ end }}

@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "pagefind": "npx -y pagefind --site public",
+    "build": "hugo"
+  }
+}
