@@ -79,6 +79,7 @@ title = "smvasconcelos | DevLogs"
       minuteReadingTime = "min read"
       words = "words"
       TocTitle = "Table of Contents"
+      postsFor = "Posts for"
 
 
       [languages.en.params.logo]
@@ -111,6 +112,7 @@ title = "smvasconcelos | DevLogs"
       minuteReadingTime = "min - leitura"
       words = "palavras"
       TocTitle = "Sumário"
+      postsFor = "Postagens contendo"
 
       [languages.pt.params.logo]
         logoText = "smvasconcelos | DevLogs"
