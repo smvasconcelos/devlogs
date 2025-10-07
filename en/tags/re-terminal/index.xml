@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>smvasconcelos | DevLogs</title>
-    <link>https://smvasconcelos.github.io/devlogs/pt/</link>
-    <description>Recent content on smvasconcelos | DevLogs</description>
+    <title>Re-Terminal on smvasconcelos | DevLogs</title>
+    <link>https://smvasconcelos.github.io/devlogs/en/tags/re-terminal/</link>
+    <description>Recent content in Re-Terminal on smvasconcelos | DevLogs</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>pt</language>
-    <lastBuildDate>Mon, 06 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://smvasconcelos.github.io/devlogs/pt/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Mon, 06 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://smvasconcelos.github.io/devlogs/en/tags/re-terminal/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Criando um blog com hugo</title>
-      <link>https://smvasconcelos.github.io/devlogs/pt/posts/criando-um-blog-com-hugo/</link>
+      <title>Creating a blog with hugo</title>
+      <link>https://smvasconcelos.github.io/devlogs/en/posts/criando-um-blog-com-hugo/</link>
       <pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://smvasconcelos.github.io/devlogs/pt/posts/criando-um-blog-com-hugo/</guid>
-      <description>&lt;h1 id=&#34;motivação&#34;&gt;Motivação&lt;/h1&gt;
-&lt;p&gt;Durante a maior parte da minha carreira, sempre foquei em evoluir tecnicamente por meio de estudos e em aplicar da melhor forma possível o que aprendi.&lt;br&gt;
-Mas percebi que faltava um espaço para documentar esse processo de aprendizado — &lt;strong&gt;um devlog&lt;/strong&gt; — que servisse tanto como repositório de consulta quanto como uma forma de compartilhar conhecimento com outros profissionais.&lt;/p&gt;</description>
-      <content>&lt;h1 id=&#34;motivação&#34;&gt;Motivação&lt;/h1&gt;
-&lt;p&gt;Durante a maior parte da minha carreira, sempre foquei em evoluir tecnicamente por meio de estudos e em aplicar da melhor forma possível o que aprendi.&lt;br&gt;
-Mas percebi que faltava um espaço para documentar esse processo de aprendizado — &lt;strong&gt;um devlog&lt;/strong&gt; — que servisse tanto como repositório de consulta quanto como uma forma de compartilhar conhecimento com outros profissionais.&lt;/p&gt;
-&lt;p&gt;Durante as pesquisas, descobri o &lt;strong&gt;Hugo&lt;/strong&gt;, uma ferramenta simples, porém extremamente poderosa, para criação de sites estáticos. A velocidade e a facilidade de desenvolvimento me chamaram a atenção, e decidi usá-la para construir este hub de conhecimento. E aqui estamos.&lt;/p&gt;
-&lt;h1 id=&#34;como-foi-desenvolvido&#34;&gt;Como foi desenvolvido&lt;/h1&gt;
-&lt;p&gt;Mas afinal, o que é o &lt;strong&gt;Hugo&lt;/strong&gt;?&lt;br&gt;
-Segundo a &lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;documentação oficial&lt;/a&gt;:&lt;/p&gt;
+      <guid>https://smvasconcelos.github.io/devlogs/en/posts/criando-um-blog-com-hugo/</guid>
+      <description>&lt;h1 id=&#34;motivation&#34;&gt;Motivation&lt;/h1&gt;
+&lt;p&gt;Throughout most of my career, I’ve always focused on growing technically through study and applying what I’ve learned in the best way possible.&lt;br&gt;
+However, I realized I was missing a space to document my learning process — a &lt;strong&gt;devlog&lt;/strong&gt; — that could serve both as a personal knowledge base and a way to share insights with other developers.&lt;/p&gt;</description>
+      <content>&lt;h1 id=&#34;motivation&#34;&gt;Motivation&lt;/h1&gt;
+&lt;p&gt;Throughout most of my career, I’ve always focused on growing technically through study and applying what I’ve learned in the best way possible.&lt;br&gt;
+However, I realized I was missing a space to document my learning process — a &lt;strong&gt;devlog&lt;/strong&gt; — that could serve both as a personal knowledge base and a way to share insights with other developers.&lt;/p&gt;
+&lt;p&gt;During my research, I came across &lt;strong&gt;Hugo&lt;/strong&gt;, a simple yet extremely powerful tool for creating static websites. Its speed and ease of development caught my attention, so I decided to use it to build this knowledge hub. And here we are.&lt;/p&gt;
+&lt;h1 id=&#34;how-it-was-developed&#34;&gt;How it was developed&lt;/h1&gt;
+&lt;p&gt;So, what exactly is &lt;strong&gt;Hugo&lt;/strong&gt;?&lt;br&gt;
+According to the &lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;official documentation&lt;/a&gt;:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;“Hugo é um dos geradores de sites estáticos de código aberto mais populares. Com sua incrível velocidade e flexibilidade, Hugo torna a criação de sites divertida novamente.”&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;Com alguns &lt;a href=&#34;https://gohugo.io/getting-started/quick-start/#prerequisites&#34;&gt;pré-requisitos&lt;/a&gt; instalados, é possível colocá-lo para rodar em poucos minutos.&lt;/p&gt;
-&lt;p&gt;Após a instalação, confirme que está tudo certo:&lt;/p&gt;
+&lt;p&gt;“Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.”&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;With a few &lt;a href=&#34;https://gohugo.io/getting-started/quick-start/#prerequisites&#34;&gt;prerequisites&lt;/a&gt; installed, you can have it running in just a few minutes.&lt;/p&gt;
+&lt;p&gt;After installation, you can confirm everything is working correctly:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; hugo version
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# hugo v0.151.0-c70ab27ceb841fc9404eab5d2c985ff7595034b7+extended windows/amd64 BuildDate=2025-10-02T13:30:36Z VendorInfo=gohugoio&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Com tudo funcionando, podemos criar um site a partir de um dos &lt;strong&gt;templates básicos&lt;/strong&gt; que o Hugo disponibiliza:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Once that’s done, you can create a new site using one of Hugo’s &lt;strong&gt;basic templates&lt;/strong&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo new site quickstart
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd quickstart
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git init
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;theme = &amp;#39;ananke&amp;#39;&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; hugo.toml
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo server
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;O comando acima inicia o servidor local e o site estará disponível em &lt;code&gt;http://localhost:1313/&lt;/code&gt;.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The command above starts a local server, and your site will be available at &lt;code&gt;http://localhost:1313/&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/Pasted-image-20251006203921.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;escolhendo-o-tema-e-configurando-o-projeto&#34;&gt;Escolhendo o tema e configurando o projeto&lt;/h2&gt;
-&lt;p&gt;Na configuração inicial, utilizei o tema &lt;strong&gt;Ananke&lt;/strong&gt; apenas para demonstração.&lt;br&gt;
-Depois, fui até o &lt;a href=&#34;https://themes.gohugo.io/tags/blog/&#34;&gt;repositório de temas da comunidade&lt;/a&gt; e escolhi o tema &lt;a href=&#34;https://github.com/panr/hugo-theme-terminal&#34;&gt;&lt;strong&gt;re-terminal&lt;/strong&gt;&lt;/a&gt; — o visual retrô e o estilo de terminal antigo combinaram muito bem com a proposta deste blog.&lt;/p&gt;
-&lt;h3 id=&#34;instalando-o-tema&#34;&gt;Instalando o tema&lt;/h3&gt;
-&lt;p&gt;O tema oferece três formas de instalação, descritas na &lt;a href=&#34;https://github.com/panr/hugo-theme-terminal?tab=readme-ov-file#how-to-start&#34;&gt;documentação oficial&lt;/a&gt;.&lt;br&gt;
-Após testar todas, a &lt;strong&gt;opção 3&lt;/strong&gt; se mostrou a mais prática:&lt;/p&gt;
+&lt;h2 id=&#34;choosing-the-theme-and-configuring-the-project&#34;&gt;Choosing the theme and configuring the project&lt;/h2&gt;
+&lt;p&gt;For the initial setup, I used the &lt;strong&gt;Ananke&lt;/strong&gt; theme just for demonstration.&lt;br&gt;
+Then, I browsed through the &lt;a href=&#34;https://themes.gohugo.io/tags/blog/&#34;&gt;community theme repository&lt;/a&gt; and selected &lt;a href=&#34;https://github.com/panr/hugo-theme-terminal&#34;&gt;&lt;strong&gt;re-terminal&lt;/strong&gt;&lt;/a&gt; — I liked its retro, terminal-like appearance, which fits well with the message I want to convey in this blog.&lt;/p&gt;
+&lt;h3 id=&#34;installing-the-theme&#34;&gt;Installing the theme&lt;/h3&gt;
+&lt;p&gt;The theme provides three installation methods, described in the &lt;a href=&#34;https://github.com/panr/hugo-theme-terminal?tab=readme-ov-file#how-to-start&#34;&gt;official documentation&lt;/a&gt;.&lt;br&gt;
+After testing them all, I found &lt;strong&gt;option 3&lt;/strong&gt; to be the easiest:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git submodule add -f https://github.com/panr/hugo-theme-terminal.git themes/terminal
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Com o tema instalado, basta ajustar o arquivo principal de configuração (&lt;code&gt;hugo.toml&lt;/code&gt;):&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Once installed, adjust the main configuration file (&lt;code&gt;hugo.toml&lt;/code&gt;):&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;baseurl&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;languageCode&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;en-us&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;theme&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;terminal&amp;#34;&lt;/span&gt;
@@ -62,26 +62,26 @@ Após testar todas, a &lt;strong&gt;opção 3&lt;/strong&gt; se mostrou a mais p
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;centerTheme&lt;/span&gt; = &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;autoCover&lt;/span&gt; = &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;showLastUpdated&lt;/span&gt; = &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;E por fim, rodar o projeto novamente:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Finally, start the project again:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo server -t terminal
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;criando-a-primeira-postagem&#34;&gt;Criando a primeira postagem&lt;/h1&gt;
-&lt;p&gt;O &lt;strong&gt;Hugo&lt;/strong&gt; segue uma estrutura de diretórios bem organizada, como descrito na &lt;a href=&#34;https://gohugo.io/getting-started/directory-structure/&#34;&gt;documentação oficial&lt;/a&gt;:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;creating-the-first-post&#34;&gt;Creating the first post&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Hugo&lt;/strong&gt; follows a well-organized directory structure, as described in the &lt;a href=&#34;https://gohugo.io/getting-started/directory-structure/&#34;&gt;official documentation&lt;/a&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;my-site/
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	├── archetypes/
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	├── assets/
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	├── content/
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	│   └── posts/
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	│       └── default.{lang}.md
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	│       └── default.{lang}.md
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	├── data/
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	├── i18n/
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	├── layouts/
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	├── static/
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	├── themes/
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	└── hugo.toml
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Os posts ficam na pasta &lt;strong&gt;&lt;code&gt;content/posts&lt;/code&gt;&lt;/strong&gt;.&lt;br&gt;
-Se quiser oferecer múltiplos idiomas (como neste blog), basta criar arquivos com sufixos de idioma — por exemplo, &lt;code&gt;post.en.md&lt;/code&gt; e &lt;code&gt;post.pt.md&lt;/code&gt;.&lt;br&gt;
-As línguas devem estar configuradas previamente no &lt;code&gt;hugo.toml&lt;/code&gt;:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── archetypes/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── assets/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── content/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   └── posts/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│       └── default.{lang}.md
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│       └── default.{lang}.md
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── data/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── i18n/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── layouts/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── static/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── themes/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;└── hugo.toml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Posts are stored in the &lt;strong&gt;&lt;code&gt;content/posts&lt;/code&gt;&lt;/strong&gt; folder.&lt;br&gt;
+If you want to support multiple languages (like in this blog), simply create files with language suffixes — for example, &lt;code&gt;post.en.md&lt;/code&gt; and &lt;code&gt;post.pt.md&lt;/code&gt;.&lt;br&gt;
+These languages must be defined in your &lt;code&gt;hugo.toml&lt;/code&gt; configuration file:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[&lt;span style=&#34;color:#a6e22e&#34;&gt;languages&lt;/span&gt;]
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  [&lt;span style=&#34;color:#a6e22e&#34;&gt;languages&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;en&lt;/span&gt;]
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;languageName&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;English&amp;#34;&lt;/span&gt;
@@ -90,14 +90,14 @@ As línguas devem estar configuradas previamente no &lt;code&gt;hugo.toml&lt;/co
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#a6e22e&#34;&gt;subtitle&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;A simple DevLog&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  [&lt;span style=&#34;color:#a6e22e&#34;&gt;languages&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;pt&lt;/span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;languageName&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Português&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;languageName&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Portuguese&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [&lt;span style=&#34;color:#a6e22e&#34;&gt;languages&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;pt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;params&lt;/span&gt;]
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#a6e22e&#34;&gt;title&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;DevLogs&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#a6e22e&#34;&gt;subtitle&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Um simples DevLog&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Assim, o Hugo reconhecerá automaticamente as traduções e gerará as versões correspondentes do site.&lt;/p&gt;
-&lt;h1 id=&#34;conclusão&#34;&gt;Conclusão&lt;/h1&gt;
-&lt;p&gt;Com a base pronta, comecei a implementar melhorias que senti falta — como &lt;strong&gt;pesquisa&lt;/strong&gt;, &lt;strong&gt;paginação numérica&lt;/strong&gt; e &lt;strong&gt;alternância de idioma&lt;/strong&gt;.&lt;br&gt;
-Nos próximos posts, vou detalhar como foi o processo de adicionar essas &lt;strong&gt;features&lt;/strong&gt; e como você também pode aplicá-las no seu blog desenvolvido com &lt;strong&gt;Hugo&lt;/strong&gt;.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#a6e22e&#34;&gt;subtitle&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;A simple DevLog&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Hugo will then automatically recognize the translations and generate corresponding language versions of your site.&lt;/p&gt;
+&lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;With the basic blog setup complete, I started adding features I felt were missing — such as &lt;strong&gt;search&lt;/strong&gt;, &lt;strong&gt;numbered pagination&lt;/strong&gt;, and &lt;strong&gt;language switching&lt;/strong&gt;.&lt;br&gt;
+In upcoming posts, I’ll walk through how I implemented these &lt;strong&gt;features&lt;/strong&gt; and how you can add them to your own &lt;strong&gt;Hugo&lt;/strong&gt; blog as well.&lt;/p&gt;
 </content>
     </item>
     
