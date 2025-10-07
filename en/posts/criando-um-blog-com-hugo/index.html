@@ -179,22 +179,26 @@ However, I realized I was missing a space to document my learning process — a 
       </h2>
       <nav id="TableOfContents">
   <ul>
+    <li><a href="#motivation">Motivation</a></li>
+    <li><a href="#how-it-was-developed">How it was developed</a></li>
     <li><a href="#choosing-the-theme-and-configuring-the-project">Choosing the theme and configuring the project</a>
       <ul>
         <li><a href="#installing-the-theme">Installing the theme</a></li>
       </ul>
     </li>
+    <li><a href="#creating-the-first-post">Creating the first post</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
     </div>
   
 
   <div class="post-content"><div>
-        <h1 id="motivation">Motivation<a href="#motivation" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+        <h2 id="motivation">Motivation<a href="#motivation" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>Throughout most of my career, I’ve always focused on growing technically through study and applying what I’ve learned in the best way possible.<br>
 However, I realized I was missing a space to document my learning process — a <strong>devlog</strong> — that could serve both as a personal knowledge base and a way to share insights with other developers.</p>
 <p>During my research, I came across <strong>Hugo</strong>, a simple yet extremely powerful tool for creating static websites. Its speed and ease of development caught my attention, so I decided to use it to build this knowledge hub. And here we are.</p>
-<h1 id="how-it-was-developed">How it was developed<a href="#how-it-was-developed" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<h2 id="how-it-was-developed">How it was developed<a href="#how-it-was-developed" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>So, what exactly is <strong>Hugo</strong>?<br>
 According to the <a href="https://themes.gohugo.io/">official documentation</a>:</p>
 <blockquote>
@@ -238,7 +242,7 @@ After testing them all, I found <strong>option 3</strong> to be the easiest:</p>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">showLastUpdated</span> = <span style="color:#66d9ef">false</span>
 </span></span></code></pre></div><p>Finally, start the project again:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server -t terminal
-</span></span></code></pre></div><h1 id="creating-the-first-post">Creating the first post<a href="#creating-the-first-post" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+</span></span></code></pre></div><h2 id="creating-the-first-post">Creating the first post<a href="#creating-the-first-post" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p><strong>Hugo</strong> follows a well-organized directory structure, as described in the <a href="https://gohugo.io/getting-started/directory-structure/">official documentation</a>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>my-site/
 </span></span><span style="display:flex;"><span>├── archetypes/
@@ -253,9 +257,8 @@ After testing them all, I found <strong>option 3</strong> to be the easiest:</p>
 </span></span><span style="display:flex;"><span>├── static/
 </span></span><span style="display:flex;"><span>├── themes/
 </span></span><span style="display:flex;"><span>└── hugo.toml
-</span></span></code></pre></div><p>Posts are stored in the <strong><code>content/posts</code></strong> folder.<br>
-If you want to support multiple languages (like in this blog), simply create files with language suffixes — for example, <code>post.en.md</code> and <code>post.pt.md</code>.<br>
-These languages must be defined in your <code>hugo.toml</code> configuration file:</p>
+</span></span></code></pre></div><p>Posts are stored in the <strong><code>content/posts</code></strong> folder. If you want to support multiple languages (like in this blog), simply create files with language suffixes — for example, <code>post.en.md</code> and <code>post.pt.md</code>.</p>
+<p>These languages must be defined in your <code>hugo.toml</code> configuration file:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">languages</span>]
 </span></span><span style="display:flex;"><span>  [<span style="color:#a6e22e">languages</span>.<span style="color:#a6e22e">en</span>]
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">languageName</span> = <span style="color:#e6db74">&#34;English&#34;</span>
@@ -269,9 +272,9 @@ These languages must be defined in your <code>hugo.toml</code> configuration fil
 </span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#34;DevLogs&#34;</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">subtitle</span> = <span style="color:#e6db74">&#34;A simple DevLog&#34;</span>
 </span></span></code></pre></div><p>Hugo will then automatically recognize the translations and generate corresponding language versions of your site.</p>
-<h1 id="conclusion">Conclusion<a href="#conclusion" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
-<p>With the basic blog setup complete, I started adding features I felt were missing — such as <strong>search</strong>, <strong>numbered pagination</strong>, and <strong>language switching</strong>.<br>
-In upcoming posts, I’ll walk through how I implemented these <strong>features</strong> and how you can add them to your own <strong>Hugo</strong> blog as well.</p>
+<h2 id="conclusion">Conclusion<a href="#conclusion" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>With the basic blog setup complete, I started adding features I felt were missing — such as <strong>search</strong>, <strong>numbered pagination</strong>, and <strong>language switching</strong>.</p>
+<p>In upcoming posts, I’ll walk through how I implemented these <strong>features</strong> and how you can add them to your own <strong>Hugo</strong> blog as well.</p>
 
       </div></div>
 
