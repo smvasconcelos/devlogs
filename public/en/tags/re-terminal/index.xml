@@ -13,14 +13,14 @@
       <pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
       
       <guid>https://smvasconcelos.github.io/devlogs/en/posts/criando-um-blog-com-hugo/</guid>
-      <description>&lt;h1 id=&#34;motivation&#34;&gt;Motivation&lt;/h1&gt;
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;Throughout most of my career, I’ve always focused on growing technically through study and applying what I’ve learned in the best way possible.&lt;br&gt;
 However, I realized I was missing a space to document my learning process — a &lt;strong&gt;devlog&lt;/strong&gt; — that could serve both as a personal knowledge base and a way to share insights with other developers.&lt;/p&gt;</description>
-      <content>&lt;h1 id=&#34;motivation&#34;&gt;Motivation&lt;/h1&gt;
+      <content>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;Throughout most of my career, I’ve always focused on growing technically through study and applying what I’ve learned in the best way possible.&lt;br&gt;
 However, I realized I was missing a space to document my learning process — a &lt;strong&gt;devlog&lt;/strong&gt; — that could serve both as a personal knowledge base and a way to share insights with other developers.&lt;/p&gt;
 &lt;p&gt;During my research, I came across &lt;strong&gt;Hugo&lt;/strong&gt;, a simple yet extremely powerful tool for creating static websites. Its speed and ease of development caught my attention, so I decided to use it to build this knowledge hub. And here we are.&lt;/p&gt;
-&lt;h1 id=&#34;how-it-was-developed&#34;&gt;How it was developed&lt;/h1&gt;
+&lt;h2 id=&#34;how-it-was-developed&#34;&gt;How it was developed&lt;/h2&gt;
 &lt;p&gt;So, what exactly is &lt;strong&gt;Hugo&lt;/strong&gt;?&lt;br&gt;
 According to the &lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;official documentation&lt;/a&gt;:&lt;/p&gt;
 &lt;blockquote&gt;
@@ -64,7 +64,7 @@ After testing them all, I found &lt;strong&gt;option 3&lt;/strong&gt; to be the 
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;showLastUpdated&lt;/span&gt; = &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Finally, start the project again:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo server -t terminal
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;creating-the-first-post&#34;&gt;Creating the first post&lt;/h1&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;creating-the-first-post&#34;&gt;Creating the first post&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Hugo&lt;/strong&gt; follows a well-organized directory structure, as described in the &lt;a href=&#34;https://gohugo.io/getting-started/directory-structure/&#34;&gt;official documentation&lt;/a&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;my-site/
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── archetypes/
@@ -79,9 +79,8 @@ After testing them all, I found &lt;strong&gt;option 3&lt;/strong&gt; to be the 
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── static/
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── themes/
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;└── hugo.toml
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Posts are stored in the &lt;strong&gt;&lt;code&gt;content/posts&lt;/code&gt;&lt;/strong&gt; folder.&lt;br&gt;
-If you want to support multiple languages (like in this blog), simply create files with language suffixes — for example, &lt;code&gt;post.en.md&lt;/code&gt; and &lt;code&gt;post.pt.md&lt;/code&gt;.&lt;br&gt;
-These languages must be defined in your &lt;code&gt;hugo.toml&lt;/code&gt; configuration file:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Posts are stored in the &lt;strong&gt;&lt;code&gt;content/posts&lt;/code&gt;&lt;/strong&gt; folder. If you want to support multiple languages (like in this blog), simply create files with language suffixes — for example, &lt;code&gt;post.en.md&lt;/code&gt; and &lt;code&gt;post.pt.md&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;These languages must be defined in your &lt;code&gt;hugo.toml&lt;/code&gt; configuration file:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[&lt;span style=&#34;color:#a6e22e&#34;&gt;languages&lt;/span&gt;]
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  [&lt;span style=&#34;color:#a6e22e&#34;&gt;languages&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;en&lt;/span&gt;]
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;languageName&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;English&amp;#34;&lt;/span&gt;
@@ -95,9 +94,9 @@ These languages must be defined in your &lt;code&gt;hugo.toml&lt;/code&gt; confi
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#a6e22e&#34;&gt;title&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;DevLogs&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#a6e22e&#34;&gt;subtitle&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;A simple DevLog&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Hugo will then automatically recognize the translations and generate corresponding language versions of your site.&lt;/p&gt;
-&lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
-&lt;p&gt;With the basic blog setup complete, I started adding features I felt were missing — such as &lt;strong&gt;search&lt;/strong&gt;, &lt;strong&gt;numbered pagination&lt;/strong&gt;, and &lt;strong&gt;language switching&lt;/strong&gt;.&lt;br&gt;
-In upcoming posts, I’ll walk through how I implemented these &lt;strong&gt;features&lt;/strong&gt; and how you can add them to your own &lt;strong&gt;Hugo&lt;/strong&gt; blog as well.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;With the basic blog setup complete, I started adding features I felt were missing — such as &lt;strong&gt;search&lt;/strong&gt;, &lt;strong&gt;numbered pagination&lt;/strong&gt;, and &lt;strong&gt;language switching&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;In upcoming posts, I’ll walk through how I implemented these &lt;strong&gt;features&lt;/strong&gt; and how you can add them to your own &lt;strong&gt;Hugo&lt;/strong&gt; blog as well.&lt;/p&gt;
 </content>
     </item>
     

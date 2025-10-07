@@ -13,14 +13,14 @@
       <pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
       
       <guid>https://smvasconcelos.github.io/devlogs/pt/posts/criando-um-blog-com-hugo/</guid>
-      <description>&lt;h1 id=&#34;motivação&#34;&gt;Motivação&lt;/h1&gt;
+      <description>&lt;h2 id=&#34;motivação&#34;&gt;Motivação&lt;/h2&gt;
 &lt;p&gt;Durante a maior parte da minha carreira, sempre foquei em evoluir tecnicamente por meio de estudos e em aplicar da melhor forma possível o que aprendi.&lt;br&gt;
 Mas percebi que faltava um espaço para documentar esse processo de aprendizado — &lt;strong&gt;um devlog&lt;/strong&gt; — que servisse tanto como repositório de consulta quanto como uma forma de compartilhar conhecimento com outros profissionais.&lt;/p&gt;</description>
-      <content>&lt;h1 id=&#34;motivação&#34;&gt;Motivação&lt;/h1&gt;
+      <content>&lt;h2 id=&#34;motivação&#34;&gt;Motivação&lt;/h2&gt;
 &lt;p&gt;Durante a maior parte da minha carreira, sempre foquei em evoluir tecnicamente por meio de estudos e em aplicar da melhor forma possível o que aprendi.&lt;br&gt;
 Mas percebi que faltava um espaço para documentar esse processo de aprendizado — &lt;strong&gt;um devlog&lt;/strong&gt; — que servisse tanto como repositório de consulta quanto como uma forma de compartilhar conhecimento com outros profissionais.&lt;/p&gt;
-&lt;p&gt;Durante as pesquisas, descobri o &lt;strong&gt;Hugo&lt;/strong&gt;, uma ferramenta simples, porém extremamente poderosa, para criação de sites estáticos. A velocidade e a facilidade de desenvolvimento me chamaram a atenção, e decidi usá-la para construir este hub de conhecimento. E aqui estamos.&lt;/p&gt;
-&lt;h1 id=&#34;como-foi-desenvolvido&#34;&gt;Como foi desenvolvido&lt;/h1&gt;
+&lt;p&gt;Durante as pesquisas, descobri o &lt;strong&gt;Hugo&lt;/strong&gt;, uma ferramenta simples, porém extremamente poderosa, para criação de sites estáticos. A velocidade e a facilidade de desenvolvimento me chamaram a atenção, e decidi usá-la para construir este hub de conhecimento.&lt;/p&gt;
+&lt;h2 id=&#34;como-foi-desenvolvido&#34;&gt;Como foi desenvolvido&lt;/h2&gt;
 &lt;p&gt;Mas afinal, o que é o &lt;strong&gt;Hugo&lt;/strong&gt;?&lt;br&gt;
 Segundo a &lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;documentação oficial&lt;/a&gt;:&lt;/p&gt;
 &lt;blockquote&gt;
@@ -64,7 +64,7 @@ Após testar todas, a &lt;strong&gt;opção 3&lt;/strong&gt; se mostrou a mais p
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;showLastUpdated&lt;/span&gt; = &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;E por fim, rodar o projeto novamente:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo server -t terminal
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;criando-a-primeira-postagem&#34;&gt;Criando a primeira postagem&lt;/h1&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;criando-a-primeira-postagem&#34;&gt;Criando a primeira postagem&lt;/h2&gt;
 &lt;p&gt;O &lt;strong&gt;Hugo&lt;/strong&gt; segue uma estrutura de diretórios bem organizada, como descrito na &lt;a href=&#34;https://gohugo.io/getting-started/directory-structure/&#34;&gt;documentação oficial&lt;/a&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;my-site/
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	├── archetypes/
@@ -79,9 +79,8 @@ Após testar todas, a &lt;strong&gt;opção 3&lt;/strong&gt; se mostrou a mais p
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	├── static/
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	├── themes/
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	└── hugo.toml
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Os posts ficam na pasta &lt;strong&gt;&lt;code&gt;content/posts&lt;/code&gt;&lt;/strong&gt;.&lt;br&gt;
-Se quiser oferecer múltiplos idiomas (como neste blog), basta criar arquivos com sufixos de idioma — por exemplo, &lt;code&gt;post.en.md&lt;/code&gt; e &lt;code&gt;post.pt.md&lt;/code&gt;.&lt;br&gt;
-As línguas devem estar configuradas previamente no &lt;code&gt;hugo.toml&lt;/code&gt;:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Os posts ficam na pasta &lt;strong&gt;&lt;code&gt;content/posts&lt;/code&gt;&lt;/strong&gt;. Se quiser oferecer múltiplos idiomas (como neste blog), basta criar arquivos com sufixos de idioma — por exemplo, &lt;code&gt;post.en.md&lt;/code&gt; e &lt;code&gt;post.pt.md&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;As línguas devem estar configuradas previamente no &lt;code&gt;hugo.toml&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[&lt;span style=&#34;color:#a6e22e&#34;&gt;languages&lt;/span&gt;]
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  [&lt;span style=&#34;color:#a6e22e&#34;&gt;languages&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;en&lt;/span&gt;]
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;languageName&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;English&amp;#34;&lt;/span&gt;
@@ -95,9 +94,9 @@ As línguas devem estar configuradas previamente no &lt;code&gt;hugo.toml&lt;/co
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#a6e22e&#34;&gt;title&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;DevLogs&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#a6e22e&#34;&gt;subtitle&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Um simples DevLog&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Assim, o Hugo reconhecerá automaticamente as traduções e gerará as versões correspondentes do site.&lt;/p&gt;
-&lt;h1 id=&#34;conclusão&#34;&gt;Conclusão&lt;/h1&gt;
-&lt;p&gt;Com a base pronta, comecei a implementar melhorias que senti falta — como &lt;strong&gt;pesquisa&lt;/strong&gt;, &lt;strong&gt;paginação numérica&lt;/strong&gt; e &lt;strong&gt;alternância de idioma&lt;/strong&gt;.&lt;br&gt;
-Nos próximos posts, vou detalhar como foi o processo de adicionar essas &lt;strong&gt;features&lt;/strong&gt; e como você também pode aplicá-las no seu blog desenvolvido com &lt;strong&gt;Hugo&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;conclusão&#34;&gt;Conclusão&lt;/h2&gt;
+&lt;p&gt;Com a base pronta, comecei a implementar melhorias que senti falta — como &lt;strong&gt;pesquisa&lt;/strong&gt;, &lt;strong&gt;paginação numérica&lt;/strong&gt; e &lt;strong&gt;alternância de idioma&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Nos próximos posts, vou detalhar como foi o processo de adicionar essas &lt;strong&gt;features&lt;/strong&gt; e como você também pode aplicá-las no seu blog desenvolvido com &lt;strong&gt;Hugo&lt;/strong&gt;.&lt;/p&gt;
 </content>
     </item>
     

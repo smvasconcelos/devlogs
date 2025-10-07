@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt">
-<head><script src="/devlogs/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=devlogs/livereload" data-no-instant defer></script>
+<head>
   
     <title>Criando um blog com hugo :: smvasconcelos | DevLogs</title>
   
@@ -13,7 +13,7 @@ Mas percebi que faltava um espaço para documentar esse processo de aprendizado 
 
   <meta name="robots" content="noodp" />
 
-<link rel="canonical" href="http://localhost:1313/devlogs/pt/posts/criando-um-blog-com-hugo/" />
+<link rel="canonical" href="https://smvasconcelos.github.io/devlogs/pt/posts/criando-um-blog-com-hugo/" />
 
 
 
@@ -26,15 +26,15 @@ Mas percebi que faltava um espaço para documentar esse processo de aprendizado 
   
   
   
-  <link rel="stylesheet" href="http://localhost:1313/devlogs/styles.css">
+  <link rel="stylesheet" href="https://smvasconcelos.github.io/devlogs/styles.css">
 
 
 
-<link rel="stylesheet" href="http://localhost:1313/devlogs/style.css">
+<link rel="stylesheet" href="https://smvasconcelos.github.io/devlogs/style.css">
 
 
 
-  <link rel="shortcut icon" href="http://localhost:1313/devlogs/favicon.png">
+  <link rel="shortcut icon" href="https://smvasconcelos.github.io/devlogs/favicon.png">
 
 
 
@@ -48,11 +48,11 @@ Mas percebi que faltava um espaço para documentar esse processo de aprendizado 
 <meta property="og:description" content="Motivação Durante a maior parte da minha carreira, sempre foquei em evoluir tecnicamente por meio de estudos e em aplicar da melhor forma possível o que aprendi.
 Mas percebi que faltava um espaço para documentar esse processo de aprendizado — um devlog — que servisse tanto como repositório de consulta quanto como uma forma de compartilhar conhecimento com outros profissionais.
 " />
-<meta property="og:url" content="http://localhost:1313/devlogs/pt/posts/criando-um-blog-com-hugo/" />
+<meta property="og:url" content="https://smvasconcelos.github.io/devlogs/pt/posts/criando-um-blog-com-hugo/" />
 <meta property="og:site_name" content="smvasconcelos | DevLogs" />
 
   
-    <meta property="og:image" content="http://localhost:1313/devlogs/favicon.png">
+    <meta property="og:image" content="https://smvasconcelos.github.io/devlogs/favicon.png">
   
 
 <meta property="og:image:width" content="1200">
@@ -134,9 +134,9 @@ Mas percebi que faltava um espaço para documentar esse processo de aprendizado 
   <li>
     <ul class="menu__dropdown">
       
-        <li><a href="http://localhost:1313/devlogs/en/">English</a></li>
+        <li><a href="https://smvasconcelos.github.io/devlogs/en/">English</a></li>
       
-        <li><a href="http://localhost:1313/devlogs/pt/">Português</a></li>
+        <li><a href="https://smvasconcelos.github.io/devlogs/pt/">Português</a></li>
       
     </ul>
   </li>
@@ -151,20 +151,20 @@ Mas percebi que faltava um espaço para documentar esse processo de aprendizado 
     
 <article class="post">
   <h1 class="post-title">
-    <a href="http://localhost:1313/devlogs/pt/posts/criando-um-blog-com-hugo/">Criando um blog com hugo</a>
+    <a href="https://smvasconcelos.github.io/devlogs/pt/posts/criando-um-blog-com-hugo/">Criando um blog com hugo</a>
   </h1>
   <div class="post-meta"><time class="post-date">2025-10-06</time>
     
-<span class="post-reading-time">3 min - leitura (532 palavras)</span></div>
+<span class="post-reading-time">3 min - leitura (529 palavras)</span></div>
 
   
     <span class="post-tags">
       
-      #<a href="http://localhost:1313/devlogs/pt/tags/blog/">blog</a>&nbsp;
+      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/blog/">blog</a>&nbsp;
       
-      #<a href="http://localhost:1313/devlogs/pt/tags/hugo/">hugo</a>&nbsp;
+      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/hugo/">hugo</a>&nbsp;
       
-      #<a href="http://localhost:1313/devlogs/pt/tags/re-terminal/">re-terminal</a>&nbsp;
+      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/re-terminal/">re-terminal</a>&nbsp;
       
     </span>
   
@@ -179,22 +179,26 @@ Mas percebi que faltava um espaço para documentar esse processo de aprendizado 
       </h2>
       <nav id="TableOfContents">
   <ul>
+    <li><a href="#motivação">Motivação</a></li>
+    <li><a href="#como-foi-desenvolvido">Como foi desenvolvido</a></li>
     <li><a href="#escolhendo-o-tema-e-configurando-o-projeto">Escolhendo o tema e configurando o projeto</a>
       <ul>
         <li><a href="#instalando-o-tema">Instalando o tema</a></li>
       </ul>
     </li>
+    <li><a href="#criando-a-primeira-postagem">Criando a primeira postagem</a></li>
+    <li><a href="#conclusão">Conclusão</a></li>
   </ul>
 </nav>
     </div>
   
 
   <div class="post-content"><div>
-        <h1 id="motivação">Motivação<a href="#motivação" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+        <h2 id="motivação">Motivação<a href="#motivação" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>Durante a maior parte da minha carreira, sempre foquei em evoluir tecnicamente por meio de estudos e em aplicar da melhor forma possível o que aprendi.<br>
 Mas percebi que faltava um espaço para documentar esse processo de aprendizado — <strong>um devlog</strong> — que servisse tanto como repositório de consulta quanto como uma forma de compartilhar conhecimento com outros profissionais.</p>
-<p>Durante as pesquisas, descobri o <strong>Hugo</strong>, uma ferramenta simples, porém extremamente poderosa, para criação de sites estáticos. A velocidade e a facilidade de desenvolvimento me chamaram a atenção, e decidi usá-la para construir este hub de conhecimento. E aqui estamos.</p>
-<h1 id="como-foi-desenvolvido">Como foi desenvolvido<a href="#como-foi-desenvolvido" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p>Durante as pesquisas, descobri o <strong>Hugo</strong>, uma ferramenta simples, porém extremamente poderosa, para criação de sites estáticos. A velocidade e a facilidade de desenvolvimento me chamaram a atenção, e decidi usá-la para construir este hub de conhecimento.</p>
+<h2 id="como-foi-desenvolvido">Como foi desenvolvido<a href="#como-foi-desenvolvido" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>Mas afinal, o que é o <strong>Hugo</strong>?<br>
 Segundo a <a href="https://themes.gohugo.io/">documentação oficial</a>:</p>
 <blockquote>
@@ -238,7 +242,7 @@ Após testar todas, a <strong>opção 3</strong> se mostrou a mais prática:</p>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">showLastUpdated</span> = <span style="color:#66d9ef">false</span>
 </span></span></code></pre></div><p>E por fim, rodar o projeto novamente:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server -t terminal
-</span></span></code></pre></div><h1 id="criando-a-primeira-postagem">Criando a primeira postagem<a href="#criando-a-primeira-postagem" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+</span></span></code></pre></div><h2 id="criando-a-primeira-postagem">Criando a primeira postagem<a href="#criando-a-primeira-postagem" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>O <strong>Hugo</strong> segue uma estrutura de diretórios bem organizada, como descrito na <a href="https://gohugo.io/getting-started/directory-structure/">documentação oficial</a>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>my-site/
 </span></span><span style="display:flex;"><span>	├── archetypes/
@@ -253,9 +257,8 @@ Após testar todas, a <strong>opção 3</strong> se mostrou a mais prática:</p>
 </span></span><span style="display:flex;"><span>	├── static/
 </span></span><span style="display:flex;"><span>	├── themes/
 </span></span><span style="display:flex;"><span>	└── hugo.toml
-</span></span></code></pre></div><p>Os posts ficam na pasta <strong><code>content/posts</code></strong>.<br>
-Se quiser oferecer múltiplos idiomas (como neste blog), basta criar arquivos com sufixos de idioma — por exemplo, <code>post.en.md</code> e <code>post.pt.md</code>.<br>
-As línguas devem estar configuradas previamente no <code>hugo.toml</code>:</p>
+</span></span></code></pre></div><p>Os posts ficam na pasta <strong><code>content/posts</code></strong>. Se quiser oferecer múltiplos idiomas (como neste blog), basta criar arquivos com sufixos de idioma — por exemplo, <code>post.en.md</code> e <code>post.pt.md</code>.</p>
+<p>As línguas devem estar configuradas previamente no <code>hugo.toml</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">languages</span>]
 </span></span><span style="display:flex;"><span>  [<span style="color:#a6e22e">languages</span>.<span style="color:#a6e22e">en</span>]
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">languageName</span> = <span style="color:#e6db74">&#34;English&#34;</span>
@@ -269,9 +272,9 @@ As línguas devem estar configuradas previamente no <code>hugo.toml</code>:</p>
 </span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#34;DevLogs&#34;</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">subtitle</span> = <span style="color:#e6db74">&#34;Um simples DevLog&#34;</span>
 </span></span></code></pre></div><p>Assim, o Hugo reconhecerá automaticamente as traduções e gerará as versões correspondentes do site.</p>
-<h1 id="conclusão">Conclusão<a href="#conclusão" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
-<p>Com a base pronta, comecei a implementar melhorias que senti falta — como <strong>pesquisa</strong>, <strong>paginação numérica</strong> e <strong>alternância de idioma</strong>.<br>
-Nos próximos posts, vou detalhar como foi o processo de adicionar essas <strong>features</strong> e como você também pode aplicá-las no seu blog desenvolvido com <strong>Hugo</strong>.</p>
+<h2 id="conclusão">Conclusão<a href="#conclusão" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Com a base pronta, comecei a implementar melhorias que senti falta — como <strong>pesquisa</strong>, <strong>paginação numérica</strong> e <strong>alternância de idioma</strong>.</p>
+<p>Nos próximos posts, vou detalhar como foi o processo de adicionar essas <strong>features</strong> e como você também pode aplicá-las no seu blog desenvolvido com <strong>Hugo</strong>.</p>
 
       </div></div>
 

@@ -7,14 +7,13 @@ tags:
   - hugo
   - re-terminal
 ---
-# Motivação
+## Motivação
 
 Durante a maior parte da minha carreira, sempre foquei em evoluir tecnicamente por meio de estudos e em aplicar da melhor forma possível o que aprendi.  
 Mas percebi que faltava um espaço para documentar esse processo de aprendizado — **um devlog** — que servisse tanto como repositório de consulta quanto como uma forma de compartilhar conhecimento com outros profissionais.
 
-Durante as pesquisas, descobri o **Hugo**, uma ferramenta simples, porém extremamente poderosa, para criação de sites estáticos. A velocidade e a facilidade de desenvolvimento me chamaram a atenção, e decidi usá-la para construir este hub de conhecimento. E aqui estamos.
-
-# Como foi desenvolvido
+Durante as pesquisas, descobri o **Hugo**, uma ferramenta simples, porém extremamente poderosa, para criação de sites estáticos. A velocidade e a facilidade de desenvolvimento me chamaram a atenção, e decidi usá-la para construir este hub de conhecimento.
+## Como foi desenvolvido
 
 Mas afinal, o que é o **Hugo**?  
 Segundo a [documentação oficial](https://themes.gohugo.io/):
@@ -49,7 +48,6 @@ O comando acima inicia o servidor local e o site estará disponível em `http://
 
 Na configuração inicial, utilizei o tema **Ananke** apenas para demonstração.  
 Depois, fui até o [repositório de temas da comunidade](https://themes.gohugo.io/tags/blog/) e escolhi o tema [**re-terminal**](https://github.com/panr/hugo-theme-terminal) — o visual retrô e o estilo de terminal antigo combinaram muito bem com a proposta deste blog.
-
 ### Instalando o tema
 
 O tema oferece três formas de instalação, descritas na [documentação oficial](https://github.com/panr/hugo-theme-terminal?tab=readme-ov-file#how-to-start).  
@@ -85,7 +83,7 @@ E por fim, rodar o projeto novamente:
 ```bash
 hugo server -t terminal
 ```
-# Criando a primeira postagem
+## Criando a primeira postagem
 
 O **Hugo** segue uma estrutura de diretórios bem organizada, como descrito na [documentação oficial](https://gohugo.io/getting-started/directory-structure/):
 
@@ -105,8 +103,8 @@ my-site/
 	└── hugo.toml
 ```
 
-Os posts ficam na pasta **`content/posts`**.  
-Se quiser oferecer múltiplos idiomas (como neste blog), basta criar arquivos com sufixos de idioma — por exemplo, `post.en.md` e `post.pt.md`.  
+Os posts ficam na pasta **`content/posts`**. Se quiser oferecer múltiplos idiomas (como neste blog), basta criar arquivos com sufixos de idioma — por exemplo, `post.en.md` e `post.pt.md`.  
+
 As línguas devem estar configuradas previamente no `hugo.toml`:
 
 ```toml
@@ -125,7 +123,8 @@ As línguas devem estar configuradas previamente no `hugo.toml`:
 ```
 
 Assim, o Hugo reconhecerá automaticamente as traduções e gerará as versões correspondentes do site.
-# Conclusão
+## Conclusão
 
 Com a base pronta, comecei a implementar melhorias que senti falta — como **pesquisa**, **paginação numérica** e **alternância de idioma**.  
+
 Nos próximos posts, vou detalhar como foi o processo de adicionar essas **features** e como você também pode aplicá-las no seu blog desenvolvido com **Hugo**.

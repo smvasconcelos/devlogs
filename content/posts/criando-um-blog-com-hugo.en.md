@@ -7,14 +7,13 @@ tags:
   - hugo
   - re-terminal
 ---
-# Motivation
+## Motivation
 
 Throughout most of my career, I’ve always focused on growing technically through study and applying what I’ve learned in the best way possible.  
 However, I realized I was missing a space to document my learning process — a **devlog** — that could serve both as a personal knowledge base and a way to share insights with other developers.
 
 During my research, I came across **Hugo**, a simple yet extremely powerful tool for creating static websites. Its speed and ease of development caught my attention, so I decided to use it to build this knowledge hub. And here we are.
-
-# How it was developed
+## How it was developed
 
 So, what exactly is **Hugo**?  
 According to the [official documentation](https://themes.gohugo.io/):
@@ -48,7 +47,6 @@ The command above starts a local server, and your site will be available at `htt
 
 For the initial setup, I used the **Ananke** theme just for demonstration.  
 Then, I browsed through the [community theme repository](https://themes.gohugo.io/tags/blog/) and selected [**re-terminal**](https://github.com/panr/hugo-theme-terminal) — I liked its retro, terminal-like appearance, which fits well with the message I want to convey in this blog.
-
 ### Installing the theme
 
 The theme provides three installation methods, described in the [official documentation](https://github.com/panr/hugo-theme-terminal?tab=readme-ov-file#how-to-start).  
@@ -85,7 +83,7 @@ Finally, start the project again:
 hugo server -t terminal
 ```
 
-# Creating the first post
+## Creating the first post
 
 **Hugo** follows a well-organized directory structure, as described in the [official documentation](https://gohugo.io/getting-started/directory-structure/):
 
@@ -105,8 +103,8 @@ my-site/
 └── hugo.toml
 ```
 
-Posts are stored in the **`content/posts`** folder.  
-If you want to support multiple languages (like in this blog), simply create files with language suffixes — for example, `post.en.md` and `post.pt.md`.  
+Posts are stored in the **`content/posts`** folder. If you want to support multiple languages (like in this blog), simply create files with language suffixes — for example, `post.en.md` and `post.pt.md`.  
+
 These languages must be defined in your `hugo.toml` configuration file:
 
 ```toml
@@ -125,8 +123,8 @@ These languages must be defined in your `hugo.toml` configuration file:
 ```
 
 Hugo will then automatically recognize the translations and generate corresponding language versions of your site.
-
-# Conclusion
+## Conclusion
 
 With the basic blog setup complete, I started adding features I felt were missing — such as **search**, **numbered pagination**, and **language switching**.  
+
 In upcoming posts, I’ll walk through how I implemented these **features** and how you can add them to your own **Hugo** blog as well.
