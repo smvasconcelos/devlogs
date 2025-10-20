@@ -2,112 +2,198 @@
 @import url('./css/search.css');
 @import url('./css/terminal.css');
 
+/* === Root Variables === */
 :root {
-  --pagefind-ui-text: var(--accent) !important;
-  --pagefind-ui-border: var(--accent) !important;
+    --pagefind-ui-text: var(--accent) !important;
+    --pagefind-ui-border: var(--accent) !important;
 }
 
-.post.on-list {
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-.post:not(.on-list) {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
-
-.post.post-title:first-of-type {
-  margin-top: 0 !important;
-}
-
-.content {
-  padding-bottom: 1rem !important;
-}
-
-.post-title {
-  font-size: 2rem !important;
-}
-
-.post.on-list > div * {
-  font-size: 14px !important;
-}
-
-.post.on-list .post-content {
-  margin-top: 0 !important;
-}
-
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: var(--background);
-  color: white;
-  text-align: center;
-  padding: 1rem 0 !important;
-  opacity: 1 !important;
-  z-index: 1000;
-  box-shadow: 5px 5px 5px var(--accent);
-}
-
-
+/* === Global Styles === */
 html {
+    scroll-behavior: smooth;
     scrollbar-color: var(--accent) var(--background);
     scrollbar-width: thin;
 }
 
+::-webkit-scrollbar {
+    width: 12px;
+}
 ::-webkit-scrollbar-track {
     background: var(--background);
 }
-
 ::-webkit-scrollbar-thumb {
     background-color: var(--accent);
     border-radius: 20px;
     border: 3px solid var(--background);
 }
 
-::-webkit-scrollbar {
-    width: 12px;
+/* === Post Styles === */
+.post {
+    &.on-list {
+        padding: 0 !important;
+        margin: 0 !important;
+
+        h2 {
+            margin: 0;
+        }
+
+        p {
+            margin: 10px 0 0 0;
+        }
+
+        > div * {
+            font-size: 14px !important;
+        }
+
+        .post-meta {
+            display: flex;
+            flex-direction: row;
+
+            div {
+                display: flex;
+                flex-direction: row;
+                gap: 8px;
+            }
+
+            .read-more {
+                margin: 0;
+                line-height: normal;
+            }
+        }
+
+        .post-content {
+            margin-top: 0 !important;
+
+            p {
+              max-height: 50px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+        }
+    }
+
+    &:not(.on-list) {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+
+        .post-meta {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+
+    &.post-title:first-of-type {
+        margin-top: 0 !important;
+    }
+
+    ul ul {
+        margin-bottom: 0;
+    }
 }
 
+/* === Post Tags === */
+.post-tags {
+    margin-bottom: 0;
+    view-transition-name: post-tags;
 
+    &::before {
+        margin-right: 0 !important;
+    }
+}
+
+/* === Content Styles === */
+.content {
+    padding-bottom: 1rem !important;
+
+    > h1 {
+        margin-bottom: 0;
+
+        b {
+            color: var(--accent);
+            font-weight: 700;
+        }
+    }
+}
+
+.post-title {
+    font-size: 2rem !important;
+    view-transition-name: post-title;
+}
+
+.post-date {
+    view-transition-name: post-date;
+}
+
+.post-content {
+    view-transition-name: post-content;
+}
+
+/* === Footer === */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: var(--background);
+    color: white;
+    text-align: center;
+    padding: 1rem 0 !important;
+    opacity: 1 !important;
+    z-index: 1000;
+    box-shadow: 5px 5px 5px var(--accent);
+}
+
+/* === Menu Dropdown === */
+.menu__dropdown {
+    border: 2px solid var(--accent);
+}
+
+/* === Responsive === */
 @media screen and (max-width: 520px) {
-  .footer__inner span {
-    font-size: 10px;
-  }
+    .footer__inner span {
+        font-size: 10px;
+    }
 
-  .header__inner {
-    display: flex;
-    flex-direction: column;
-  }
+    .header__inner {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 @media screen and (max-width: 760px) {
-  .footer__inner span {
-    font-size: 12px;
-  }
+    .footer__inner span {
+        font-size: 12px;
+    }
 
-  .header__inner {
-    display: flex;
-    gap: 5px;
-    flex-direction: column;
-  }
+    .header__inner {
+        display: flex;
+        gap: 5px;
+        flex-direction: column;
+    }
 
-  .pagefind-ui__drawer:not(.pagefind-ui__hidden) {
-    width: 100%;
-    z-index: 99;
-    border: 2px solid var(--accent);
-  }
-
+    .pagefind-ui__drawer:not(.pagefind-ui__hidden) {
+        width: 100%;
+        z-index: 99;
+        border: 2px solid var(--accent);
+    }
 }
 
 @media screen and (max-width: 700px) {
-  .menu--language-selector {
-    display: flex !important;
-  }
+    .menu--language-selector {
+        display: flex !important;
 
-  .menu--language-selector .menu__trigger  {
-    display: block;
-  }
+        .menu__trigger {
+            display: block;
+        }
+    }
+}
+
+/* === View Transition === */
+@view-transition {
+    navigation: auto;
+}
+
+html::view-transition {
+    background-color: #0a0a0a;
 }

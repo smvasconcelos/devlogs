@@ -119,7 +119,7 @@ Mas percebi que faltava um espaço para documentar esse processo de aprendizado 
   <header class="header">
   <div class="header__inner">
     <div class="header__logo">
-      <a href="/devlogs/">
+      <a href="/devlogs/pt">
   <div class="logo">
     smvasconcelos | DevLogs
   </div>
@@ -134,9 +134,9 @@ Mas percebi que faltava um espaço para documentar esse processo de aprendizado 
   <li>
     <ul class="menu__dropdown">
       
-        <li><a href="https://smvasconcelos.github.io/devlogs/en/">English</a></li>
-      
         <li><a href="https://smvasconcelos.github.io/devlogs/pt/">Português</a></li>
+      
+        <li><a href="https://smvasconcelos.github.io/devlogs/en/">English</a></li>
       
     </ul>
   </li>
@@ -155,29 +155,30 @@ Mas percebi que faltava um espaço para documentar esse processo de aprendizado 
   </h1>
   <div class="post-meta"><time class="post-date">2025-10-06</time>
     
-<span class="post-reading-time">3 min - leitura (529 palavras)</span></div>
-
-  
+<span class="post-reading-time">3 min - leitura (529
+      palavras)</span>
     <span class="post-tags">
       
-      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/blog/">blog</a>&nbsp;
+      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/blog/">blog</a>
       
-      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/hugo/">hugo</a>&nbsp;
+      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/hugo/">hugo</a>
       
-      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/re-terminal/">re-terminal</a>&nbsp;
+      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/re-terminal/">re-terminal</a>
       
     </span>
-  
+    
+  </div>
+
   
 
 
 
   
-    <div class="table-of-contents">
-      <h2>
-        Sumário
-      </h2>
-      <nav id="TableOfContents">
+  <div class="table-of-contents">
+    <h2>
+      Sumário
+    </h2>
+    <nav id="TableOfContents">
   <ul>
     <li><a href="#motivação">Motivação</a></li>
     <li><a href="#como-foi-desenvolvido">Como foi desenvolvido</a></li>
@@ -190,15 +191,17 @@ Mas percebi que faltava um espaço para documentar esse processo de aprendizado 
     <li><a href="#conclusão">Conclusão</a></li>
   </ul>
 </nav>
-    </div>
+  </div>
   
 
   <div class="post-content"><div>
-        <h2 id="motivação">Motivação<a href="#motivação" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+      <h2 id="motivação">Motivação<a
+          href="#motivação" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>Durante a maior parte da minha carreira, sempre foquei em evoluir tecnicamente por meio de estudos e em aplicar da melhor forma possível o que aprendi.<br>
 Mas percebi que faltava um espaço para documentar esse processo de aprendizado — <strong>um devlog</strong> — que servisse tanto como repositório de consulta quanto como uma forma de compartilhar conhecimento com outros profissionais.</p>
 <p>Durante as pesquisas, descobri o <strong>Hugo</strong>, uma ferramenta simples, porém extremamente poderosa, para criação de sites estáticos. A velocidade e a facilidade de desenvolvimento me chamaram a atenção, e decidi usá-la para construir este hub de conhecimento.</p>
-<h2 id="como-foi-desenvolvido">Como foi desenvolvido<a href="#como-foi-desenvolvido" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="como-foi-desenvolvido">Como foi desenvolvido<a
+          href="#como-foi-desenvolvido" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>Mas afinal, o que é o <strong>Hugo</strong>?<br>
 Segundo a <a href="https://themes.gohugo.io/">documentação oficial</a>:</p>
 <blockquote>
@@ -216,10 +219,12 @@ Segundo a <a href="https://themes.gohugo.io/">documentação oficial</a>:</p>
 </span></span><span style="display:flex;"><span>hugo server
 </span></span></code></pre></div><p>O comando acima inicia o servidor local e o site estará disponível em <code>http://localhost:1313/</code>.</p>
 <p><img src="/devlogs/images/Pasted-image-20251006203921.png" alt="Image Description"></p>
-<h2 id="escolhendo-o-tema-e-configurando-o-projeto">Escolhendo o tema e configurando o projeto<a href="#escolhendo-o-tema-e-configurando-o-projeto" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="escolhendo-o-tema-e-configurando-o-projeto">Escolhendo o tema e configurando o projeto<a
+          href="#escolhendo-o-tema-e-configurando-o-projeto" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>Na configuração inicial, utilizei o tema <strong>Ananke</strong> apenas para demonstração.<br>
 Depois, fui até o <a href="https://themes.gohugo.io/tags/blog/">repositório de temas da comunidade</a> e escolhi o tema <a href="https://github.com/panr/hugo-theme-terminal"><strong>re-terminal</strong></a> — o visual retrô e o estilo de terminal antigo combinaram muito bem com a proposta deste blog.</p>
-<h3 id="instalando-o-tema">Instalando o tema<a href="#instalando-o-tema" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="instalando-o-tema">Instalando o tema<a
+          href="#instalando-o-tema" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>O tema oferece três formas de instalação, descritas na <a href="https://github.com/panr/hugo-theme-terminal?tab=readme-ov-file#how-to-start">documentação oficial</a>.<br>
 Após testar todas, a <strong>opção 3</strong> se mostrou a mais prática:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule add -f https://github.com/panr/hugo-theme-terminal.git themes/terminal
@@ -242,7 +247,8 @@ Após testar todas, a <strong>opção 3</strong> se mostrou a mais prática:</p>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">showLastUpdated</span> = <span style="color:#66d9ef">false</span>
 </span></span></code></pre></div><p>E por fim, rodar o projeto novamente:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server -t terminal
-</span></span></code></pre></div><h2 id="criando-a-primeira-postagem">Criando a primeira postagem<a href="#criando-a-primeira-postagem" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+</span></span></code></pre></div><h2 id="criando-a-primeira-postagem">Criando a primeira postagem<a
+          href="#criando-a-primeira-postagem" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>O <strong>Hugo</strong> segue uma estrutura de diretórios bem organizada, como descrito na <a href="https://gohugo.io/getting-started/directory-structure/">documentação oficial</a>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>my-site/
 </span></span><span style="display:flex;"><span>	├── archetypes/
@@ -272,22 +278,41 @@ Após testar todas, a <strong>opção 3</strong> se mostrou a mais prática:</p>
 </span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#34;DevLogs&#34;</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">subtitle</span> = <span style="color:#e6db74">&#34;Um simples DevLog&#34;</span>
 </span></span></code></pre></div><p>Assim, o Hugo reconhecerá automaticamente as traduções e gerará as versões correspondentes do site.</p>
-<h2 id="conclusão">Conclusão<a href="#conclusão" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="conclusão">Conclusão<a
+          href="#conclusão" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>Com a base pronta, comecei a implementar melhorias que senti falta — como <strong>pesquisa</strong>, <strong>paginação numérica</strong> e <strong>alternância de idioma</strong>.</p>
 <p>Nos próximos posts, vou detalhar como foi o processo de adicionar essas <strong>features</strong> e como você também pode aplicá-las no seu blog desenvolvido com <strong>Hugo</strong>.</p>
 
       </div></div>
 
-  
     
-  
+    
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Leia outras postagens</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        
+        <span class="button next">
+            <a href="https://smvasconcelos.github.io/devlogs/pt/posts/hugo-1--configurando-seu-primeiro-blog/">
+                <span class="button__text">Hugo #1 — Configurando seu primeiro blog</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
 
-  
     
 
-  
-</article>
+    
+    
 
+    
+  </article>
+  
   </div>
 
   
