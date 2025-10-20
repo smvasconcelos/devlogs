@@ -6,7 +6,7 @@ pagination.pagerSize = 10
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = true
 theme = "re-terminal"
-summaryLength = 30
+summaryLength = 10
 title = "smvasconcelos | DevLogs"
 
 [params]
@@ -84,7 +84,7 @@ title = "smvasconcelos | DevLogs"
 
       [languages.en.params.logo]
         logoText = "smvasconcelos | DevLogs"
-        logoHomeLink = "/devlogs/"
+        logoHomeLink = "/devlogs/en"
 
       # [languages.en.menu]
       #   [[languages.en.menu.main]]
@@ -116,7 +116,7 @@ title = "smvasconcelos | DevLogs"
 
       [languages.pt.params.logo]
         logoText = "smvasconcelos | DevLogs"
-        logoHomeLink = "/devlogs/"
+        logoHomeLink = "/devlogs/pt"
 
       # [languages.pt.menu]
       #   [[languages.pt.menu.main]]
