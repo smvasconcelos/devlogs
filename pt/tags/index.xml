@@ -6,23 +6,53 @@
     <description>Recent content in Tags on smvasconcelos | DevLogs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt</language>
-    <lastBuildDate>Mon, 06 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://smvasconcelos.github.io/devlogs/pt/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://smvasconcelos.github.io/devlogs/pt/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo</title>
+      <link>https://smvasconcelos.github.io/devlogs/pt/tags/hugo/</link>
+      <pubDate>Mon, 20 Oct 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://smvasconcelos.github.io/devlogs/pt/tags/hugo/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Language</title>
+      <link>https://smvasconcelos.github.io/devlogs/pt/tags/language/</link>
+      <pubDate>Mon, 20 Oct 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://smvasconcelos.github.io/devlogs/pt/tags/language/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Pagination</title>
+      <link>https://smvasconcelos.github.io/devlogs/pt/tags/pagination/</link>
+      <pubDate>Mon, 20 Oct 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://smvasconcelos.github.io/devlogs/pt/tags/pagination/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Translation</title>
+      <link>https://smvasconcelos.github.io/devlogs/pt/tags/translation/</link>
+      <pubDate>Mon, 20 Oct 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://smvasconcelos.github.io/devlogs/pt/tags/translation/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
     <item>
       <title>Blog</title>
       <link>https://smvasconcelos.github.io/devlogs/pt/tags/blog/</link>
       <pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
       
       <guid>https://smvasconcelos.github.io/devlogs/pt/tags/blog/</guid>
-      <description></description>
-      <content></content>
-    </item>
-    
-    <item>
-      <title>Hugo</title>
-      <link>https://smvasconcelos.github.io/devlogs/pt/tags/hugo/</link>
-      <pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://smvasconcelos.github.io/devlogs/pt/tags/hugo/</guid>
       <description></description>
       <content></content>
     </item>

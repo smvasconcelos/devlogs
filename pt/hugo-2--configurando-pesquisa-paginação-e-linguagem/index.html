@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head><script src="/devlogs/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=devlogs/livereload" data-no-instant defer></script>
+  
+    <title>Hugo #2 — Configurando pesquisa, paginação e linguagem :: smvasconcelos | DevLogs</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Vamos conhecer um pouco mais sobre a ferramenta Hugo, como funciona algumas de suas apis — pesquisa, paginação e linguagem — e como podemos utilizar ela para melhorar nosso blog.
+" />
+<meta name="keywords" content="" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="http://localhost:1313/devlogs/pt/hugo-2--configurando-pesquisa-pagina%C3%A7%C3%A3o-e-linguagem/" />
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="http://localhost:1313/devlogs/styles.css">
+
+
+
+<link rel="stylesheet" href="http://localhost:1313/devlogs/style.css">
+
+
+
+  <link rel="shortcut icon" href="http://localhost:1313/devlogs/favicon.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+
+
+<meta property="og:locale" content="pt" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Hugo #2 — Configurando pesquisa, paginação e linguagem">
+<meta property="og:description" content="Vamos conhecer um pouco mais sobre a ferramenta Hugo, como funciona algumas de suas apis — pesquisa, paginação e linguagem — e como podemos utilizar ela para melhorar nosso blog.
+" />
+<meta property="og:url" content="http://localhost:1313/devlogs/pt/hugo-2--configurando-pesquisa-pagina%C3%A7%C3%A3o-e-linguagem/" />
+<meta property="og:site_name" content="smvasconcelos | DevLogs" />
+
+  
+    <meta property="og:image" content="http://localhost:1313/devlogs/favicon.png">
+  
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2025-10-20 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+<link href="/devlogs/pagefind/pagefind-ui.css" rel="stylesheet">
+<script src="/devlogs/pagefind/pagefind-ui.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    new PagefindUI({
+      element: "#search",
+      showSubResults: false,
+      showImages: false,
+      showMeta: false,
+      excerptLength: 20,
+    });
+  });
+
+  
+  document.addEventListener('focusin', (e) => {
+    if (e.target && e.target.matches('#search input')) {
+      const drawer = document.querySelector('.pagefind-ui__drawer');
+      if (drawer && e.target.value.trim() !== '' && drawer.classList.contains('pagefind-ui__hidden')) {
+        drawer.classList.remove('pagefind-ui__hidden');
+      }
+    }
+  });
+
+  
+  document.addEventListener('click', (e) => {
+    console.log({ e });
+    const searchEl = document.querySelector("#search");
+    const drawer = document.querySelector(".pagefind-ui__drawer");
+    if (searchEl && drawer && !searchEl.contains(e.target) && !drawer.classList.contains('pagefind-ui__hidden') && !e.target.classList.contains('pagefind-ui__button')) {
+      drawer.classList.add('pagefind-ui__hidden');
+    }
+  });
+</script>
+
+
+
+  
+
+
+</head>
+<body class="orange">
+
+
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/devlogs/pt">
+  <div class="logo">
+    smvasconcelos | DevLogs
+  </div>
+</a>
+
+    </div>
+    
+    
+      <ul class="menu menu--desktop menu--language-selector">
+  <li class="menu__trigger">Português&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        <li><a href="http://localhost:1313/devlogs/pt/">Português</a></li>
+      
+        <li><a href="http://localhost:1313/devlogs/en/">English</a></li>
+      
+    </ul>
+  </li>
+</ul>
+
+    
+  </div>
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="http://localhost:1313/devlogs/pt/hugo-2--configurando-pesquisa-pagina%C3%A7%C3%A3o-e-linguagem/">Hugo #2 — Configurando pesquisa, paginação e linguagem</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2025-10-20</time>
+    
+<span class="post-reading-time">1 min - leitura (42
+      palavras)</span>
+    <span class="post-tags">
+      
+      #<a href="http://localhost:1313/devlogs/pt/tags/hugo/">hugo</a>
+      
+      #<a href="http://localhost:1313/devlogs/pt/tags/translation/">translation</a>
+      
+      #<a href="http://localhost:1313/devlogs/pt/tags/pagination/">pagination</a>
+      
+      #<a href="http://localhost:1313/devlogs/pt/tags/language/">language</a>
+      
+    </span>
+    
+  </div>
+
+  
+
+
+
+  
+  <div class="table-of-contents">
+    <h2>
+      Sumário
+    </h2>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#seletor-de-linguagem-e-tradução">Seletor de linguagem e tradução</a></li>
+    <li><a href="#paginação-default-e-como-customizar">Paginação default e como customizar</a></li>
+    <li><a href="#configurando-pesquisa">Configurando pesquisa</a></li>
+  </ul>
+</nav>
+  </div>
+  
+
+  <div class="post-content"><div>
+      <p>Vamos conhecer um pouco mais sobre a ferramenta Hugo,  como funciona algumas  de suas <strong>apis</strong> —  pesquisa, paginação e linguagem  —   e como podemos utilizar ela para melhorar nosso blog.</p>
+<h2 id="seletor-de-linguagem-e-tradução">Seletor de linguagem e tradução<a
+          href="#seletor-de-linguagem-e-tradução" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="paginação-default-e-como-customizar">Paginação default e como customizar<a
+          href="#paginação-default-e-como-customizar" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="configurando-pesquisa">Configurando pesquisa<a
+          href="#configurando-pesquisa" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+
+      </div></div>
+
+    
+
+    
+    
+
+    
+  </article>
+  
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+    <div class="copyright copyright--user">
+      <span>© 2025 <a href='https://smvasconcelos.github.io/resume/'>Samuel Vasconcelos</a>. Todos os direitos reservados.</span>
+      
+      </div>
+    </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/devlogs/bundle.min.js"></script>
+
+
+
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

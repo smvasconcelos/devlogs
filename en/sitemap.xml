@@ -2,6 +2,110 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://smvasconcelos.github.io/devlogs/en/tags/hugo/</loc>
+    <lastmod>2025-10-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://smvasconcelos.github.io/devlogs/pt/tags/hugo/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://smvasconcelos.github.io/devlogs/en/tags/hugo/"
+                />
+  </url><url>
+    <loc>https://smvasconcelos.github.io/devlogs/en/posts/hugo-2--configurando-pesquisa-pagina%C3%A7%C3%A3o-e-linguagem/</loc>
+    <lastmod>2025-10-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://smvasconcelos.github.io/devlogs/pt/posts/hugo-2--configurando-pesquisa-pagina%C3%A7%C3%A3o-e-linguagem/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://smvasconcelos.github.io/devlogs/en/posts/hugo-2--configurando-pesquisa-pagina%C3%A7%C3%A3o-e-linguagem/"
+                />
+  </url><url>
+    <loc>https://smvasconcelos.github.io/devlogs/en/tags/language/</loc>
+    <lastmod>2025-10-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://smvasconcelos.github.io/devlogs/pt/tags/language/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://smvasconcelos.github.io/devlogs/en/tags/language/"
+                />
+  </url><url>
+    <loc>https://smvasconcelos.github.io/devlogs/en/tags/pagination/</loc>
+    <lastmod>2025-10-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://smvasconcelos.github.io/devlogs/pt/tags/pagination/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://smvasconcelos.github.io/devlogs/en/tags/pagination/"
+                />
+  </url><url>
+    <loc>https://smvasconcelos.github.io/devlogs/en/posts/</loc>
+    <lastmod>2025-10-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://smvasconcelos.github.io/devlogs/pt/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://smvasconcelos.github.io/devlogs/en/posts/"
+                />
+  </url><url>
+    <loc>https://smvasconcelos.github.io/devlogs/en/</loc>
+    <lastmod>2025-10-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://smvasconcelos.github.io/devlogs/pt/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://smvasconcelos.github.io/devlogs/en/"
+                />
+  </url><url>
+    <loc>https://smvasconcelos.github.io/devlogs/en/tags/</loc>
+    <lastmod>2025-10-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://smvasconcelos.github.io/devlogs/pt/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://smvasconcelos.github.io/devlogs/en/tags/"
+                />
+  </url><url>
+    <loc>https://smvasconcelos.github.io/devlogs/en/tags/translation/</loc>
+    <lastmod>2025-10-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://smvasconcelos.github.io/devlogs/pt/tags/translation/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://smvasconcelos.github.io/devlogs/en/tags/translation/"
+                />
+  </url><url>
     <loc>https://smvasconcelos.github.io/devlogs/en/tags/blog/</loc>
     <lastmod>2025-10-06T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -13,19 +117,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://smvasconcelos.github.io/devlogs/en/tags/blog/"
-                />
-  </url><url>
-    <loc>https://smvasconcelos.github.io/devlogs/en/tags/hugo/</loc>
-    <lastmod>2025-10-06T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://smvasconcelos.github.io/devlogs/pt/tags/hugo/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://smvasconcelos.github.io/devlogs/en/tags/hugo/"
                 />
   </url><url>
     <loc>https://smvasconcelos.github.io/devlogs/en/posts/hugo-1--configurando-seu-primeiro-blog/</loc>
@@ -41,19 +132,6 @@
                 href="https://smvasconcelos.github.io/devlogs/en/posts/hugo-1--configurando-seu-primeiro-blog/"
                 />
   </url><url>
-    <loc>https://smvasconcelos.github.io/devlogs/en/posts/</loc>
-    <lastmod>2025-10-06T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://smvasconcelos.github.io/devlogs/pt/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://smvasconcelos.github.io/devlogs/en/posts/"
-                />
-  </url><url>
     <loc>https://smvasconcelos.github.io/devlogs/en/tags/re-terminal/</loc>
     <lastmod>2025-10-06T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -65,32 +143,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://smvasconcelos.github.io/devlogs/en/tags/re-terminal/"
-                />
-  </url><url>
-    <loc>https://smvasconcelos.github.io/devlogs/en/</loc>
-    <lastmod>2025-10-06T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://smvasconcelos.github.io/devlogs/pt/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://smvasconcelos.github.io/devlogs/en/"
-                />
-  </url><url>
-    <loc>https://smvasconcelos.github.io/devlogs/en/tags/</loc>
-    <lastmod>2025-10-06T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://smvasconcelos.github.io/devlogs/pt/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://smvasconcelos.github.io/devlogs/en/tags/"
                 />
   </url><url>
     <loc>https://smvasconcelos.github.io/devlogs/en/categories/</loc>
