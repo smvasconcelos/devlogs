@@ -80,6 +80,10 @@ html {
         .post-meta {
             display: flex;
             flex-direction: row;
+
+            * {
+              font-size: 15px !important;
+            }
         }
     }
 
@@ -128,6 +132,11 @@ html {
 .post-content {
     view-transition-name: post-content;
 }
+
+.container {
+  max-width: 50vw;
+}
+
 
 /* === Footer === */
 footer {

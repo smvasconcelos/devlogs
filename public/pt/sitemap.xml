@@ -2,6 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://smvasconcelos.github.io/devlogs/pt/posts/</loc>
+    <lastmod>2025-10-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://smvasconcelos.github.io/devlogs/en/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://smvasconcelos.github.io/devlogs/pt/posts/"
+                />
+  </url><url>
+    <loc>https://smvasconcelos.github.io/devlogs/pt/</loc>
+    <lastmod>2025-10-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://smvasconcelos.github.io/devlogs/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://smvasconcelos.github.io/devlogs/pt/"
+                />
+  </url><url>
     <loc>https://smvasconcelos.github.io/devlogs/pt/tags/hugo/</loc>
     <lastmod>2025-10-20T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -52,32 +78,6 @@
                 rel="alternate"
                 hreflang="pt"
                 href="https://smvasconcelos.github.io/devlogs/pt/tags/pagination/"
-                />
-  </url><url>
-    <loc>https://smvasconcelos.github.io/devlogs/pt/posts/</loc>
-    <lastmod>2025-10-20T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://smvasconcelos.github.io/devlogs/en/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://smvasconcelos.github.io/devlogs/pt/posts/"
-                />
-  </url><url>
-    <loc>https://smvasconcelos.github.io/devlogs/pt/</loc>
-    <lastmod>2025-10-20T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://smvasconcelos.github.io/devlogs/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://smvasconcelos.github.io/devlogs/pt/"
                 />
   </url><url>
     <loc>https://smvasconcelos.github.io/devlogs/pt/tags/</loc>
