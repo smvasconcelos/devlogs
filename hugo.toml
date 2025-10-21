@@ -1,7 +1,6 @@
 baseURL = "https://smvasconcelos.github.io/devlogs/"
 
 languageCode = "en-us"
-# Add it only if you keep the theme in the `themes` directory.
 pagination.pagerSize = 10
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = true
@@ -86,12 +85,6 @@ title = "smvasconcelos | DevLogs"
         logoText = "smvasconcelos | DevLogs"
         logoHomeLink = "/devlogs/en"
 
-      # [languages.en.menu]
-      #   [[languages.en.menu.main]]
-      #     identifier = "about"
-      #     name = "About"
-      #     url = "https://smvasconcelos.github.io/resume/"
-
 
   [languages.pt]
     languageName = "Português"
@@ -117,9 +110,3 @@ title = "smvasconcelos | DevLogs"
       [languages.pt.params.logo]
         logoText = "smvasconcelos | DevLogs"
         logoHomeLink = "/devlogs/pt"
-
-      # [languages.pt.menu]
-      #   [[languages.pt.menu.main]]
-      #     identifier = "about"
-      #     name = "Sobre mim"
-      #     url = "https://smvasconcelos.github.io/resume/"
