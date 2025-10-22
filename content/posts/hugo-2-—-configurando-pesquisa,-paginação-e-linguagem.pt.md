@@ -167,9 +167,9 @@ hugo
 npx pagefind --site public
 ```
 
-No comando acima, executamos o **Pagefind** sobre o site presente na pasta `public/`, usando a flag `--glob` para filtrar apenas os arquivos localizados dentro da pasta `posts`.
+No comando acima, executamos o **Pagefind** sobre o site presente na pasta `public/`, nela vamos ter a build atual com todos os posts, e para filtrar exatamente o que queremos é necessário definir o atributo `data-pagefind-body`  no arquivo `layouts\_default\single.html` para que o pagefind encontre corretamente os dados que precisa indexar.
 
-Após rodar o comando, o Pagefind exibirá um resumo contendo o que foi gerado — como o número de arquivos indexados, as linguagens detectadas, e outros detalhes. É interessante definir o atributo `data-pagefind-body`  no arquivo `layouts\_default\single.html` para que o pagefind encontre corretamente os dados que precisa indexar.
+Após rodar o comando, o Pagefind exibirá um resumo contendo o que foi gerado — como o número de arquivos indexados, as linguagens detectadas, e outros detalhes.
 
 ![Image Description](/devlogs/images/Pasted-image-20251021233149.png)
 

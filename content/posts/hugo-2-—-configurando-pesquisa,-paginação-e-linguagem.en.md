@@ -164,12 +164,12 @@ You can do this using the Pagefind command (see more details in the [official do
 hugo
 
 # Index the generated posts
-npx pagefind --site public --glob "**/posts/*.html"
+npx pagefind --site public
 ```
 
-In the command above, we run **Pagefind** on the site inside the `public/` folder, using the `--glob` flag to filter only files located within the `posts` directory.
+In the command above, we run **Pagefind** on the site located in the `public/` folder, which contains the current build with all the posts. To filter exactly what we want, it is necessary to set the `data-pagefind-body` attribute in the `layouts\_default\single.html` file so that Pagefind can correctly locate the data it needs to index.
 
-After running the command, Pagefind will display a summary of the indexing process — including the number of files indexed, detected languages, and other details. It's a good idea to set the `data-pagefind-body` attribute in the `layouts\_default\single.html` file so that Pagefind can correctly locate the data it needs to index.
+After running the command, Pagefind will display a summary of the indexing process — including the number of files indexed, detected languages, and other details.
 
 ![Image Description](/devlogs/images/Pasted-image-20251021233149.png)
 
