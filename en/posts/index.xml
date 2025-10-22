@@ -132,9 +132,9 @@ You can do this using the Pagefind command (see more details in the &lt;a href=&
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Index the generated posts&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npx pagefind --site public --glob &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;**/posts/*.html&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In the command above, we run &lt;strong&gt;Pagefind&lt;/strong&gt; on the site inside the &lt;code&gt;public/&lt;/code&gt; folder, using the &lt;code&gt;--glob&lt;/code&gt; flag to filter only files located within the &lt;code&gt;posts&lt;/code&gt; directory.&lt;/p&gt;
-&lt;p&gt;After running the command, Pagefind will display a summary of the indexing process — including the number of files indexed, detected languages, and other details. It&amp;rsquo;s a good idea to set the &lt;code&gt;data-pagefind-body&lt;/code&gt; attribute in the &lt;code&gt;layouts\_default\single.html&lt;/code&gt; file so that Pagefind can correctly locate the data it needs to index.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npx pagefind --site public
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In the command above, we run &lt;strong&gt;Pagefind&lt;/strong&gt; on the site located in the &lt;code&gt;public/&lt;/code&gt; folder, which contains the current build with all the posts. To filter exactly what we want, it is necessary to set the &lt;code&gt;data-pagefind-body&lt;/code&gt; attribute in the &lt;code&gt;layouts\_default\single.html&lt;/code&gt; file so that Pagefind can correctly locate the data it needs to index.&lt;/p&gt;
+&lt;p&gt;After running the command, Pagefind will display a summary of the indexing process — including the number of files indexed, detected languages, and other details.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/Pasted-image-20251021233149.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;

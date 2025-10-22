@@ -155,7 +155,7 @@
   </h1>
   <div class="post-meta"><time data-pagefind-field="date" class="post-date" view-transition-name="post-date-hugo-2-—-configurando-pesquisa,-paginação-e-linguagem.pt">2025-10-20</time>
     
-<span class="post-reading-time">5 min - leitura (884
+<span class="post-reading-time">5 min - leitura (887
       palavras)</span>
     <span class="post-tags" view-transition-name="post-tags-hugo-2-—-configurando-pesquisa,-paginação-e-linguagem.pt">
       
@@ -314,8 +314,8 @@ Podemos fazer isso com o comando do Pagefind (mais detalhes na <a href="https://
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Indexa os posts gerados</span>
 </span></span><span style="display:flex;"><span>npx pagefind --site public
-</span></span></code></pre></div><p>No comando acima, executamos o <strong>Pagefind</strong> sobre o site presente na pasta <code>public/</code>, usando a flag <code>--glob</code> para filtrar apenas os arquivos localizados dentro da pasta <code>posts</code>.</p>
-<p>Após rodar o comando, o Pagefind exibirá um resumo contendo o que foi gerado — como o número de arquivos indexados, as linguagens detectadas, e outros detalhes. É interessante definir o atributo <code>data-pagefind-body</code>  no arquivo <code>layouts\_default\single.html</code> para que o pagefind encontre corretamente os dados que precisa indexar.</p>
+</span></span></code></pre></div><p>No comando acima, executamos o <strong>Pagefind</strong> sobre o site presente na pasta <code>public/</code>, nela vamos ter a build atual com todos os posts, e para filtrar exatamente o que queremos é necessário definir o atributo <code>data-pagefind-body</code>  no arquivo <code>layouts\_default\single.html</code> para que o pagefind encontre corretamente os dados que precisa indexar.</p>
+<p>Após rodar o comando, o Pagefind exibirá um resumo contendo o que foi gerado — como o número de arquivos indexados, as linguagens detectadas, e outros detalhes.</p>
 <p><img src="/devlogs/images/Pasted-image-20251021233149.png" alt="Image Description"></p>
 <h2 id="conclusão">Conclusão<a
           href="#conclusão" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
