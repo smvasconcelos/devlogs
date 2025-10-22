@@ -1,11 +1,11 @@
 {{ define "main" }}
-<article class="post">
-  <h1 class="post-title">
-    <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+<article class="post" data-pagefind-body>
+  <h1 class="post-title typewriter" view-transition-name="post-title-{{ .File.BaseFileName }}">
+    <a data-pagefind-field="title" href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
   </h1>
   <div class="post-meta">
     {{- if .Date -}}
-    <time class="post-date">
+    <time data-pagefind-field="date" class="post-date" view-transition-name="post-date-{{ .File.BaseFileName }}">
       {{- .Date.Format "2006-01-02" -}}
       {{- if $.Site.Params.showLastUpdated -}}
       [{{- or $.Site.Params.updatedDatePrefix "Updated" -}} :: {{-
@@ -25,7 +25,7 @@
     {{- end -}}
 
     {{ if .Params.tags }}
-    <span class="post-tags">
+    <span class="post-tags" view-transition-name="post-tags-{{ .File.BaseFileName }}">
       {{ range .Params.tags }}
       #<a href="{{ (urls.JoinPath "tags" (urlize .) "/") | absLangURL }}">{{ .
         }}</a>
@@ -46,7 +46,7 @@
   </div>
   {{ end }}
 
-  <div class="post-content">
+  <div  class="post-content" view-transition-name="post-content-{{ .File.BaseFileName }}">
     {{- with .Content -}}
     <div>
       {{ . | replaceRE "(<h[1-9] id=\"([^\"]+)\".+)(</h[1-9]+>)" `${1}<a

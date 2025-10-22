@@ -75,8 +75,11 @@
       element: "#search",
       showSubResults: false,
       showImages: false,
+      debounceTimeoutMs: 500,
+      autofocus: true,
+      sort: { date: "desc" },
       showMeta: false,
-      excerptLength: 20,
+      excerptLength: 15
     });
   });
 
@@ -92,7 +95,6 @@
 
   
   document.addEventListener('click', (e) => {
-    console.log({ e });
     const searchEl = document.querySelector("#search");
     const drawer = document.querySelector(".pagefind-ui__drawer");
     if (searchEl && drawer && !searchEl.contains(e.target) && !drawer.classList.contains('pagefind-ui__hidden') && !e.target.classList.contains('pagefind-ui__button')) {
@@ -107,7 +109,7 @@
 
 
 </head>
-<body class="orange">
+<body class="crt">
 
 
 
@@ -147,15 +149,15 @@
 
   <div class="content">
     
-<article class="post">
-  <h1 class="post-title">
-    <a href="https://smvasconcelos.github.io/devlogs/pt/posts/hugo-2--configurando-pesquisa-pagina%C3%A7%C3%A3o-e-linguagem/">Hugo #2 — Adicionando melhorias no nosso blog</a>
+<article class="post" data-pagefind-body>
+  <h1 class="post-title typewriter" view-transition-name="post-title-hugo-2-—-configurando-pesquisa,-paginação-e-linguagem.pt">
+    <a data-pagefind-field="title" href="https://smvasconcelos.github.io/devlogs/pt/posts/hugo-2--configurando-pesquisa-pagina%C3%A7%C3%A3o-e-linguagem/">Hugo #2 — Adicionando melhorias no nosso blog</a>
   </h1>
-  <div class="post-meta"><time class="post-date">2025-10-20</time>
+  <div class="post-meta"><time data-pagefind-field="date" class="post-date" view-transition-name="post-date-hugo-2-—-configurando-pesquisa,-paginação-e-linguagem.pt">2025-10-20</time>
     
-<span class="post-reading-time">5 min - leitura (865
+<span class="post-reading-time">5 min - leitura (884
       palavras)</span>
-    <span class="post-tags">
+    <span class="post-tags" view-transition-name="post-tags-hugo-2-—-configurando-pesquisa,-paginação-e-linguagem.pt">
       
       #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/hugo/">hugo</a>
       
@@ -189,7 +191,7 @@
   </div>
   
 
-  <div class="post-content"><div>
+  <div  class="post-content" view-transition-name="post-content-hugo-2-—-configurando-pesquisa,-paginação-e-linguagem.pt"><div>
       <p>Neste artigo, vamos conhecer um pouco mais sobre a ferramenta <strong>Hugo</strong>, entender como funcionam algumas de suas <strong>APIs</strong> — pesquisa, paginação e linguagem — e descobrir como utilizá-las para aprimorar o nosso blog.</p>
 <hr>
 <h2 id="seletor-de-linguagem-e-tradução">Seletor de linguagem e tradução<a
@@ -270,7 +272,10 @@ Para obter o mesmo resultado, você pode criar o arquivo <code>layouts/partials/
           href="#configurando-a-pesquisa" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>Como o Hugo é uma ferramenta para gerar <strong>sites estáticos</strong>, ele não possui banco de dados nem uma API própria para realizar buscas.<br>
 Para adicionar uma funcionalidade de pesquisa, precisamos <strong>indexar os arquivos gerados durante o build</strong> — e é aqui que entra o <strong>Pagefind</strong>.</p>
-<p>O <a href="https://pagefind.app/docs/">Pagefind</a> é uma ferramenta simples e poderosa que adiciona uma <strong>busca local e ultrarrápida</strong> ao seu site estático, com instalação e configuração rápidas.</p>
+<p>O <a href="https://pagefind.app/docs/"target="_blank" rel="noopener noreferrer">
+  Pagefind
+</a>
+ é uma ferramenta simples e poderosa que adiciona uma <strong>busca local e ultrarrápida</strong> ao seu site estático, com instalação e configuração rápidas.</p>
 <p>Para inicializar a API do Pagefind, adicione o seguinte código ao seu projeto:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/pagefind/pagefind-ui.css&#34;</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/pagefind/pagefind-ui.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
@@ -300,15 +305,18 @@ Crie um arquivo chamado <code>partials/header.html</code> e reimplemente a estru
 Após adicionar o código, o resultado deve se parecer com o exemplo abaixo:</p>
 <p><img src="/devlogs/images/Pasted-image-20251021000348.png" alt="Image Description"></p>
 <p>Entretanto, para que os posts apareçam corretamente nos resultados de pesquisa, é necessário <strong>indexar o site</strong>.<br>
-Podemos fazer isso com o comando do Pagefind (mais detalhes na <a href="https://pagefind.app/docs/running-pagefind/">documentação oficial</a>):</p>
+Podemos fazer isso com o comando do Pagefind (mais detalhes na <a href="https://pagefind.app/docs/running-pagefind/"target="_blank" rel="noopener noreferrer">
+  documentação oficial
+</a>
+):</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Gera uma nova build do Hugo</span>
 </span></span><span style="display:flex;"><span>hugo
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Indexa os posts gerados</span>
-</span></span><span style="display:flex;"><span>npx pagefind --site public --glob <span style="color:#e6db74">&#34;**/posts/*.html&#34;</span>
+</span></span><span style="display:flex;"><span>npx pagefind --site public
 </span></span></code></pre></div><p>No comando acima, executamos o <strong>Pagefind</strong> sobre o site presente na pasta <code>public/</code>, usando a flag <code>--glob</code> para filtrar apenas os arquivos localizados dentro da pasta <code>posts</code>.</p>
-<p>Após rodar o comando, o Pagefind exibirá um resumo contendo o que foi gerado — como o número de arquivos indexados, as linguagens detectadas, e outros detalhes.</p>
-<p><img src="/devlogs/images/Pasted-image-20251021000828.png" alt="Image Description"></p>
+<p>Após rodar o comando, o Pagefind exibirá um resumo contendo o que foi gerado — como o número de arquivos indexados, as linguagens detectadas, e outros detalhes. É interessante definir o atributo <code>data-pagefind-body</code>  no arquivo <code>layouts\_default\single.html</code> para que o pagefind encontre corretamente os dados que precisa indexar.</p>
+<p><img src="/devlogs/images/Pasted-image-20251021233149.png" alt="Image Description"></p>
 <h2 id="conclusão">Conclusão<a
           href="#conclusão" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>Com as configurações apresentadas neste artigo, conseguimos tornar o Hugo ainda mais completo e funcional, adicionando recursos essenciais como <strong>suporte a múltiplos idiomas</strong>, <strong>paginação personalizada</strong> e uma <strong>pesquisa local eficiente</strong> com o Pagefind.</p>

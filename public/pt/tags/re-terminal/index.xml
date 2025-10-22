@@ -22,10 +22,16 @@ Mas percebi que faltava um espaço para documentar esse processo de aprendizado 
 &lt;p&gt;Durante as pesquisas, descobri o &lt;strong&gt;Hugo&lt;/strong&gt;, uma ferramenta simples, porém extremamente poderosa, para criação de sites estáticos. A velocidade e a facilidade de desenvolvimento me chamaram a atenção, e decidi usá-la para construir este hub de conhecimento.&lt;/p&gt;
 &lt;h2 id=&#34;como-foi-desenvolvido&#34;&gt;Como foi desenvolvido&lt;/h2&gt;
 &lt;p&gt;Mas afinal, o que é o &lt;strong&gt;Hugo&lt;/strong&gt;?&lt;br&gt;
-Segundo a &lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;documentação oficial&lt;/a&gt;:&lt;/p&gt;
+Segundo a &lt;a href=&#34;https://themes.gohugo.io/&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;
+  documentação oficial
+&lt;/a&gt;
+:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;“Hugo é um dos geradores de sites estáticos de código aberto mais populares. Com sua incrível velocidade e flexibilidade, Hugo torna a criação de sites divertida novamente.”&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;Com alguns &lt;a href=&#34;https://gohugo.io/getting-started/quick-start/#prerequisites&#34;&gt;pré-requisitos&lt;/a&gt; instalados, é possível colocá-lo para rodar em poucos minutos.&lt;/p&gt;
+&lt;p&gt;Com alguns &lt;a href=&#34;https://gohugo.io/getting-started/quick-start/#prerequisites&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;
+  pré-requisitos
+&lt;/a&gt;
+ instalados, é possível colocá-lo para rodar em poucos minutos.&lt;/p&gt;
 &lt;p&gt;Após a instalação, confirme que está tudo certo:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; hugo version
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# hugo v0.151.0-c70ab27ceb841fc9404eab5d2c985ff7595034b7+extended windows/amd64 BuildDate=2025-10-02T13:30:36Z VendorInfo=gohugoio&lt;/span&gt;
@@ -40,9 +46,18 @@ Segundo a &lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;documentação ofici
 &lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/Pasted-image-20251006203921.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;escolhendo-o-tema-e-configurando-o-projeto&#34;&gt;Escolhendo o tema e configurando o projeto&lt;/h2&gt;
 &lt;p&gt;Na configuração inicial, utilizei o tema &lt;strong&gt;Ananke&lt;/strong&gt; apenas para demonstração.&lt;br&gt;
-Depois, fui até o &lt;a href=&#34;https://themes.gohugo.io/tags/blog/&#34;&gt;repositório de temas da comunidade&lt;/a&gt; e escolhi o tema &lt;a href=&#34;https://github.com/panr/hugo-theme-terminal&#34;&gt;&lt;strong&gt;re-terminal&lt;/strong&gt;&lt;/a&gt; — o visual retrô e o estilo de terminal antigo combinaram muito bem com a proposta deste blog.&lt;/p&gt;
+Depois, fui até o &lt;a href=&#34;https://themes.gohugo.io/tags/blog/&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;
+  repositório de temas da comunidade
+&lt;/a&gt;
+ e escolhi o tema &lt;a href=&#34;https://github.com/panr/hugo-theme-terminal&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;
+  &lt;strong&gt;re-terminal&lt;/strong&gt;
+&lt;/a&gt;
+ — o visual retrô e o estilo de terminal antigo combinaram muito bem com a proposta deste blog.&lt;/p&gt;
 &lt;h3 id=&#34;instalando-o-tema&#34;&gt;Instalando o tema&lt;/h3&gt;
-&lt;p&gt;O tema oferece três formas de instalação, descritas na &lt;a href=&#34;https://github.com/panr/hugo-theme-terminal?tab=readme-ov-file#how-to-start&#34;&gt;documentação oficial&lt;/a&gt;.&lt;br&gt;
+&lt;p&gt;O tema oferece três formas de instalação, descritas na &lt;a href=&#34;https://github.com/panr/hugo-theme-terminal?tab=readme-ov-file#how-to-start&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;
+  documentação oficial
+&lt;/a&gt;
+.&lt;br&gt;
 Após testar todas, a &lt;strong&gt;opção 3&lt;/strong&gt; se mostrou a mais prática:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git submodule add -f https://github.com/panr/hugo-theme-terminal.git themes/terminal
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Com o tema instalado, basta ajustar o arquivo principal de configuração (&lt;code&gt;hugo.toml&lt;/code&gt;):&lt;/p&gt;
@@ -65,7 +80,10 @@ Após testar todas, a &lt;strong&gt;opção 3&lt;/strong&gt; se mostrou a mais p
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;E por fim, rodar o projeto novamente:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo server -t terminal
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;criando-a-primeira-postagem&#34;&gt;Criando a primeira postagem&lt;/h2&gt;
-&lt;p&gt;O &lt;strong&gt;Hugo&lt;/strong&gt; segue uma estrutura de diretórios bem organizada, como descrito na &lt;a href=&#34;https://gohugo.io/getting-started/directory-structure/&#34;&gt;documentação oficial&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;O &lt;strong&gt;Hugo&lt;/strong&gt; segue uma estrutura de diretórios bem organizada, como descrito na &lt;a href=&#34;https://gohugo.io/getting-started/directory-structure/&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;
+  documentação oficial
+&lt;/a&gt;
+:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;my-site/
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	├── archetypes/
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	├── assets/

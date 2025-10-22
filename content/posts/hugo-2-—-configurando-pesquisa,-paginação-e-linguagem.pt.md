@@ -164,14 +164,14 @@ Podemos fazer isso com o comando do Pagefind (mais detalhes na [documentação o
 hugo
 
 # Indexa os posts gerados
-npx pagefind --site public --glob "**/posts/*.html"
+npx pagefind --site public
 ```
 
 No comando acima, executamos o **Pagefind** sobre o site presente na pasta `public/`, usando a flag `--glob` para filtrar apenas os arquivos localizados dentro da pasta `posts`.
 
-Após rodar o comando, o Pagefind exibirá um resumo contendo o que foi gerado — como o número de arquivos indexados, as linguagens detectadas, e outros detalhes.
+Após rodar o comando, o Pagefind exibirá um resumo contendo o que foi gerado — como o número de arquivos indexados, as linguagens detectadas, e outros detalhes. É interessante definir o atributo `data-pagefind-body`  no arquivo `layouts\_default\single.html` para que o pagefind encontre corretamente os dados que precisa indexar.
 
-![Image Description](/devlogs/images/Pasted-image-20251021000828.png)
+![Image Description](/devlogs/images/Pasted-image-20251021233149.png)
 
 ## Conclusão
 

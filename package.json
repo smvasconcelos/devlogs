@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "pagefind": "npx pagefind --site public --glob '**/posts/*.html' ",
+    "pagefind": "npx pagefind --site public --glob **/posts/*.html",
     "build": "hugo"
   },
   "devDependencies": {

@@ -169,9 +169,9 @@ npx pagefind --site public --glob "**/posts/*.html"
 
 In the command above, we run **Pagefind** on the site inside the `public/` folder, using the `--glob` flag to filter only files located within the `posts` directory.
 
-After running the command, Pagefind will display a summary of the indexing process — including the number of files indexed, detected languages, and other details.
+After running the command, Pagefind will display a summary of the indexing process — including the number of files indexed, detected languages, and other details. It's a good idea to set the `data-pagefind-body` attribute in the `layouts\_default\single.html` file so that Pagefind can correctly locate the data it needs to index.
 
-![Image Description](/devlogs/images/Pasted-image-20251021000828.png)
+![Image Description](/devlogs/images/Pasted-image-20251021233149.png)
 
 ---
 

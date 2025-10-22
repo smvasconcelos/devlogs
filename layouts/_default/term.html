@@ -8,19 +8,19 @@
 <div class="posts">
   {{ range .Paginator.Pages }}
   <article class="post on-list">
-    <h1 class="post-title">
+    <h1 class="post-title" view-transition-name="post-title-{{ .File.BaseFileName }}">
       <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
     </h1>
 
     <div class="post-meta">
       {{- if .Date -}}
-      <time class="post-date">
+      <time class="post-date" view-transition-name="post-date-{{ .File.BaseFileName }}">
         {{- .Date.Format "2006-01-02" -}}
       </time>
       {{- end -}}
 
       {{ if .Params.tags }}
-      <span class="post-tags">
+      <span class="post-tags" view-transition-name="post-tags-{{ .File.BaseFileName }}">
         {{ range .Params.tags }}
         #<a href="{{ (urls.JoinPath "tags" (urlize .) "/") | absLangURL }}">
           {{- . -}}
@@ -32,7 +32,7 @@
 
     {{ partial "cover.html" . }}
 
-    <div class="post-content">
+    <div class="post-content" view-transition-name="post-content-{{ .File.BaseFileName }}">
       {{ if .Params.showFullContent }}
       {{ .Content }}
       {{ else if .Description }}
