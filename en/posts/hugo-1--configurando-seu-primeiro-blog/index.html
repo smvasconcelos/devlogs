@@ -77,8 +77,11 @@ However, I realized I was missing a space to document my learning process — a 
       element: "#search",
       showSubResults: false,
       showImages: false,
+      debounceTimeoutMs: 500,
+      autofocus: true,
+      sort: { date: "desc" },
       showMeta: false,
-      excerptLength: 20,
+      excerptLength: 15
     });
   });
 
@@ -94,7 +97,6 @@ However, I realized I was missing a space to document my learning process — a 
 
   
   document.addEventListener('click', (e) => {
-    console.log({ e });
     const searchEl = document.querySelector("#search");
     const drawer = document.querySelector(".pagefind-ui__drawer");
     if (searchEl && drawer && !searchEl.contains(e.target) && !drawer.classList.contains('pagefind-ui__hidden') && !e.target.classList.contains('pagefind-ui__button')) {
@@ -109,7 +111,7 @@ However, I realized I was missing a space to document my learning process — a 
 
 
 </head>
-<body class="orange">
+<body class="crt">
 
 
 
@@ -149,15 +151,15 @@ However, I realized I was missing a space to document my learning process — a 
 
   <div class="content">
     
-<article class="post">
-  <h1 class="post-title">
-    <a href="https://smvasconcelos.github.io/devlogs/en/posts/hugo-1--configurando-seu-primeiro-blog/">Hugo #1 — Setting Up Your First Blog</a>
+<article class="post" data-pagefind-body>
+  <h1 class="post-title typewriter" view-transition-name="post-title-hugo-1-—-configurando-seu-primeiro-blog.en">
+    <a data-pagefind-field="title" href="https://smvasconcelos.github.io/devlogs/en/posts/hugo-1--configurando-seu-primeiro-blog/">Hugo #1 — Setting Up Your First Blog</a>
   </h1>
-  <div class="post-meta"><time class="post-date">2025-10-06</time>
+  <div class="post-meta"><time data-pagefind-field="date" class="post-date" view-transition-name="post-date-hugo-1-—-configurando-seu-primeiro-blog.en">2025-10-06</time>
     
-<span class="post-reading-time">3 min read (532
+<span class="post-reading-time">3 min read (535
       words)</span>
-    <span class="post-tags">
+    <span class="post-tags" view-transition-name="post-tags-hugo-1-—-configurando-seu-primeiro-blog.en">
       
       #<a href="https://smvasconcelos.github.io/devlogs/en/tags/blog/">blog</a>
       
@@ -194,7 +196,7 @@ However, I realized I was missing a space to document my learning process — a 
   </div>
   
 
-  <div class="post-content"><div>
+  <div  class="post-content" view-transition-name="post-content-hugo-1-—-configurando-seu-primeiro-blog.en"><div>
       <h2 id="motivation">Motivation<a
           href="#motivation" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>Throughout most of my career, I’ve always focused on growing technically through study and applying what I’ve learned in the best way possible.<br>
@@ -203,10 +205,16 @@ However, I realized I was missing a space to document my learning process — a 
 <h2 id="how-it-was-developed">How it was developed<a
           href="#how-it-was-developed" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>So, what exactly is <strong>Hugo</strong>?<br>
-According to the <a href="https://themes.gohugo.io/">official documentation</a>:</p>
+According to the <a href="https://themes.gohugo.io/"target="_blank" rel="noopener noreferrer">
+  official documentation
+</a>
+:</p>
 <blockquote>
 <p>“Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.”</p></blockquote>
-<p>With a few <a href="https://gohugo.io/getting-started/quick-start/#prerequisites">prerequisites</a> installed, you can have it running in just a few minutes.</p>
+<p>With a few <a href="https://gohugo.io/getting-started/quick-start/#prerequisites"target="_blank" rel="noopener noreferrer">
+  prerequisites
+</a>
+ installed, you can have it running in just a few minutes.</p>
 <p>After installation, you can confirm everything is working correctly:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; hugo version
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># hugo v0.151.0-c70ab27ceb841fc9404eab5d2c985ff7595034b7+extended windows/amd64 BuildDate=2025-10-02T13:30:36Z VendorInfo=gohugoio</span>
@@ -222,10 +230,19 @@ According to the <a href="https://themes.gohugo.io/">official documentation</a>:
 <h2 id="choosing-the-theme-and-configuring-the-project">Choosing the theme and configuring the project<a
           href="#choosing-the-theme-and-configuring-the-project" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>For the initial setup, I used the <strong>Ananke</strong> theme just for demonstration.<br>
-Then, I browsed through the <a href="https://themes.gohugo.io/tags/blog/">community theme repository</a> and selected <a href="https://github.com/panr/hugo-theme-terminal"><strong>re-terminal</strong></a> — I liked its retro, terminal-like appearance, which fits well with the message I want to convey in this blog.</p>
+Then, I browsed through the <a href="https://themes.gohugo.io/tags/blog/"target="_blank" rel="noopener noreferrer">
+  community theme repository
+</a>
+ and selected <a href="https://github.com/panr/hugo-theme-terminal"target="_blank" rel="noopener noreferrer">
+  <strong>re-terminal</strong>
+</a>
+ — I liked its retro, terminal-like appearance, which fits well with the message I want to convey in this blog.</p>
 <h3 id="installing-the-theme">Installing the theme<a
           href="#installing-the-theme" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<p>The theme provides three installation methods, described in the <a href="https://github.com/panr/hugo-theme-terminal?tab=readme-ov-file#how-to-start">official documentation</a>.<br>
+<p>The theme provides three installation methods, described in the <a href="https://github.com/panr/hugo-theme-terminal?tab=readme-ov-file#how-to-start"target="_blank" rel="noopener noreferrer">
+  official documentation
+</a>
+.<br>
 After testing them all, I found <strong>option 3</strong> to be the easiest:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule add -f https://github.com/panr/hugo-theme-terminal.git themes/terminal
 </span></span></code></pre></div><p>Once installed, adjust the main configuration file (<code>hugo.toml</code>):</p>
@@ -249,7 +266,10 @@ After testing them all, I found <strong>option 3</strong> to be the easiest:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server -t terminal
 </span></span></code></pre></div><h2 id="creating-the-first-post">Creating the first post<a
           href="#creating-the-first-post" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<p><strong>Hugo</strong> follows a well-organized directory structure, as described in the <a href="https://gohugo.io/getting-started/directory-structure/">official documentation</a>:</p>
+<p><strong>Hugo</strong> follows a well-organized directory structure, as described in the <a href="https://gohugo.io/getting-started/directory-structure/"target="_blank" rel="noopener noreferrer">
+  official documentation
+</a>
+:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>my-site/
 </span></span><span style="display:flex;"><span>├── archetypes/
 </span></span><span style="display:flex;"><span>├── assets/

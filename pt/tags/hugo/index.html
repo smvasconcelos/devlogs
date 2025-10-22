@@ -73,8 +73,11 @@
       element: "#search",
       showSubResults: false,
       showImages: false,
+      debounceTimeoutMs: 500,
+      autofocus: true,
+      sort: { date: "desc" },
       showMeta: false,
-      excerptLength: 20,
+      excerptLength: 15
     });
   });
 
@@ -90,7 +93,6 @@
 
   
   document.addEventListener('click', (e) => {
-    console.log({ e });
     const searchEl = document.querySelector("#search");
     const drawer = document.querySelector(".pagefind-ui__drawer");
     if (searchEl && drawer && !searchEl.contains(e.target) && !drawer.classList.contains('pagefind-ui__hidden') && !e.target.classList.contains('pagefind-ui__button')) {
@@ -105,7 +107,7 @@
 
 
 </head>
-<body class="orange">
+<body class="crt">
 
 
 
@@ -150,12 +152,12 @@
 <div class="posts">
   
   <article class="post on-list">
-    <h1 class="post-title">
+    <h1 class="post-title" view-transition-name="post-title-hugo-2-—-configurando-pesquisa,-paginação-e-linguagem.pt">
       <a href="https://smvasconcelos.github.io/devlogs/pt/posts/hugo-2--configurando-pesquisa-pagina%C3%A7%C3%A3o-e-linguagem/">Hugo #2 — Adicionando melhorias no nosso blog</a>
     </h1>
 
-    <div class="post-meta"><time class="post-date">2025-10-20</time>
-      <span class="post-tags">
+    <div class="post-meta"><time class="post-date" view-transition-name="post-date-hugo-2-—-configurando-pesquisa,-paginação-e-linguagem.pt">2025-10-20</time>
+      <span class="post-tags" view-transition-name="post-tags-hugo-2-—-configurando-pesquisa,-paginação-e-linguagem.pt">
         
         #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/hugo/">hugo</a>
         
@@ -173,7 +175,7 @@
 
 
 
-    <div class="post-content">
+    <div class="post-content" view-transition-name="post-content-hugo-2-—-configurando-pesquisa,-paginação-e-linguagem.pt">
       
       <p>Neste artigo, vamos conhecer um pouco mais sobre a ferramenta <strong>Hugo</strong>, entender como funcionam algumas de suas <strong>APIs</strong> — pesquisa, paginação e linguagem — e descobrir como utilizá-las para aprimorar o nosso blog.</p>
       
@@ -187,12 +189,12 @@
   </article>
   
   <article class="post on-list">
-    <h1 class="post-title">
+    <h1 class="post-title" view-transition-name="post-title-hugo-1-—-configurando-seu-primeiro-blog.pt">
       <a href="https://smvasconcelos.github.io/devlogs/pt/posts/hugo-1--configurando-seu-primeiro-blog/">Hugo #1 — Configurando seu primeiro blog</a>
     </h1>
 
-    <div class="post-meta"><time class="post-date">2025-10-06</time>
-      <span class="post-tags">
+    <div class="post-meta"><time class="post-date" view-transition-name="post-date-hugo-1-—-configurando-seu-primeiro-blog.pt">2025-10-06</time>
+      <span class="post-tags" view-transition-name="post-tags-hugo-1-—-configurando-seu-primeiro-blog.pt">
         
         #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/blog/">blog</a>
         
@@ -208,7 +210,7 @@
 
 
 
-    <div class="post-content">
+    <div class="post-content" view-transition-name="post-content-hugo-1-—-configurando-seu-primeiro-blog.pt">
       
       <h2 id="motivação">Motivação</h2>
 <p>Durante a maior parte da minha carreira, sempre foquei em evoluir tecnicamente por meio de estudos e em aplicar da melhor forma possível o que aprendi.<br>

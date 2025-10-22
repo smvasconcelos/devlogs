@@ -91,7 +91,10 @@ To achieve the same result, you can create a file called &lt;code&gt;layouts/par
 &lt;h2 id=&#34;configuring-search&#34;&gt;Configuring Search&lt;/h2&gt;
 &lt;p&gt;Since Hugo is a &lt;strong&gt;static site generator&lt;/strong&gt;, it doesn’t include a database or built-in API for handling searches.&lt;br&gt;
 To add search functionality, we need to &lt;strong&gt;index the files generated during the build process&lt;/strong&gt; — and that’s where &lt;strong&gt;Pagefind&lt;/strong&gt; comes in.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://pagefind.app/docs/&#34;&gt;Pagefind&lt;/a&gt; is a simple yet powerful tool that provides &lt;strong&gt;lightning-fast local search&lt;/strong&gt; for static sites, with quick installation and setup.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://pagefind.app/docs/&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;
+  Pagefind
+&lt;/a&gt;
+ is a simple yet powerful tool that provides &lt;strong&gt;lightning-fast local search&lt;/strong&gt; for static sites, with quick installation and setup.&lt;/p&gt;
 &lt;p&gt;To initialize the Pagefind API, add the following code to your project:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;link&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;href&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/pagefind/pagefind-ui.css&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;rel&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;stylesheet&amp;#34;&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/pagefind/pagefind-ui.js&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;&amp;gt;
@@ -121,15 +124,18 @@ Create a file called &lt;code&gt;partials/header.html&lt;/code&gt; and reimpleme
 After adding the code, the result should look similar to this:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/Pasted-image-20251021000348.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;p&gt;However, for the posts to appear correctly in the search results, you’ll need to &lt;strong&gt;index your site&lt;/strong&gt;.&lt;br&gt;
-You can do this using the Pagefind command (see more details in the &lt;a href=&#34;https://pagefind.app/docs/running-pagefind/&#34;&gt;official documentation&lt;/a&gt;):&lt;/p&gt;
+You can do this using the Pagefind command (see more details in the &lt;a href=&#34;https://pagefind.app/docs/running-pagefind/&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;
+  official documentation
+&lt;/a&gt;
+):&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Generate a new Hugo build&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Index the generated posts&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npx pagefind --site public --glob &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;**/posts/*.html&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In the command above, we run &lt;strong&gt;Pagefind&lt;/strong&gt; on the site inside the &lt;code&gt;public/&lt;/code&gt; folder, using the &lt;code&gt;--glob&lt;/code&gt; flag to filter only files located within the &lt;code&gt;posts&lt;/code&gt; directory.&lt;/p&gt;
-&lt;p&gt;After running the command, Pagefind will display a summary of the indexing process — including the number of files indexed, detected languages, and other details.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/Pasted-image-20251021000828.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;After running the command, Pagefind will display a summary of the indexing process — including the number of files indexed, detected languages, and other details. It&amp;rsquo;s a good idea to set the &lt;code&gt;data-pagefind-body&lt;/code&gt; attribute in the &lt;code&gt;layouts\_default\single.html&lt;/code&gt; file so that Pagefind can correctly locate the data it needs to index.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/Pasted-image-20251021233149.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;With the configurations presented in this article, we’ve made Hugo even more powerful and flexible, adding essential features like &lt;strong&gt;multi-language support&lt;/strong&gt;, &lt;strong&gt;custom pagination&lt;/strong&gt;, and an &lt;strong&gt;efficient local search&lt;/strong&gt; with Pagefind.&lt;/p&gt;

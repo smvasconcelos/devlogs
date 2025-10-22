@@ -91,7 +91,10 @@ Para obter o mesmo resultado, você pode criar o arquivo &lt;code&gt;layouts/par
 &lt;h2 id=&#34;configurando-a-pesquisa&#34;&gt;Configurando a pesquisa&lt;/h2&gt;
 &lt;p&gt;Como o Hugo é uma ferramenta para gerar &lt;strong&gt;sites estáticos&lt;/strong&gt;, ele não possui banco de dados nem uma API própria para realizar buscas.&lt;br&gt;
 Para adicionar uma funcionalidade de pesquisa, precisamos &lt;strong&gt;indexar os arquivos gerados durante o build&lt;/strong&gt; — e é aqui que entra o &lt;strong&gt;Pagefind&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;O &lt;a href=&#34;https://pagefind.app/docs/&#34;&gt;Pagefind&lt;/a&gt; é uma ferramenta simples e poderosa que adiciona uma &lt;strong&gt;busca local e ultrarrápida&lt;/strong&gt; ao seu site estático, com instalação e configuração rápidas.&lt;/p&gt;
+&lt;p&gt;O &lt;a href=&#34;https://pagefind.app/docs/&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;
+  Pagefind
+&lt;/a&gt;
+ é uma ferramenta simples e poderosa que adiciona uma &lt;strong&gt;busca local e ultrarrápida&lt;/strong&gt; ao seu site estático, com instalação e configuração rápidas.&lt;/p&gt;
 &lt;p&gt;Para inicializar a API do Pagefind, adicione o seguinte código ao seu projeto:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;link&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;href&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/pagefind/pagefind-ui.css&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;rel&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;stylesheet&amp;#34;&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/pagefind/pagefind-ui.js&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;&amp;gt;
@@ -121,15 +124,18 @@ Crie um arquivo chamado &lt;code&gt;partials/header.html&lt;/code&gt; e reimplem
 Após adicionar o código, o resultado deve se parecer com o exemplo abaixo:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/Pasted-image-20251021000348.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Entretanto, para que os posts apareçam corretamente nos resultados de pesquisa, é necessário &lt;strong&gt;indexar o site&lt;/strong&gt;.&lt;br&gt;
-Podemos fazer isso com o comando do Pagefind (mais detalhes na &lt;a href=&#34;https://pagefind.app/docs/running-pagefind/&#34;&gt;documentação oficial&lt;/a&gt;):&lt;/p&gt;
+Podemos fazer isso com o comando do Pagefind (mais detalhes na &lt;a href=&#34;https://pagefind.app/docs/running-pagefind/&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;
+  documentação oficial
+&lt;/a&gt;
+):&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Gera uma nova build do Hugo&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Indexa os posts gerados&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npx pagefind --site public --glob &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;**/posts/*.html&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npx pagefind --site public
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;No comando acima, executamos o &lt;strong&gt;Pagefind&lt;/strong&gt; sobre o site presente na pasta &lt;code&gt;public/&lt;/code&gt;, usando a flag &lt;code&gt;--glob&lt;/code&gt; para filtrar apenas os arquivos localizados dentro da pasta &lt;code&gt;posts&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Após rodar o comando, o Pagefind exibirá um resumo contendo o que foi gerado — como o número de arquivos indexados, as linguagens detectadas, e outros detalhes.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/Pasted-image-20251021000828.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Após rodar o comando, o Pagefind exibirá um resumo contendo o que foi gerado — como o número de arquivos indexados, as linguagens detectadas, e outros detalhes. É interessante definir o atributo &lt;code&gt;data-pagefind-body&lt;/code&gt;  no arquivo &lt;code&gt;layouts\_default\single.html&lt;/code&gt; para que o pagefind encontre corretamente os dados que precisa indexar.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/Pasted-image-20251021233149.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;conclusão&#34;&gt;Conclusão&lt;/h2&gt;
 &lt;p&gt;Com as configurações apresentadas neste artigo, conseguimos tornar o Hugo ainda mais completo e funcional, adicionando recursos essenciais como &lt;strong&gt;suporte a múltiplos idiomas&lt;/strong&gt;, &lt;strong&gt;paginação personalizada&lt;/strong&gt; e uma &lt;strong&gt;pesquisa local eficiente&lt;/strong&gt; com o Pagefind.&lt;/p&gt;
 &lt;p&gt;Essas funcionalidades elevam o nível do seu blog estático, oferecendo uma experiência mais fluida e intuitiva para o leitor, sem comprometer o desempenho — um dos grandes diferenciais do Hugo.&lt;/p&gt;

@@ -77,8 +77,11 @@ Mas percebi que faltava um espaço para documentar esse processo de aprendizado 
       element: "#search",
       showSubResults: false,
       showImages: false,
+      debounceTimeoutMs: 500,
+      autofocus: true,
+      sort: { date: "desc" },
       showMeta: false,
-      excerptLength: 20,
+      excerptLength: 15
     });
   });
 
@@ -94,7 +97,6 @@ Mas percebi que faltava um espaço para documentar esse processo de aprendizado 
 
   
   document.addEventListener('click', (e) => {
-    console.log({ e });
     const searchEl = document.querySelector("#search");
     const drawer = document.querySelector(".pagefind-ui__drawer");
     if (searchEl && drawer && !searchEl.contains(e.target) && !drawer.classList.contains('pagefind-ui__hidden') && !e.target.classList.contains('pagefind-ui__button')) {
@@ -109,7 +111,7 @@ Mas percebi que faltava um espaço para documentar esse processo de aprendizado 
 
 
 </head>
-<body class="orange">
+<body class="crt">
 
 
 
@@ -149,15 +151,15 @@ Mas percebi que faltava um espaço para documentar esse processo de aprendizado 
 
   <div class="content">
     
-<article class="post">
-  <h1 class="post-title">
-    <a href="https://smvasconcelos.github.io/devlogs/pt/posts/hugo-1--configurando-seu-primeiro-blog/">Hugo #1 — Configurando seu primeiro blog</a>
+<article class="post" data-pagefind-body>
+  <h1 class="post-title typewriter" view-transition-name="post-title-hugo-1-—-configurando-seu-primeiro-blog.pt">
+    <a data-pagefind-field="title" href="https://smvasconcelos.github.io/devlogs/pt/posts/hugo-1--configurando-seu-primeiro-blog/">Hugo #1 — Configurando seu primeiro blog</a>
   </h1>
-  <div class="post-meta"><time class="post-date">2025-10-06</time>
+  <div class="post-meta"><time data-pagefind-field="date" class="post-date" view-transition-name="post-date-hugo-1-—-configurando-seu-primeiro-blog.pt">2025-10-06</time>
     
-<span class="post-reading-time">3 min - leitura (529
+<span class="post-reading-time">3 min - leitura (532
       palavras)</span>
-    <span class="post-tags">
+    <span class="post-tags" view-transition-name="post-tags-hugo-1-—-configurando-seu-primeiro-blog.pt">
       
       #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/blog/">blog</a>
       
@@ -194,7 +196,7 @@ Mas percebi que faltava um espaço para documentar esse processo de aprendizado 
   </div>
   
 
-  <div class="post-content"><div>
+  <div  class="post-content" view-transition-name="post-content-hugo-1-—-configurando-seu-primeiro-blog.pt"><div>
       <h2 id="motivação">Motivação<a
           href="#motivação" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>Durante a maior parte da minha carreira, sempre foquei em evoluir tecnicamente por meio de estudos e em aplicar da melhor forma possível o que aprendi.<br>
@@ -203,10 +205,16 @@ Mas percebi que faltava um espaço para documentar esse processo de aprendizado 
 <h2 id="como-foi-desenvolvido">Como foi desenvolvido<a
           href="#como-foi-desenvolvido" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>Mas afinal, o que é o <strong>Hugo</strong>?<br>
-Segundo a <a href="https://themes.gohugo.io/">documentação oficial</a>:</p>
+Segundo a <a href="https://themes.gohugo.io/"target="_blank" rel="noopener noreferrer">
+  documentação oficial
+</a>
+:</p>
 <blockquote>
 <p>“Hugo é um dos geradores de sites estáticos de código aberto mais populares. Com sua incrível velocidade e flexibilidade, Hugo torna a criação de sites divertida novamente.”</p></blockquote>
-<p>Com alguns <a href="https://gohugo.io/getting-started/quick-start/#prerequisites">pré-requisitos</a> instalados, é possível colocá-lo para rodar em poucos minutos.</p>
+<p>Com alguns <a href="https://gohugo.io/getting-started/quick-start/#prerequisites"target="_blank" rel="noopener noreferrer">
+  pré-requisitos
+</a>
+ instalados, é possível colocá-lo para rodar em poucos minutos.</p>
 <p>Após a instalação, confirme que está tudo certo:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; hugo version
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># hugo v0.151.0-c70ab27ceb841fc9404eab5d2c985ff7595034b7+extended windows/amd64 BuildDate=2025-10-02T13:30:36Z VendorInfo=gohugoio</span>
@@ -222,10 +230,19 @@ Segundo a <a href="https://themes.gohugo.io/">documentação oficial</a>:</p>
 <h2 id="escolhendo-o-tema-e-configurando-o-projeto">Escolhendo o tema e configurando o projeto<a
           href="#escolhendo-o-tema-e-configurando-o-projeto" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>Na configuração inicial, utilizei o tema <strong>Ananke</strong> apenas para demonstração.<br>
-Depois, fui até o <a href="https://themes.gohugo.io/tags/blog/">repositório de temas da comunidade</a> e escolhi o tema <a href="https://github.com/panr/hugo-theme-terminal"><strong>re-terminal</strong></a> — o visual retrô e o estilo de terminal antigo combinaram muito bem com a proposta deste blog.</p>
+Depois, fui até o <a href="https://themes.gohugo.io/tags/blog/"target="_blank" rel="noopener noreferrer">
+  repositório de temas da comunidade
+</a>
+ e escolhi o tema <a href="https://github.com/panr/hugo-theme-terminal"target="_blank" rel="noopener noreferrer">
+  <strong>re-terminal</strong>
+</a>
+ — o visual retrô e o estilo de terminal antigo combinaram muito bem com a proposta deste blog.</p>
 <h3 id="instalando-o-tema">Instalando o tema<a
           href="#instalando-o-tema" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<p>O tema oferece três formas de instalação, descritas na <a href="https://github.com/panr/hugo-theme-terminal?tab=readme-ov-file#how-to-start">documentação oficial</a>.<br>
+<p>O tema oferece três formas de instalação, descritas na <a href="https://github.com/panr/hugo-theme-terminal?tab=readme-ov-file#how-to-start"target="_blank" rel="noopener noreferrer">
+  documentação oficial
+</a>
+.<br>
 Após testar todas, a <strong>opção 3</strong> se mostrou a mais prática:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule add -f https://github.com/panr/hugo-theme-terminal.git themes/terminal
 </span></span></code></pre></div><p>Com o tema instalado, basta ajustar o arquivo principal de configuração (<code>hugo.toml</code>):</p>
@@ -249,7 +266,10 @@ Após testar todas, a <strong>opção 3</strong> se mostrou a mais prática:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server -t terminal
 </span></span></code></pre></div><h2 id="criando-a-primeira-postagem">Criando a primeira postagem<a
           href="#criando-a-primeira-postagem" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<p>O <strong>Hugo</strong> segue uma estrutura de diretórios bem organizada, como descrito na <a href="https://gohugo.io/getting-started/directory-structure/">documentação oficial</a>:</p>
+<p>O <strong>Hugo</strong> segue uma estrutura de diretórios bem organizada, como descrito na <a href="https://gohugo.io/getting-started/directory-structure/"target="_blank" rel="noopener noreferrer">
+  documentação oficial
+</a>
+:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>my-site/
 </span></span><span style="display:flex;"><span>	├── archetypes/
 </span></span><span style="display:flex;"><span>	├── assets/
