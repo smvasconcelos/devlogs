@@ -47,7 +47,7 @@ For the browser to know that you want transitions between pages, add this CSS ru
 
 > **Note:** This single line enables view transitions on all same-origin links on your site. By default, it applies a *cross-fade* effect (a soft dissolve), which is already a significant improvement.
 
-![[screen-capture-_2_.gif]]
+![Image Description](/devlogs/images/screen-capture-_2_.gif)
 
 #### Step 2: Animate Specific Elements (Shared Elements)
 
@@ -178,7 +178,7 @@ Furthermore, we can edit the in and out animation with the transition `pseudo-el
 
 I was inspired by the transition effects of SNES games like Super Mario World, where during the loading of a new stage, the screen darkens and becomes a bit pixelated. Below we can see the result.
 
-![[screen-capture-_3_.gif]]
+![Image Description](/devlogs/images/screen-capture-_3_.gif)
 
 ### Conclusion and Next Steps
 

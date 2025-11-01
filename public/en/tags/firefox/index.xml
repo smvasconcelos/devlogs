@@ -40,7 +40,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; This single line enables view transitions on all same-origin links on your site. By default, it applies a &lt;em&gt;cross-fade&lt;/em&gt; effect (a soft dissolve), which is already a significant improvement.&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;![[screen-capture-&lt;em&gt;2&lt;/em&gt;.gif]]&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/screen-capture-_2_.gif&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;h4 id=&#34;step-2-animate-specific-elements-shared-elements&#34;&gt;Step 2: Animate Specific Elements (Shared Elements)&lt;/h4&gt;
 &lt;p&gt;To create more complex transitions that move specific elements (like a title or an image), you need to give the element a &amp;ldquo;name&amp;rdquo; in both the old state and the new state.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Example (Post Title Transition):&lt;/strong&gt;&lt;/p&gt;
@@ -164,7 +164,7 @@ Furthermore, we can edit the in and out animation with the transition &lt;code&g
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I was inspired by the transition effects of SNES games like Super Mario World, where during the loading of a new stage, the screen darkens and becomes a bit pixelated. Below we can see the result.&lt;/p&gt;
-&lt;p&gt;![[screen-capture-&lt;em&gt;3&lt;/em&gt;.gif]]&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/screen-capture-_3_.gif&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;conclusion-and-next-steps&#34;&gt;Conclusion and Next Steps&lt;/h3&gt;
 &lt;p&gt;The &lt;strong&gt;View Transition API&lt;/strong&gt; is a great addition to the web. It democratizes high-quality page transitions, making them accessible to any project, from complex SPAs to simple static blogs. The fact that it is native and customizable via CSS makes it a powerful tool in any developer&amp;rsquo;s arsenal.&lt;/p&gt;
 &lt;p&gt;With the arrival of Firefox support, there are no more excuses not to offer more cohesive and pleasant navigations.&lt;/p&gt;

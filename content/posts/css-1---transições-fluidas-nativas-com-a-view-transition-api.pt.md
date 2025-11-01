@@ -47,7 +47,7 @@ Para que o navegador saiba que você deseja transições entre páginas, adicion
 
 > **Nota:** Esta única linha habilita a transição de visualização em todos os links do seu site para navegações de mesma origem (same-origin). Por padrão, ela aplica um efeito de _cross-fade_ (dissolver suavemente), que já é uma grande melhoria.
 
-![[screen-capture-_2_.gif]]
+![Image Description](/devlogs/images/screen-capture-_2_.gif)
 
 #### Passo 2: Animar Elementos Específicos (Shared Elements)
 
@@ -179,7 +179,7 @@ Além disso, podemos editar a animação de in e out, com os `pseudo-elementos` 
 
 Tive com inspiração, os efeitos de transição de jogos snes como super mario world, onde durante o carregamento de uma nova fase, a tela escurece e fica um pouco pixelada. Abaixo podemos observar o resultado.
 
-![[screen-capture-_3_.gif]]
+![Image Description](/devlogs/images/screen-capture-_3_.gif)
 
 ### Conclusão e Próximos Passos
 
