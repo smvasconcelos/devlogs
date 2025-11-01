@@ -9,10 +9,10 @@
     <lastBuildDate>Sat, 01 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://smvasconcelos.github.io/devlogs/en/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CSS #1 - Transitions with the View Transition API</title>
-      <link>https://smvasconcelos.github.io/devlogs/en/posts/css-1---transi%C3%A7%C3%B5es-fluidas-nativas-com-a-view-transition-api/</link>
+      <link>https://smvasconcelos.github.io/devlogs/en/posts/371db62496872c2d/</link>
       <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://smvasconcelos.github.io/devlogs/en/posts/css-1---transi%C3%A7%C3%B5es-fluidas-nativas-com-a-view-transition-api/</guid>
+      <guid>https://smvasconcelos.github.io/devlogs/en/posts/371db62496872c2d/</guid>
       <description>&lt;p&gt;The user experience (UX) in modern web applications demands fluidity and continuity, something that was historically difficult to achieve on traditional websites without the use of complex SPA frameworks. The full page reload often breaks the user&amp;rsquo;s context with an abrupt &amp;ldquo;white screen&amp;rdquo; between loading.&lt;/p&gt;</description>
       <content>&lt;p&gt;The user experience (UX) in modern web applications demands fluidity and continuity, something that was historically difficult to achieve on traditional websites without the use of complex SPA frameworks. The full page reload often breaks the user&amp;rsquo;s context with an abrupt &amp;ldquo;white screen&amp;rdquo; between loading.&lt;/p&gt;
 &lt;p&gt;The &lt;strong&gt;View Transition API&lt;/strong&gt; emerges as the native web platform solution. It allows you to create smooth, animated transitions between different DOM states (on the same page - SPA) or even between different documents (during page navigation - MPA), all declaratively and with the power of CSS. Now, with expanded support (including Firefox, Chrome, and Safari), it is the ideal time to adopt it!&lt;/p&gt;
@@ -40,7 +40,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; This single line enables view transitions on all same-origin links on your site. By default, it applies a &lt;em&gt;cross-fade&lt;/em&gt; effect (a soft dissolve), which is already a significant improvement.&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/screen-capture-_2_.gif&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/3bbea15b7777c38d.gif&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;step-2-animate-specific-elements-shared-elements&#34;&gt;Step 2: Animate Specific Elements (Shared Elements)&lt;/h3&gt;
 &lt;p&gt;To create more complex transitions that move specific elements (like a title or an image), you need to give the element a &amp;ldquo;name&amp;rdquo; in both the old state and the new state.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Example (Post Title Transition):&lt;/strong&gt;&lt;/p&gt;
@@ -164,7 +164,7 @@ Furthermore, we can edit the in and out animation with the transition &lt;code&g
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I was inspired by the transition effects of SNES games like Super Mario World, where during the loading of a new stage, the screen darkens and becomes a bit pixelated. Below we can see the result.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/screen-capture-_3_.gif&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/e9fa79e34f8b3d20.gif&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;conclusion-and-next-steps&#34;&gt;Conclusion and Next Steps&lt;/h2&gt;
 &lt;p&gt;The &lt;strong&gt;View Transition API&lt;/strong&gt; is a great addition to the web. It democratizes high-quality page transitions, making them accessible to any project, from complex SPAs to simple static blogs. The fact that it is native and customizable via CSS makes it a powerful tool in any developer&amp;rsquo;s arsenal.&lt;/p&gt;
 &lt;p&gt;With the arrival of Firefox support, there are no more excuses not to offer more cohesive and pleasant navigations.&lt;/p&gt;
@@ -173,10 +173,10 @@ Furthermore, we can edit the in and out animation with the transition &lt;code&g
     
     <item>
       <title>Hugo #2 — Adding Improvements to Our Blog</title>
-      <link>https://smvasconcelos.github.io/devlogs/en/posts/hugo-2--configurando-pesquisa-pagina%C3%A7%C3%A3o-e-linguagem/</link>
+      <link>https://smvasconcelos.github.io/devlogs/en/posts/3262d6d38d70967d/</link>
       <pubDate>Mon, 20 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://smvasconcelos.github.io/devlogs/en/posts/hugo-2--configurando-pesquisa-pagina%C3%A7%C3%A3o-e-linguagem/</guid>
+      <guid>https://smvasconcelos.github.io/devlogs/en/posts/3262d6d38d70967d/</guid>
       <description>&lt;p&gt;In this article, we’ll take a closer look at the &lt;strong&gt;Hugo&lt;/strong&gt; tool, understand how some of its &lt;strong&gt;APIs&lt;/strong&gt; work — search, pagination, and language — and learn how to use them to enhance our blog.&lt;/p&gt;</description>
       <content>&lt;p&gt;In this article, we’ll take a closer look at the &lt;strong&gt;Hugo&lt;/strong&gt; tool, understand how some of its &lt;strong&gt;APIs&lt;/strong&gt; work — search, pagination, and language — and learn how to use them to enhance our blog.&lt;/p&gt;
 &lt;hr&gt;
@@ -199,7 +199,7 @@ Furthermore, we can edit the in and out animation with the transition &lt;code&g
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;showLanguageSelector&lt;/span&gt; = &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Once this option is enabled and translations are properly configured, the language selection menu will appear according to your theme’s design.&lt;/p&gt;
 &lt;p&gt;For the &lt;strong&gt;re-terminal&lt;/strong&gt; theme, for example, the expected result will look like this:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/Pasted-image-20251020233751.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/c959be8f943e49e2.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;default-pagination-and-how-to-customize-it&#34;&gt;Default Pagination and How to Customize It&lt;/h2&gt;
 &lt;p&gt;Hugo also provides native support for &lt;strong&gt;pagination&lt;/strong&gt;, allowing full control over its appearance and behavior.&lt;br&gt;
@@ -207,7 +207,7 @@ One of the most important parameters is the number of items displayed per page:&
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;pagination&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;pagerSize&lt;/span&gt; = &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After setting this configuration, when the number of items exceeds the defined limit, Hugo will automatically display the pagination menu according to your theme’s style.&lt;/p&gt;
 &lt;p&gt;With the &lt;strong&gt;re-terminal&lt;/strong&gt; theme, and after some styling adjustments, the result might look like this:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/Pasted-image-20251020234144.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/37473a1eeb87066d.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;p&gt;In the example above, the pagination elements of the default theme were customized.&lt;br&gt;
 To achieve the same result, you can create a file called &lt;code&gt;layouts/partials/pagination.html&lt;/code&gt; with the following content:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{{ $p := .Paginator }}
@@ -286,7 +286,7 @@ Create a file called &lt;code&gt;partials/header.html&lt;/code&gt; and reimpleme
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;header&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The &lt;strong&gt;div&lt;/strong&gt; with the attribute &lt;strong&gt;id=&amp;ldquo;search&amp;rdquo;&lt;/strong&gt; is where the search interface will be rendered.&lt;br&gt;
 After adding the code, the result should look similar to this:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/Pasted-image-20251021000348.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/727449facc34d02c.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;p&gt;However, for the posts to appear correctly in the search results, you’ll need to &lt;strong&gt;index your site&lt;/strong&gt;.&lt;br&gt;
 You can do this using the Pagefind command (see more details in the &lt;a href=&#34;https://pagefind.app/docs/running-pagefind/&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;
   official documentation
@@ -299,7 +299,7 @@ You can do this using the Pagefind command (see more details in the &lt;a href=&
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npx pagefind --site public
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In the command above, we run &lt;strong&gt;Pagefind&lt;/strong&gt; on the site located in the &lt;code&gt;public/&lt;/code&gt; folder, which contains the current build with all the posts. To filter exactly what we want, it is necessary to set the &lt;code&gt;data-pagefind-body&lt;/code&gt; attribute in the &lt;code&gt;layouts\_default\single.html&lt;/code&gt; file so that Pagefind can correctly locate the data it needs to index.&lt;/p&gt;
 &lt;p&gt;After running the command, Pagefind will display a summary of the indexing process — including the number of files indexed, detected languages, and other details.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/Pasted-image-20251021233149.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/442d46f8057d7699.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;With the configurations presented in this article, we’ve made Hugo even more powerful and flexible, adding essential features like &lt;strong&gt;multi-language support&lt;/strong&gt;, &lt;strong&gt;custom pagination&lt;/strong&gt;, and an &lt;strong&gt;efficient local search&lt;/strong&gt; with Pagefind.&lt;/p&gt;
@@ -311,10 +311,10 @@ You can do this using the Pagefind command (see more details in the &lt;a href=&
     
     <item>
       <title>Hugo #1 — Setting Up Your First Blog</title>
-      <link>https://smvasconcelos.github.io/devlogs/en/posts/hugo-1--configurando-seu-primeiro-blog/</link>
+      <link>https://smvasconcelos.github.io/devlogs/en/posts/40bd465b991e6fc6/</link>
       <pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://smvasconcelos.github.io/devlogs/en/posts/hugo-1--configurando-seu-primeiro-blog/</guid>
+      <guid>https://smvasconcelos.github.io/devlogs/en/posts/40bd465b991e6fc6/</guid>
       <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;Throughout most of my career, I’ve always focused on growing technically through study and applying what I’ve learned in the best way possible.&lt;br&gt;
 However, I realized I was missing a space to document my learning process — a &lt;strong&gt;devlog&lt;/strong&gt; — that could serve both as a personal knowledge base and a way to share insights with other developers.&lt;/p&gt;</description>
@@ -345,7 +345,7 @@ According to the &lt;a href=&#34;https://themes.gohugo.io/&#34;target=&#34;_blan
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;theme = &amp;#39;ananke&amp;#39;&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; hugo.toml
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo server
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The command above starts a local server, and your site will be available at &lt;code&gt;http://localhost:1313/&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/Pasted-image-20251006203921.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/74cf69439eb846a0.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;choosing-the-theme-and-configuring-the-project&#34;&gt;Choosing the theme and configuring the project&lt;/h2&gt;
 &lt;p&gt;For the initial setup, I used the &lt;strong&gt;Ananke&lt;/strong&gt; theme just for demonstration.&lt;br&gt;
 Then, I browsed through the &lt;a href=&#34;https://themes.gohugo.io/tags/blog/&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;

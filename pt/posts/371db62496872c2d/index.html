@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  
+    <title>CSS #1 - Transições com a View Transition API :: smvasconcelos | DevLogs</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A experiência do usuário (UX) em aplicações web modernas exige fluidez e continuidade, algo que historicamente era difícil de alcançar em sites tradicionais sem o uso de frameworks complexos de SPA. O recarregamento completo da página muitas vezes quebra o contexto do usuário com uma &ldquo;tela branca&rdquo; entre o carregamento de forma brusca.
+" />
+<meta name="keywords" content="" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="https://smvasconcelos.github.io/devlogs/pt/posts/371db62496872c2d/" />
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://smvasconcelos.github.io/devlogs/styles.css">
+
+
+
+<link rel="stylesheet" href="https://smvasconcelos.github.io/devlogs/style.css">
+
+
+
+  <link rel="shortcut icon" href="https://smvasconcelos.github.io/devlogs/favicon.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+
+
+<meta property="og:locale" content="pt" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="CSS #1 - Transições com a View Transition API">
+<meta property="og:description" content="A experiência do usuário (UX) em aplicações web modernas exige fluidez e continuidade, algo que historicamente era difícil de alcançar em sites tradicionais sem o uso de frameworks complexos de SPA. O recarregamento completo da página muitas vezes quebra o contexto do usuário com uma &ldquo;tela branca&rdquo; entre o carregamento de forma brusca.
+" />
+<meta property="og:url" content="https://smvasconcelos.github.io/devlogs/pt/posts/371db62496872c2d/" />
+<meta property="og:site_name" content="smvasconcelos | DevLogs" />
+
+  
+    <meta property="og:image" content="https://smvasconcelos.github.io/devlogs/favicon.png">
+  
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2025-11-01 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+<link href="/devlogs/pagefind/pagefind-ui.css" rel="stylesheet">
+<script src="/devlogs/pagefind/pagefind-ui.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    new PagefindUI({
+      element: "#search",
+      showSubResults: false,
+      showImages: false,
+      debounceTimeoutMs: 500,
+      sort: { date: "desc" },
+      showMeta: false,
+      excerptLength: 15
+    });
+  });
+
+  
+  document.addEventListener('focusin', (e) => {
+    if (e.target && e.target.matches('#search input')) {
+      const drawer = document.querySelector('.pagefind-ui__drawer');
+      if (drawer && e.target.value.trim() !== '' && drawer.classList.contains('pagefind-ui__hidden')) {
+        drawer.classList.remove('pagefind-ui__hidden');
+      }
+    }
+  });
+
+  
+  document.addEventListener('click', (e) => {
+    const searchEl = document.querySelector("#search");
+    const drawer = document.querySelector(".pagefind-ui__drawer");
+    if (searchEl && drawer && !searchEl.contains(e.target) && !drawer.classList.contains('pagefind-ui__hidden') && !e.target.classList.contains('pagefind-ui__button')) {
+      drawer.classList.add('pagefind-ui__hidden');
+    }
+  });
+
+</script>
+
+
+
+  
+
+
+</head>
+<body class="crt">
+
+
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/devlogs/pt">
+  <div class="logo">
+    smvasconcelos | DevLogs
+  </div>
+</a>
+
+    </div>
+    
+    <div id="search"></div>
+    
+    <ul class="menu menu--desktop menu--language-selector">
+  <li class="menu__trigger">Português&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        <li><a href="/devlogs/en/">English</a></li>
+      
+        <li><a href="/devlogs/pt/">Português</a></li>
+      
+    </ul>
+  </li>
+</ul>
+
+    
+  </div>
+</header>
+
+
+  <div class="content">
+    
+<article class="post" data-pagefind-body>
+  <h1 class="post-title typewriter" style="view-transition-name:post-title-371db62496872c2d.pt;">
+    <a data-pagefind-field="title" href="https://smvasconcelos.github.io/devlogs/pt/posts/371db62496872c2d/">CSS #1 - Transições com a View Transition API</a>
+  </h1>
+  <div class="post-meta"><time data-pagefind-field="date" class="post-date" style="view-transition-name:post-date-371db62496872c2d.pt;">2025-11-01</time>
+    
+<span class="post-reading-time">5 min - leitura (948
+      palavras)</span>
+    <span class="post-tags" style="view-transition-name:post-tags-371db62496872c2d.pt;">
+      
+      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/css/">css</a>
+      
+      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/animations/">animations</a>
+      
+      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/transitions/">transitions</a>
+      
+      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/view-transition/">view-transition</a>
+      
+      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/firefox/">firefox</a>
+      
+    </span>
+    
+  </div>
+
+  
+
+
+
+  
+  <div class="table-of-contents">
+    <h2>
+      Sumário
+    </h2>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#como-funciona-a-view-transition-api">Como Funciona a View Transition API?</a></li>
+    <li><a href="#como-implementar-no-seu-blog-mpa">Como Implementar no Seu Blog (MPA)</a>
+      <ul>
+        <li><a href="#passo-1-habilitar-a-transição-opt-in">Passo 1: Habilitar a Transição (Opt-in)</a></li>
+        <li><a href="#passo-2-animar-elementos-específicos-shared-elements">Passo 2: Animar Elementos Específicos (Shared Elements)</a></li>
+      </ul>
+    </li>
+    <li><a href="#personalização-e-a-relação-com-css">Personalização e a Relação com CSS</a>
+      <ul>
+        <li><a href="#a-estrutura-da-transição-pseudo-elementos">A Estrutura da Transição (Pseudo-elementos)</a></li>
+        <li><a href="#customizando-a-animação-padrão">Customizando a Animação Padrão</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusão-e-próximos-passos">Conclusão e Próximos Passos</a></li>
+  </ul>
+</nav>
+  </div>
+  
+
+  <div  class="post-content" style="view-transition-name:post-content-371db62496872c2d.pt;"><div>
+      <p>A experiência do usuário (UX) em aplicações web modernas exige fluidez e continuidade, algo que historicamente era difícil de alcançar em sites tradicionais  sem o uso de frameworks complexos de SPA. O recarregamento completo da página muitas vezes quebra o contexto do usuário com uma &ldquo;tela branca&rdquo; entre o carregamento de forma brusca.</p>
+<p>A <strong>View Transition API</strong> surge como a solução nativa da plataforma web. Ela permite criar transições animadas e suaves entre diferentes estados do DOM (na mesma página - SPA) ou até mesmo entre diferentes documentos (na navegação entre páginas - MPA), tudo de forma declarativa e com o poder do CSS. Agora, com o suporte expandido (incluindo Firefox, Chrome e Safari), é o momento ideal para adotá-la!</p>
+<h2 id="como-funciona-a-view-transition-api">Como Funciona a View Transition API?<a
+          href="#como-funciona-a-view-transition-api" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>O princípio de funcionamento é engenhoso e se baseia em capturas de tela (snapshots) e pseudo-elementos CSS. O processo de transição ocorre em 4 passos principais:</p>
+<ol>
+<li><strong>Gatilho da Transição:</strong> A transição é iniciada, seja por uma chamada JavaScript (<code>document.startViewTransition()</code>) em SPAs, ou automaticamente na navegação entre páginas em MPAs.</li>
+<li><strong>Captura de Snapshot (Old View):</strong> O navegador congela e captura uma imagem (snapshot) do estado visual atual da página.</li>
+<li><strong>Atualização do DOM:</strong> O conteúdo da página é atualizado (o DOM é modificado, ou a nova página é carregada) <strong>sem que o usuário veja</strong>, pois o snapshot anterior está sendo exibido.</li>
+<li><strong>Transição Animada:</strong> O navegador insere os pseudo-elementos da transição e usa animações CSS para fazer a transição suave do &ldquo;snapshot antigo&rdquo; para o &ldquo;novo estado&rdquo;.</li>
+</ol>
+<p>O resultado é uma transição visualmente suave, onde o conteúdo muda de forma elegante, mantendo o usuário imerso.</p>
+<h2 id="como-implementar-no-seu-blog-mpa">Como Implementar no Seu Blog (MPA)<a
+          href="#como-implementar-no-seu-blog-mpa" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>A beleza da View Transition API para sites multi-páginas (MPA) — como a maioria dos blogs baseados em CMS — é que ela requer <strong>quase nada de JavaScript</strong> para a transição padrão!</p>
+<h3 id="passo-1-habilitar-a-transição-opt-in">Passo 1: Habilitar a Transição (Opt-in)<a
+          href="#passo-1-habilitar-a-transição-opt-in" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Para que o navegador saiba que você deseja transições entre páginas, adicione esta regra CSS em sua folha de estilos global:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-CSS" data-lang="CSS"><span style="display:flex;"><span><span style="color:#75715e">/* Seu arquivo CSS global (style.css, por exemplo) */</span>
+</span></span><span style="display:flex;"><span>@<span style="color:#66d9ef">view-transition</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">navigation</span><span style="color:#f92672">:</span> <span style="color:#f92672">auto</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>::<span style="color:#a6e22e">view-transition-group</span><span style="color:#f92672">(</span><span style="color:#f92672">root</span><span style="color:#f92672">)</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">animation-duration</span>: <span style="color:#ae81ff">800</span><span style="color:#66d9ef">ms</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">animation-timing-function</span>: <span style="color:#66d9ef">ease-in-out</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
+<p><strong>Nota:</strong> Esta única linha habilita a transição de visualização em todos os links do seu site para navegações de mesma origem (same-origin). Por padrão, ela aplica um efeito de <em>cross-fade</em> (dissolver suavemente), que já é uma grande melhoria.</p></blockquote>
+<p><img src="/devlogs/images/3bbea15b7777c38d.gif" alt="Image Description"></p>
+<h3 id="passo-2-animar-elementos-específicos-shared-elements">Passo 2: Animar Elementos Específicos (Shared Elements)<a
+          href="#passo-2-animar-elementos-específicos-shared-elements" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Para criar transições mais complexas e que movem elementos específicos (como um título ou uma imagem), você precisa dar um &ldquo;nome&rdquo; ao elemento no estado antigo e no novo estado.</p>
+<p><strong>Exemplo (Transição de um Título de Post):</strong></p>
+<ol>
+<li>
+<p><strong>No HTML/CSS do Título na Lista de Posts (Página A):</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-HTML" data-lang="HTML"><span style="display:flex;"><span>&lt;<span style="color:#f92672">h2</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post-card-title&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  Título do Post
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">h2</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-CSS" data-lang="CSS"><span style="display:flex;"><span>.<span style="color:#a6e22e">post-card-title</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/* O nome da transição precisa ser único por página! */</span>
+</span></span><span style="display:flex;"><span>  view-transition-name: post-title-123; 
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+<li>
+<p><strong>No HTML/CSS do Título na Página do Post (Página B):</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-HTML" data-lang="HTML"><span style="display:flex;"><span>&lt;<span style="color:#f92672">h1</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post-hero-title&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  Título do Post
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-CSS" data-lang="CSS"><span style="display:flex;"><span>.<span style="color:#a6e22e">post-hero-title</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/* Deve ter o MESMO nome na página de destino */</span>
+</span></span><span style="display:flex;"><span>  view-transition-name: post-title-123; 
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+</ol>
+<p>Ao clicar no link, o navegador fará a transição suave da posição, tamanho e forma do elemento com o <code>view-transition-name</code> entre as duas páginas!</p>
+<h2 id="personalização-e-a-relação-com-css">Personalização e a Relação com CSS<a
+          href="#personalização-e-a-relação-com-css" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Aqui é onde a View Transition API se torna uma potência. A personalização é feita puramente com CSS, utilizando pseudo-elementos específicos injetados pelo navegador durante a transição.</p>
+<h3 id="a-estrutura-da-transição-pseudo-elementos">A Estrutura da Transição (Pseudo-elementos)<a
+          href="#a-estrutura-da-transição-pseudo-elementos" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Durante a transição, o navegador cria a seguinte estrutura (oculta) no topo da sua página:</p>
+<pre tabindex="0"><code>::view-transition
+└── ::view-transition-group(root) ou ::view-transition-group(nome-personalizado)
+    ├── ::view-transition-image-pair(root) ou ::view-transition-image-pair(nome-personalizado)
+    │   ├── ::view-transition-old(root) ou ::view-transition-old(nome-personalizado)
+    │   └── ::view-transition-new(root) ou ::view-transition-new(nome-personalizado)
+</code></pre><table>
+  <thead>
+      <tr>
+          <th><strong>Pseudo-elemento</strong></th>
+          <th><strong>Descrição</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>::view-transition</code></td>
+          <td>O <em>overlay</em> que cobre toda a viewport.</td>
+      </tr>
+      <tr>
+          <td><code>::view-transition-group(nome)</code></td>
+          <td>Contém o par de imagens, com a posição e tamanho do elemento nomeado.</td>
+      </tr>
+      <tr>
+          <td><code>::view-transition-old(nome)</code></td>
+          <td>O snapshot da vista antiga. É animado para <strong>sair</strong>.</td>
+      </tr>
+      <tr>
+          <td><code>::view-transition-new(nome)</code></td>
+          <td>O snapshot da vista nova. É animado para <strong>entrar</strong>.</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="customizando-a-animação-padrão">Customizando a Animação Padrão<a
+          href="#customizando-a-animação-padrão" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Por padrão, a transição global (<code>root</code>) é um <code>cross-fade</code> que dura <code>500ms</code>. Você pode mudar isso usando <code>@keyframes</code> e direcionando os <code>pseudo-elementos</code>.
+Além disso, podemos editar a animação de in e out, com os <code>pseudo-elementos</code> de transição. Abaixo vamos observar o efeito utilizado nesse blog na data de publicação.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-CSS" data-lang="CSS"><span style="display:flex;"><span><span style="color:#75715e">/* Define duração e suavidade global */</span>
+</span></span><span style="display:flex;"><span>::<span style="color:#a6e22e">view-transition-group</span><span style="color:#f92672">(</span><span style="color:#f92672">root</span><span style="color:#f92672">)</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">animation-duration</span>: <span style="color:#ae81ff">800</span><span style="color:#66d9ef">ms</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">animation-timing-function</span>: <span style="color:#66d9ef">ease-in-out</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* Página antiga — tela vai escurecendo e ficando pixelada */</span>
+</span></span><span style="display:flex;"><span>::<span style="color:#a6e22e">view-transition-old</span><span style="color:#f92672">(</span><span style="color:#f92672">root</span><span style="color:#f92672">)</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">animation-name</span>: pixel-fade-out;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* Página nova — tela surge do preto e volta a ficar nítida */</span>
+</span></span><span style="display:flex;"><span>::<span style="color:#a6e22e">view-transition-new</span><span style="color:#f92672">(</span><span style="color:#f92672">root</span><span style="color:#f92672">)</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">animation-name</span>: pixel-fade-in;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* --- Keyframes --- */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* Desaparecendo estilo &#34;entrando em fase&#34; */</span>
+</span></span><span style="display:flex;"><span>@<span style="color:#66d9ef">keyframes</span> <span style="color:#f92672">pixel-fade-out</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">0</span><span style="color:#f92672">%</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">opacity</span>: <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">filter</span>: <span style="color:#66d9ef">none</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">transform</span>: <span style="color:#66d9ef">none</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">40</span><span style="color:#f92672">%</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">filter</span>: brightness(<span style="color:#ae81ff">70</span><span style="color:#66d9ef">%</span>) saturate(<span style="color:#ae81ff">80</span><span style="color:#66d9ef">%</span>) blur(<span style="color:#ae81ff">2</span><span style="color:#66d9ef">px</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">70</span><span style="color:#f92672">%</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">filter</span>: brightness(<span style="color:#ae81ff">30</span><span style="color:#66d9ef">%</span>) saturate(<span style="color:#ae81ff">30</span><span style="color:#66d9ef">%</span>) blur(<span style="color:#ae81ff">6</span><span style="color:#66d9ef">px</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">100</span><span style="color:#f92672">%</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">opacity</span>: <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">filter</span>: brightness(<span style="color:#ae81ff">0</span><span style="color:#66d9ef">%</span>) blur(<span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* Reaparecendo da escuridão, como se saísse da tela preta */</span>
+</span></span><span style="display:flex;"><span>@<span style="color:#66d9ef">keyframes</span> <span style="color:#f92672">pixel-fade-in</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">0</span><span style="color:#f92672">%</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">opacity</span>: <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">filter</span>: brightness(<span style="color:#ae81ff">0</span><span style="color:#66d9ef">%</span>) blur(<span style="color:#ae81ff">12</span><span style="color:#66d9ef">px</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">transform</span>: scale(<span style="color:#ae81ff">1.02</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">30</span><span style="color:#f92672">%</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">opacity</span>: <span style="color:#ae81ff">0.5</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">filter</span>: brightness(<span style="color:#ae81ff">40</span><span style="color:#66d9ef">%</span>) blur(<span style="color:#ae81ff">8</span><span style="color:#66d9ef">px</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">60</span><span style="color:#f92672">%</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">opacity</span>: <span style="color:#ae81ff">0.8</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">filter</span>: brightness(<span style="color:#ae81ff">80</span><span style="color:#66d9ef">%</span>) blur(<span style="color:#ae81ff">4</span><span style="color:#66d9ef">px</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">100</span><span style="color:#f92672">%</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">opacity</span>: <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">filter</span>: <span style="color:#66d9ef">none</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">transform</span>: <span style="color:#66d9ef">none</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Tive com inspiração, os efeitos de transição de jogos snes como super mario world, onde durante o carregamento de uma nova fase, a tela escurece e fica um pouco pixelada. Abaixo podemos observar o resultado.</p>
+<p><img src="/devlogs/images/e9fa79e34f8b3d20.gif" alt="Image Description"></p>
+<h2 id="conclusão-e-próximos-passos">Conclusão e Próximos Passos<a
+          href="#conclusão-e-próximos-passos" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>A <strong>View Transition API</strong> é uma ótima adição para a web. Ela democratiza as transições de página de alta qualidade, tornando-as acessíveis a qualquer projeto, de SPAs complexas a blogs estáticos simples. O fato de ser nativa e personalizável via CSS a torna uma ferramenta poderosa no arsenal de qualquer desenvolvedor.</p>
+<p>Com a chegada do suporte ao Firefox, não há mais desculpas para não oferecer navegações mais coesas e agradáveis.</p>
+
+      </div></div>
+
+    
+    
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Leia outras postagens</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        
+        <span class="button next">
+            <a href="https://smvasconcelos.github.io/devlogs/pt/posts/3262d6d38d70967d/">
+                <span class="button__text">Hugo #2 — Adicionando melhorias no nosso blog</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+    
+
+    
+    
+
+    
+  </article>
+  
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+    <div class="copyright copyright--user">
+      <span>© 2025 <a href='https://smvasconcelos.github.io/resume/'>Samuel Vasconcelos</a>. Todos os direitos reservados.</span>
+      
+      </div>
+    </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/devlogs/bundle.min.js"></script>
+
+
+
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

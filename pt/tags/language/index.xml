@@ -9,10 +9,10 @@
     <lastBuildDate>Mon, 20 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://smvasconcelos.github.io/devlogs/pt/tags/language/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo #2 — Adicionando melhorias no nosso blog</title>
-      <link>https://smvasconcelos.github.io/devlogs/pt/posts/hugo-2--configurando-pesquisa-pagina%C3%A7%C3%A3o-e-linguagem/</link>
+      <link>https://smvasconcelos.github.io/devlogs/pt/posts/3262d6d38d70967d/</link>
       <pubDate>Mon, 20 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://smvasconcelos.github.io/devlogs/pt/posts/hugo-2--configurando-pesquisa-pagina%C3%A7%C3%A3o-e-linguagem/</guid>
+      <guid>https://smvasconcelos.github.io/devlogs/pt/posts/3262d6d38d70967d/</guid>
       <description>&lt;p&gt;Neste artigo, vamos conhecer um pouco mais sobre a ferramenta &lt;strong&gt;Hugo&lt;/strong&gt;, entender como funcionam algumas de suas &lt;strong&gt;APIs&lt;/strong&gt; — pesquisa, paginação e linguagem — e descobrir como utilizá-las para aprimorar o nosso blog.&lt;/p&gt;</description>
       <content>&lt;p&gt;Neste artigo, vamos conhecer um pouco mais sobre a ferramenta &lt;strong&gt;Hugo&lt;/strong&gt;, entender como funcionam algumas de suas &lt;strong&gt;APIs&lt;/strong&gt; — pesquisa, paginação e linguagem — e descobrir como utilizá-las para aprimorar o nosso blog.&lt;/p&gt;
 &lt;hr&gt;
@@ -35,7 +35,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;showLanguageSelector&lt;/span&gt; = &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Com essa opção ativada e as traduções configuradas corretamente, o menu de seleção de idioma será exibido de acordo com as definições do seu tema.&lt;/p&gt;
 &lt;p&gt;No tema &lt;strong&gt;re-terminal&lt;/strong&gt;, por exemplo, o resultado esperado será algo semelhante a:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/Pasted-image-20251020233751.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/c959be8f943e49e2.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;paginação-padrão-e-como-personalizar&#34;&gt;Paginação padrão e como personalizar&lt;/h2&gt;
 &lt;p&gt;O Hugo também oferece suporte nativo à &lt;strong&gt;paginação&lt;/strong&gt;, permitindo controlar completamente sua aparência e comportamento.&lt;br&gt;
@@ -43,7 +43,7 @@ Um dos parâmetros mais importantes é a quantidade de itens exibidos por págin
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;pagination&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;pagerSize&lt;/span&gt; = &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Após definir essa configuração, quando o número de itens ultrapassar o limite estabelecido, o Hugo exibirá o menu de paginação conforme o padrão do seu tema.&lt;/p&gt;
 &lt;p&gt;Com o tema &lt;strong&gt;re-terminal&lt;/strong&gt;, e após algumas personalizações de estilo, o resultado pode se parecer com o seguinte:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/Pasted-image-20251020234144.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/37473a1eeb87066d.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;p&gt;No exemplo acima, foi feita uma personalização dos itens de paginação do tema padrão.&lt;br&gt;
 Para obter o mesmo resultado, você pode criar o arquivo &lt;code&gt;layouts/partials/pagination.html&lt;/code&gt; com o seguinte conteúdo:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{{ $p := .Paginator }}
@@ -122,7 +122,7 @@ Crie um arquivo chamado &lt;code&gt;partials/header.html&lt;/code&gt; e reimplem
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;header&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;A &lt;strong&gt;div&lt;/strong&gt; com o atributo &lt;strong&gt;id=&amp;ldquo;search&amp;rdquo;&lt;/strong&gt; é o local onde a interface de busca será renderizada.&lt;br&gt;
 Após adicionar o código, o resultado deve se parecer com o exemplo abaixo:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/Pasted-image-20251021000348.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/727449facc34d02c.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Entretanto, para que os posts apareçam corretamente nos resultados de pesquisa, é necessário &lt;strong&gt;indexar o site&lt;/strong&gt;.&lt;br&gt;
 Podemos fazer isso com o comando do Pagefind (mais detalhes na &lt;a href=&#34;https://pagefind.app/docs/running-pagefind/&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;
   documentação oficial
@@ -135,7 +135,7 @@ Podemos fazer isso com o comando do Pagefind (mais detalhes na &lt;a href=&#34;h
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npx pagefind --site public
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;No comando acima, executamos o &lt;strong&gt;Pagefind&lt;/strong&gt; sobre o site presente na pasta &lt;code&gt;public/&lt;/code&gt;, nela vamos ter a build atual com todos os posts, e para filtrar exatamente o que queremos é necessário definir o atributo &lt;code&gt;data-pagefind-body&lt;/code&gt;  no arquivo &lt;code&gt;layouts\_default\single.html&lt;/code&gt; para que o pagefind encontre corretamente os dados que precisa indexar.&lt;/p&gt;
 &lt;p&gt;Após rodar o comando, o Pagefind exibirá um resumo contendo o que foi gerado — como o número de arquivos indexados, as linguagens detectadas, e outros detalhes.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/Pasted-image-20251021233149.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/442d46f8057d7699.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;conclusão&#34;&gt;Conclusão&lt;/h2&gt;
 &lt;p&gt;Com as configurações apresentadas neste artigo, conseguimos tornar o Hugo ainda mais completo e funcional, adicionando recursos essenciais como &lt;strong&gt;suporte a múltiplos idiomas&lt;/strong&gt;, &lt;strong&gt;paginação personalizada&lt;/strong&gt; e uma &lt;strong&gt;pesquisa local eficiente&lt;/strong&gt; com o Pagefind.&lt;/p&gt;
 &lt;p&gt;Essas funcionalidades elevam o nível do seu blog estático, oferecendo uma experiência mais fluida e intuitiva para o leitor, sem comprometer o desempenho — um dos grandes diferenciais do Hugo.&lt;/p&gt;
