@@ -40,7 +40,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Nota:&lt;/strong&gt; Esta única linha habilita a transição de visualização em todos os links do seu site para navegações de mesma origem (same-origin). Por padrão, ela aplica um efeito de &lt;em&gt;cross-fade&lt;/em&gt; (dissolver suavemente), que já é uma grande melhoria.&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;![[screen-capture-&lt;em&gt;2&lt;/em&gt;.gif]]&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/screen-capture-_2_.gif&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;h4 id=&#34;passo-2-animar-elementos-específicos-shared-elements&#34;&gt;Passo 2: Animar Elementos Específicos (Shared Elements)&lt;/h4&gt;
 &lt;p&gt;Para criar transições mais complexas e que movem elementos específicos (como um título ou uma imagem), você precisa dar um &amp;ldquo;nome&amp;rdquo; ao elemento no estado antigo e no novo estado.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Exemplo (Transição de um Título de Post):&lt;/strong&gt;&lt;/p&gt;
@@ -164,7 +164,7 @@ Além disso, podemos editar a animação de in e out, com os &lt;code&gt;pseudo-
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Tive com inspiração, os efeitos de transição de jogos snes como super mario world, onde durante o carregamento de uma nova fase, a tela escurece e fica um pouco pixelada. Abaixo podemos observar o resultado.&lt;/p&gt;
-&lt;p&gt;![[screen-capture-&lt;em&gt;3&lt;/em&gt;.gif]]&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/screen-capture-_3_.gif&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;conclusão-e-próximos-passos&#34;&gt;Conclusão e Próximos Passos&lt;/h3&gt;
 &lt;p&gt;A &lt;strong&gt;View Transition API&lt;/strong&gt; é uma ótima adição para a web. Ela democratiza as transições de página de alta qualidade, tornando-as acessíveis a qualquer projeto, de SPAs complexas a blogs estáticos simples. O fato de ser nativa e personalizável via CSS a torna uma ferramenta poderosa no arsenal de qualquer desenvolvedor.&lt;/p&gt;
 &lt;p&gt;Com a chegada do suporte ao Firefox, não há mais desculpas para não oferecer navegações mais coesas e agradáveis.&lt;/p&gt;
