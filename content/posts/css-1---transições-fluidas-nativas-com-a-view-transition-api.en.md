@@ -14,7 +14,7 @@ The user experience (UX) in modern web applications demands fluidity and continu
 
 The **View Transition API** emerges as the native web platform solution. It allows you to create smooth, animated transitions between different DOM states (on the same page - SPA) or even between different documents (during page navigation - MPA), all declaratively and with the power of CSS. Now, with expanded support (including Firefox, Chrome, and Safari), it is the ideal time to adopt it!
 
-# How Does the View Transition API Work?
+## How Does the View Transition API Work?
 
 The working principle is ingenious and based on snapshots and CSS pseudo-elements. The transition process occurs in 4 main steps:
 
@@ -25,11 +25,11 @@ The working principle is ingenious and based on snapshots and CSS pseudo-element
 
 The result is a visually smooth transition, where content changes elegantly, keeping the user immersed.
 
-# How to Implement it on Your Blog (MPA)
+## How to Implement it on Your Blog (MPA)
 
 The beauty of the View Transition API for multi-page sites (MPA) — like most CMS-based blogs — is that it requires **almost no JavaScript** for the standard transition!
 
-## Step 1: Enable the Transition (Opt-in)
+### Step 1: Enable the Transition (Opt-in)
 
 For the browser to know that you want transitions between pages, add this CSS rule to your global stylesheet:
 
@@ -49,7 +49,7 @@ For the browser to know that you want transitions between pages, add this CSS ru
 
 ![Image Description](/devlogs/images/screen-capture-_2_.gif)
 
-## Step 2: Animate Specific Elements (Shared Elements)
+### Step 2: Animate Specific Elements (Shared Elements)
 
 To create more complex transitions that move specific elements (like a title or an image), you need to give the element a "name" in both the old state and the new state.
 
@@ -87,11 +87,11 @@ To create more complex transitions that move specific elements (like a title or 
 
 When you click the link, the browser will smoothly transition the position, size, and shape of the element with the `view-transition-name` between the two pages\!
 
-# Customization and the Relationship with CSS
+## Customization and the Relationship with CSS
 
 This is where the View Transition API becomes a powerhouse. Customization is done purely with CSS, using specific pseudo-elements injected by the browser during the transition.
 
-## The Transition Structure (Pseudo-elements)
+### The Transition Structure (Pseudo-elements)
 
 During the transition, the browser creates the following structure (hidden) at the top of your page:
 
@@ -110,7 +110,7 @@ During the transition, the browser creates the following structure (hidden) at t
 | `::view-transition-old(name)` | The snapshot of the old view. It is animated to **exit**. |
 | `::view-transition-new(name)` | The snapshot of the new view. It is animated to **enter**. |
 
-## Customizing the Default Animation
+### Customizing the Default Animation
 
 By default, the global transition (`root`) is a `cross-fade` that lasts `500ms`. You can change this using `@keyframes` and targeting the `pseudo-elements`.
 Furthermore, we can edit the in and out animation with the transition `pseudo-elements`. Below we observe the effect used in this blog on the date of publication.
@@ -180,7 +180,7 @@ I was inspired by the transition effects of SNES games like Super Mario World, w
 
 ![Image Description](/devlogs/images/screen-capture-_3_.gif)
 
-# Conclusion and Next Steps
+## Conclusion and Next Steps
 
 The **View Transition API** is a great addition to the web. It democratizes high-quality page transitions, making them accessible to any project, from complex SPAs to simple static blogs. The fact that it is native and customizable via CSS makes it a powerful tool in any developer's arsenal.
 
