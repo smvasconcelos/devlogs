@@ -1,5 +1,5 @@
 ---
-title: CSS #1 - Transições Fluidas Nativas com a View Transition API
+title: "CSS #1 - Transições Fluidas Nativas com a View Transition API"
 date: 2025-11-01
 draft: false
 tags:
