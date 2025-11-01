@@ -1,0 +1,67 @@
+/* === View Transition Config === */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition {
+  background-color: #000; /* tela preta no meio da transição */
+}
+
+/* Define duração e suavidade global */
+::view-transition-group(root) {
+  animation-duration: 800ms;
+  animation-timing-function: ease-in-out;
+}
+
+/* Página antiga — tela vai escurecendo e ficando pixelada */
+::view-transition-old(root) {
+  animation-name: pixel-fade-out;
+}
+
+/* Página nova — tela surge do preto e volta a ficar nítida */
+::view-transition-new(root) {
+  animation-name: pixel-fade-in;
+}
+
+/* --- Keyframes --- */
+
+/* Desaparecendo estilo "entrando em fase" */
+@keyframes pixel-fade-out {
+  0% {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+  40% {
+    filter: brightness(70%) saturate(80%) blur(2px);
+  }
+  70% {
+    filter: brightness(30%) saturate(30%) blur(6px);
+  }
+  100% {
+    opacity: 0;
+    filter: brightness(0%) blur(10px);
+  }
+}
+
+/* Reaparecendo da escuridão, como se saísse da tela preta */
+@keyframes pixel-fade-in {
+  0% {
+    opacity: 0;
+    filter: brightness(0%) blur(12px);
+    transform: scale(1.02);
+  }
+  30% {
+    opacity: 0.5;
+    filter: brightness(40%) blur(8px);
+  }
+  60% {
+    opacity: 0.8;
+    filter: brightness(80%) blur(4px);
+  }
+  100% {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}

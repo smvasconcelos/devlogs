@@ -2,6 +2,7 @@
 @import url('./css/pagination.css');
 @import url('./css/search.css');
 @import url('./css/terminal.css');
+@import url('./css/view-transition.css');
 
 @font-face {
   font-display: swap;
@@ -124,7 +125,6 @@ html {
 /* === Post Tags === */
 .post-tags {
   margin-bottom: 0;
-  view-transition-name: post-tags;
 
   &::before {
       margin-right: 0 !important;
@@ -283,13 +283,4 @@ footer {
   .post-meta *:before{
     display: none !important;
   }
-}
-
-/* === View Transition === */
-@view-transition {
-  navigation: auto;
-}
-
-::view-transition {
-  background-color: #0a0a0a;
 }
