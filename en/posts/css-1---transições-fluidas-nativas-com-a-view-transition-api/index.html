@@ -184,14 +184,13 @@
     </h2>
     <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#how-does-the-view-transition-api-work">How Does the View Transition API Work?</a></li>
-        <li><a href="#how-to-implement-it-on-your-blog-mpa">How to Implement it on Your Blog (MPA)</a></li>
-        <li><a href="#customization-and-the-relationship-with-css">Customization and the Relationship with CSS</a></li>
-        <li><a href="#conclusion-and-next-steps">Conclusion and Next Steps</a></li>
-      </ul>
-    </li>
+    <li><a href="#step-1-enable-the-transition-opt-in">Step 1: Enable the Transition (Opt-in)</a></li>
+    <li><a href="#step-2-animate-specific-elements-shared-elements">Step 2: Animate Specific Elements (Shared Elements)</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#the-transition-structure-pseudo-elements">The Transition Structure (Pseudo-elements)</a></li>
+    <li><a href="#customizing-the-default-animation">Customizing the Default Animation</a></li>
   </ul>
 </nav>
   </div>
@@ -200,8 +199,8 @@
   <div  class="post-content" style="view-transition-name:post-content-ZgotmplZ;"><div>
       <p>The user experience (UX) in modern web applications demands fluidity and continuity, something that was historically difficult to achieve on traditional websites without the use of complex SPA frameworks. The full page reload often breaks the user&rsquo;s context with an abrupt &ldquo;white screen&rdquo; between loading.</p>
 <p>The <strong>View Transition API</strong> emerges as the native web platform solution. It allows you to create smooth, animated transitions between different DOM states (on the same page - SPA) or even between different documents (during page navigation - MPA), all declaratively and with the power of CSS. Now, with expanded support (including Firefox, Chrome, and Safari), it is the ideal time to adopt it!</p>
-<h3 id="how-does-the-view-transition-api-work">How Does the View Transition API Work?<a
-          href="#how-does-the-view-transition-api-work" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h1 id="how-does-the-view-transition-api-work">How Does the View Transition API Work?<a
+          href="#how-does-the-view-transition-api-work" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
 <p>The working principle is ingenious and based on snapshots and CSS pseudo-elements. The transition process occurs in 4 main steps:</p>
 <ol>
 <li><strong>Transition Trigger:</strong> The transition is initiated, either by a JavaScript call (<code>document.startViewTransition()</code>) in SPAs, or automatically during navigation between pages in MPAs.</li>
@@ -210,11 +209,11 @@
 <li><strong>Animated Transition:</strong> The browser inserts the transition&rsquo;s pseudo-elements and uses CSS animations to smoothly transition from the &ldquo;old snapshot&rdquo; to the &ldquo;new state.&rdquo;</li>
 </ol>
 <p>The result is a visually smooth transition, where content changes elegantly, keeping the user immersed.</p>
-<h3 id="how-to-implement-it-on-your-blog-mpa">How to Implement it on Your Blog (MPA)<a
-          href="#how-to-implement-it-on-your-blog-mpa" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h1 id="how-to-implement-it-on-your-blog-mpa">How to Implement it on Your Blog (MPA)<a
+          href="#how-to-implement-it-on-your-blog-mpa" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
 <p>The beauty of the View Transition API for multi-page sites (MPA) — like most CMS-based blogs — is that it requires <strong>almost no JavaScript</strong> for the standard transition!</p>
-<h4 id="step-1-enable-the-transition-opt-in">Step 1: Enable the Transition (Opt-in)<a
-          href="#step-1-enable-the-transition-opt-in" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h2 id="step-1-enable-the-transition-opt-in">Step 1: Enable the Transition (Opt-in)<a
+          href="#step-1-enable-the-transition-opt-in" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>For the browser to know that you want transitions between pages, add this CSS rule to your global stylesheet:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#75715e">/* Your global CSS file (style.css, for example) */</span>
 </span></span><span style="display:flex;"><span>@<span style="color:#66d9ef">view-transition</span> {
@@ -228,8 +227,8 @@
 </span></span></code></pre></div><blockquote>
 <p><strong>Note:</strong> This single line enables view transitions on all same-origin links on your site. By default, it applies a <em>cross-fade</em> effect (a soft dissolve), which is already a significant improvement.</p></blockquote>
 <p><img src="/devlogs/images/screen-capture-_2_.gif" alt="Image Description"></p>
-<h4 id="step-2-animate-specific-elements-shared-elements">Step 2: Animate Specific Elements (Shared Elements)<a
-          href="#step-2-animate-specific-elements-shared-elements" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h2 id="step-2-animate-specific-elements-shared-elements">Step 2: Animate Specific Elements (Shared Elements)<a
+          href="#step-2-animate-specific-elements-shared-elements" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>To create more complex transitions that move specific elements (like a title or an image), you need to give the element a &ldquo;name&rdquo; in both the old state and the new state.</p>
 <p><strong>Example (Post Title Transition):</strong></p>
 <ol>
@@ -255,11 +254,11 @@
 </span></span></code></pre></div></li>
 </ol>
 <p>When you click the link, the browser will smoothly transition the position, size, and shape of the element with the <code>view-transition-name</code> between the two pages!</p>
-<h3 id="customization-and-the-relationship-with-css">Customization and the Relationship with CSS<a
-          href="#customization-and-the-relationship-with-css" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h1 id="customization-and-the-relationship-with-css">Customization and the Relationship with CSS<a
+          href="#customization-and-the-relationship-with-css" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
 <p>This is where the View Transition API becomes a powerhouse. Customization is done purely with CSS, using specific pseudo-elements injected by the browser during the transition.</p>
-<h4 id="the-transition-structure-pseudo-elements">The Transition Structure (Pseudo-elements)<a
-          href="#the-transition-structure-pseudo-elements" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h2 id="the-transition-structure-pseudo-elements">The Transition Structure (Pseudo-elements)<a
+          href="#the-transition-structure-pseudo-elements" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>During the transition, the browser creates the following structure (hidden) at the top of your page:</p>
 <pre tabindex="0"><code>::view-transition
 └── ::view-transition-group(root) or ::view-transition-group(custom-name)
@@ -292,8 +291,8 @@
       </tr>
   </tbody>
 </table>
-<h4 id="customizing-the-default-animation">Customizing the Default Animation<a
-          href="#customizing-the-default-animation" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<h2 id="customizing-the-default-animation">Customizing the Default Animation<a
+          href="#customizing-the-default-animation" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>By default, the global transition (<code>root</code>) is a <code>cross-fade</code> that lasts <code>500ms</code>. You can change this using <code>@keyframes</code> and targeting the <code>pseudo-elements</code>.
 Furthermore, we can edit the in and out animation with the transition <code>pseudo-elements</code>. Below we observe the effect used in this blog on the date of publication.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#75715e">/* Define global duration and easing */</span>
@@ -356,8 +355,8 @@ Furthermore, we can edit the in and out animation with the transition <code>pseu
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>I was inspired by the transition effects of SNES games like Super Mario World, where during the loading of a new stage, the screen darkens and becomes a bit pixelated. Below we can see the result.</p>
 <p><img src="/devlogs/images/screen-capture-_3_.gif" alt="Image Description"></p>
-<h3 id="conclusion-and-next-steps">Conclusion and Next Steps<a
-          href="#conclusion-and-next-steps" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h1 id="conclusion-and-next-steps">Conclusion and Next Steps<a
+          href="#conclusion-and-next-steps" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
 <p>The <strong>View Transition API</strong> is a great addition to the web. It democratizes high-quality page transitions, making them accessible to any project, from complex SPAs to simple static blogs. The fact that it is native and customizable via CSS makes it a powerful tool in any developer&rsquo;s arsenal.</p>
 <p>With the arrival of Firefox support, there are no more excuses not to offer more cohesive and pleasant navigations.</p>
 
