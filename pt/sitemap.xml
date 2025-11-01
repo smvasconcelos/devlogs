@@ -2,8 +2,60 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://smvasconcelos.github.io/devlogs/pt/tags/animations/</loc>
+    <lastmod>2025-11-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://smvasconcelos.github.io/devlogs/en/tags/animations/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://smvasconcelos.github.io/devlogs/pt/tags/animations/"
+                />
+  </url><url>
+    <loc>https://smvasconcelos.github.io/devlogs/pt/tags/css/</loc>
+    <lastmod>2025-11-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://smvasconcelos.github.io/devlogs/en/tags/css/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://smvasconcelos.github.io/devlogs/pt/tags/css/"
+                />
+  </url><url>
+    <loc>https://smvasconcelos.github.io/devlogs/pt/posts/css-1---transi%C3%A7%C3%B5es-fluidas-nativas-com-a-view-transition-api/</loc>
+    <lastmod>2025-11-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://smvasconcelos.github.io/devlogs/en/posts/css-1---transi%C3%A7%C3%B5es-fluidas-nativas-com-a-view-transition-api/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://smvasconcelos.github.io/devlogs/pt/posts/css-1---transi%C3%A7%C3%B5es-fluidas-nativas-com-a-view-transition-api/"
+                />
+  </url><url>
+    <loc>https://smvasconcelos.github.io/devlogs/pt/tags/firefox/</loc>
+    <lastmod>2025-11-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://smvasconcelos.github.io/devlogs/en/tags/firefox/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://smvasconcelos.github.io/devlogs/pt/tags/firefox/"
+                />
+  </url><url>
     <loc>https://smvasconcelos.github.io/devlogs/pt/posts/</loc>
-    <lastmod>2025-10-21T00:00:00+00:00</lastmod>
+    <lastmod>2025-11-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -16,7 +68,7 @@
                 />
   </url><url>
     <loc>https://smvasconcelos.github.io/devlogs/pt/</loc>
-    <lastmod>2025-10-21T00:00:00+00:00</lastmod>
+    <lastmod>2025-11-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -26,6 +78,45 @@
                 rel="alternate"
                 hreflang="pt"
                 href="https://smvasconcelos.github.io/devlogs/pt/"
+                />
+  </url><url>
+    <loc>https://smvasconcelos.github.io/devlogs/pt/tags/</loc>
+    <lastmod>2025-11-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://smvasconcelos.github.io/devlogs/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://smvasconcelos.github.io/devlogs/pt/tags/"
+                />
+  </url><url>
+    <loc>https://smvasconcelos.github.io/devlogs/pt/tags/transitions/</loc>
+    <lastmod>2025-11-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://smvasconcelos.github.io/devlogs/en/tags/transitions/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://smvasconcelos.github.io/devlogs/pt/tags/transitions/"
+                />
+  </url><url>
+    <loc>https://smvasconcelos.github.io/devlogs/pt/tags/view-transition/</loc>
+    <lastmod>2025-11-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://smvasconcelos.github.io/devlogs/en/tags/view-transition/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://smvasconcelos.github.io/devlogs/pt/tags/view-transition/"
                 />
   </url><url>
     <loc>https://smvasconcelos.github.io/devlogs/pt/tags/hugo/</loc>
@@ -78,19 +169,6 @@
                 rel="alternate"
                 hreflang="pt"
                 href="https://smvasconcelos.github.io/devlogs/pt/tags/pagination/"
-                />
-  </url><url>
-    <loc>https://smvasconcelos.github.io/devlogs/pt/tags/</loc>
-    <lastmod>2025-10-20T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://smvasconcelos.github.io/devlogs/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://smvasconcelos.github.io/devlogs/pt/tags/"
                 />
   </url><url>
     <loc>https://smvasconcelos.github.io/devlogs/pt/tags/translation/</loc>
