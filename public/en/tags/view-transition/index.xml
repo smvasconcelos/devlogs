@@ -9,10 +9,10 @@
     <lastBuildDate>Sat, 01 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://smvasconcelos.github.io/devlogs/en/tags/view-transition/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CSS #1 - Transitions with the View Transition API</title>
-      <link>https://smvasconcelos.github.io/devlogs/en/posts/css-1---transi%C3%A7%C3%B5es-fluidas-nativas-com-a-view-transition-api/</link>
+      <link>https://smvasconcelos.github.io/devlogs/en/posts/371db62496872c2d/</link>
       <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://smvasconcelos.github.io/devlogs/en/posts/css-1---transi%C3%A7%C3%B5es-fluidas-nativas-com-a-view-transition-api/</guid>
+      <guid>https://smvasconcelos.github.io/devlogs/en/posts/371db62496872c2d/</guid>
       <description>&lt;p&gt;The user experience (UX) in modern web applications demands fluidity and continuity, something that was historically difficult to achieve on traditional websites without the use of complex SPA frameworks. The full page reload often breaks the user&amp;rsquo;s context with an abrupt &amp;ldquo;white screen&amp;rdquo; between loading.&lt;/p&gt;</description>
       <content>&lt;p&gt;The user experience (UX) in modern web applications demands fluidity and continuity, something that was historically difficult to achieve on traditional websites without the use of complex SPA frameworks. The full page reload often breaks the user&amp;rsquo;s context with an abrupt &amp;ldquo;white screen&amp;rdquo; between loading.&lt;/p&gt;
 &lt;p&gt;The &lt;strong&gt;View Transition API&lt;/strong&gt; emerges as the native web platform solution. It allows you to create smooth, animated transitions between different DOM states (on the same page - SPA) or even between different documents (during page navigation - MPA), all declaratively and with the power of CSS. Now, with expanded support (including Firefox, Chrome, and Safari), it is the ideal time to adopt it!&lt;/p&gt;
@@ -40,7 +40,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; This single line enables view transitions on all same-origin links on your site. By default, it applies a &lt;em&gt;cross-fade&lt;/em&gt; effect (a soft dissolve), which is already a significant improvement.&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/screen-capture-_2_.gif&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/3bbea15b7777c38d.gif&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;step-2-animate-specific-elements-shared-elements&#34;&gt;Step 2: Animate Specific Elements (Shared Elements)&lt;/h3&gt;
 &lt;p&gt;To create more complex transitions that move specific elements (like a title or an image), you need to give the element a &amp;ldquo;name&amp;rdquo; in both the old state and the new state.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Example (Post Title Transition):&lt;/strong&gt;&lt;/p&gt;
@@ -164,7 +164,7 @@ Furthermore, we can edit the in and out animation with the transition &lt;code&g
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I was inspired by the transition effects of SNES games like Super Mario World, where during the loading of a new stage, the screen darkens and becomes a bit pixelated. Below we can see the result.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/screen-capture-_3_.gif&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/e9fa79e34f8b3d20.gif&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;conclusion-and-next-steps&#34;&gt;Conclusion and Next Steps&lt;/h2&gt;
 &lt;p&gt;The &lt;strong&gt;View Transition API&lt;/strong&gt; is a great addition to the web. It democratizes high-quality page transitions, making them accessible to any project, from complex SPAs to simple static blogs. The fact that it is native and customizable via CSS makes it a powerful tool in any developer&amp;rsquo;s arsenal.&lt;/p&gt;
 &lt;p&gt;With the arrival of Firefox support, there are no more excuses not to offer more cohesive and pleasant navigations.&lt;/p&gt;

@@ -9,10 +9,10 @@
     <lastBuildDate>Mon, 06 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://smvasconcelos.github.io/devlogs/pt/tags/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo #1 — Configurando seu primeiro blog</title>
-      <link>https://smvasconcelos.github.io/devlogs/pt/posts/hugo-1--configurando-seu-primeiro-blog/</link>
+      <link>https://smvasconcelos.github.io/devlogs/pt/posts/40bd465b991e6fc6/</link>
       <pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://smvasconcelos.github.io/devlogs/pt/posts/hugo-1--configurando-seu-primeiro-blog/</guid>
+      <guid>https://smvasconcelos.github.io/devlogs/pt/posts/40bd465b991e6fc6/</guid>
       <description>&lt;h2 id=&#34;motivação&#34;&gt;Motivação&lt;/h2&gt;
 &lt;p&gt;Durante a maior parte da minha carreira, sempre foquei em evoluir tecnicamente por meio de estudos e em aplicar da melhor forma possível o que aprendi.&lt;br&gt;
 Mas percebi que faltava um espaço para documentar esse processo de aprendizado — &lt;strong&gt;um devlog&lt;/strong&gt; — que servisse tanto como repositório de consulta quanto como uma forma de compartilhar conhecimento com outros profissionais.&lt;/p&gt;</description>
@@ -43,7 +43,7 @@ Segundo a &lt;a href=&#34;https://themes.gohugo.io/&#34;target=&#34;_blank&#34; 
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;theme = &amp;#39;ananke&amp;#39;&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; hugo.toml
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo server
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;O comando acima inicia o servidor local e o site estará disponível em &lt;code&gt;http://localhost:1313/&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/Pasted-image-20251006203921.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/74cf69439eb846a0.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;escolhendo-o-tema-e-configurando-o-projeto&#34;&gt;Escolhendo o tema e configurando o projeto&lt;/h2&gt;
 &lt;p&gt;Na configuração inicial, utilizei o tema &lt;strong&gt;Ananke&lt;/strong&gt; apenas para demonstração.&lt;br&gt;
 Depois, fui até o &lt;a href=&#34;https://themes.gohugo.io/tags/blog/&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;
