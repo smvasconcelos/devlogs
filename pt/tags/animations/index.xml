@@ -16,7 +16,7 @@
       <description>&lt;p&gt;A experiência do usuário (UX) em aplicações web modernas exige fluidez e continuidade, algo que historicamente era difícil de alcançar em sites tradicionais  sem o uso de frameworks complexos de SPA. O recarregamento completo da página muitas vezes quebra o contexto do usuário com uma &amp;ldquo;tela branca&amp;rdquo; entre o carregamento de forma brusca.&lt;/p&gt;</description>
       <content>&lt;p&gt;A experiência do usuário (UX) em aplicações web modernas exige fluidez e continuidade, algo que historicamente era difícil de alcançar em sites tradicionais  sem o uso de frameworks complexos de SPA. O recarregamento completo da página muitas vezes quebra o contexto do usuário com uma &amp;ldquo;tela branca&amp;rdquo; entre o carregamento de forma brusca.&lt;/p&gt;
 &lt;p&gt;A &lt;strong&gt;View Transition API&lt;/strong&gt; surge como a solução nativa da plataforma web. Ela permite criar transições animadas e suaves entre diferentes estados do DOM (na mesma página - SPA) ou até mesmo entre diferentes documentos (na navegação entre páginas - MPA), tudo de forma declarativa e com o poder do CSS. Agora, com o suporte expandido (incluindo Firefox, Chrome e Safari), é o momento ideal para adotá-la!&lt;/p&gt;
-&lt;h1 id=&#34;como-funciona-a-view-transition-api&#34;&gt;Como Funciona a View Transition API?&lt;/h1&gt;
+&lt;h2 id=&#34;como-funciona-a-view-transition-api&#34;&gt;Como Funciona a View Transition API?&lt;/h2&gt;
 &lt;p&gt;O princípio de funcionamento é engenhoso e se baseia em capturas de tela (snapshots) e pseudo-elementos CSS. O processo de transição ocorre em 4 passos principais:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Gatilho da Transição:&lt;/strong&gt; A transição é iniciada, seja por uma chamada JavaScript (&lt;code&gt;document.startViewTransition()&lt;/code&gt;) em SPAs, ou automaticamente na navegação entre páginas em MPAs.&lt;/li&gt;
@@ -25,9 +25,9 @@
 &lt;li&gt;&lt;strong&gt;Transição Animada:&lt;/strong&gt; O navegador insere os pseudo-elementos da transição e usa animações CSS para fazer a transição suave do &amp;ldquo;snapshot antigo&amp;rdquo; para o &amp;ldquo;novo estado&amp;rdquo;.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;O resultado é uma transição visualmente suave, onde o conteúdo muda de forma elegante, mantendo o usuário imerso.&lt;/p&gt;
-&lt;h1 id=&#34;como-implementar-no-seu-blog-mpa&#34;&gt;Como Implementar no Seu Blog (MPA)&lt;/h1&gt;
+&lt;h2 id=&#34;como-implementar-no-seu-blog-mpa&#34;&gt;Como Implementar no Seu Blog (MPA)&lt;/h2&gt;
 &lt;p&gt;A beleza da View Transition API para sites multi-páginas (MPA) — como a maioria dos blogs baseados em CMS — é que ela requer &lt;strong&gt;quase nada de JavaScript&lt;/strong&gt; para a transição padrão!&lt;/p&gt;
-&lt;h2 id=&#34;passo-1-habilitar-a-transição-opt-in&#34;&gt;Passo 1: Habilitar a Transição (Opt-in)&lt;/h2&gt;
+&lt;h3 id=&#34;passo-1-habilitar-a-transição-opt-in&#34;&gt;Passo 1: Habilitar a Transição (Opt-in)&lt;/h3&gt;
 &lt;p&gt;Para que o navegador saiba que você deseja transições entre páginas, adicione esta regra CSS em sua folha de estilos global:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-CSS&#34; data-lang=&#34;CSS&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/* Seu arquivo CSS global (style.css, por exemplo) */&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;@&lt;span style=&#34;color:#66d9ef&#34;&gt;view-transition&lt;/span&gt; {
@@ -41,7 +41,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Nota:&lt;/strong&gt; Esta única linha habilita a transição de visualização em todos os links do seu site para navegações de mesma origem (same-origin). Por padrão, ela aplica um efeito de &lt;em&gt;cross-fade&lt;/em&gt; (dissolver suavemente), que já é uma grande melhoria.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/screen-capture-_2_.gif&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;passo-2-animar-elementos-específicos-shared-elements&#34;&gt;Passo 2: Animar Elementos Específicos (Shared Elements)&lt;/h2&gt;
+&lt;h3 id=&#34;passo-2-animar-elementos-específicos-shared-elements&#34;&gt;Passo 2: Animar Elementos Específicos (Shared Elements)&lt;/h3&gt;
 &lt;p&gt;Para criar transições mais complexas e que movem elementos específicos (como um título ou uma imagem), você precisa dar um &amp;ldquo;nome&amp;rdquo; ao elemento no estado antigo e no novo estado.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Exemplo (Transição de um Título de Post):&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -67,9 +67,9 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Ao clicar no link, o navegador fará a transição suave da posição, tamanho e forma do elemento com o &lt;code&gt;view-transition-name&lt;/code&gt; entre as duas páginas!&lt;/p&gt;
-&lt;h1 id=&#34;personalização-e-a-relação-com-css&#34;&gt;Personalização e a Relação com CSS&lt;/h1&gt;
+&lt;h2 id=&#34;personalização-e-a-relação-com-css&#34;&gt;Personalização e a Relação com CSS&lt;/h2&gt;
 &lt;p&gt;Aqui é onde a View Transition API se torna uma potência. A personalização é feita puramente com CSS, utilizando pseudo-elementos específicos injetados pelo navegador durante a transição.&lt;/p&gt;
-&lt;h2 id=&#34;a-estrutura-da-transição-pseudo-elementos&#34;&gt;A Estrutura da Transição (Pseudo-elementos)&lt;/h2&gt;
+&lt;h3 id=&#34;a-estrutura-da-transição-pseudo-elementos&#34;&gt;A Estrutura da Transição (Pseudo-elementos)&lt;/h3&gt;
 &lt;p&gt;Durante a transição, o navegador cria a seguinte estrutura (oculta) no topo da sua página:&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;::view-transition
 └── ::view-transition-group(root) ou ::view-transition-group(nome-personalizado)
@@ -102,7 +102,7 @@
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&#34;customizando-a-animação-padrão&#34;&gt;Customizando a Animação Padrão&lt;/h2&gt;
+&lt;h3 id=&#34;customizando-a-animação-padrão&#34;&gt;Customizando a Animação Padrão&lt;/h3&gt;
 &lt;p&gt;Por padrão, a transição global (&lt;code&gt;root&lt;/code&gt;) é um &lt;code&gt;cross-fade&lt;/code&gt; que dura &lt;code&gt;500ms&lt;/code&gt;. Você pode mudar isso usando &lt;code&gt;@keyframes&lt;/code&gt; e direcionando os &lt;code&gt;pseudo-elementos&lt;/code&gt;.
 Além disso, podemos editar a animação de in e out, com os &lt;code&gt;pseudo-elementos&lt;/code&gt; de transição. Abaixo vamos observar o efeito utilizado nesse blog na data de publicação.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-CSS&#34; data-lang=&#34;CSS&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/* Define duração e suavidade global */&lt;/span&gt;
@@ -165,7 +165,7 @@ Além disso, podemos editar a animação de in e out, com os &lt;code&gt;pseudo-
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Tive com inspiração, os efeitos de transição de jogos snes como super mario world, onde durante o carregamento de uma nova fase, a tela escurece e fica um pouco pixelada. Abaixo podemos observar o resultado.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/screen-capture-_3_.gif&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
-&lt;h1 id=&#34;conclusão-e-próximos-passos&#34;&gt;Conclusão e Próximos Passos&lt;/h1&gt;
+&lt;h2 id=&#34;conclusão-e-próximos-passos&#34;&gt;Conclusão e Próximos Passos&lt;/h2&gt;
 &lt;p&gt;A &lt;strong&gt;View Transition API&lt;/strong&gt; é uma ótima adição para a web. Ela democratiza as transições de página de alta qualidade, tornando-as acessíveis a qualquer projeto, de SPAs complexas a blogs estáticos simples. O fato de ser nativa e personalizável via CSS a torna uma ferramenta poderosa no arsenal de qualquer desenvolvedor.&lt;/p&gt;
 &lt;p&gt;Com a chegada do suporte ao Firefox, não há mais desculpas para não oferecer navegações mais coesas e agradáveis.&lt;/p&gt;
 </content>
