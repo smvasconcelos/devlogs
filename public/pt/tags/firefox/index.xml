@@ -8,7 +8,7 @@
     <language>pt</language>
     <lastBuildDate>Sat, 01 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://smvasconcelos.github.io/devlogs/pt/tags/firefox/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>CSS #1 - Transições com a View Transition API</title>
+      <title>CSS #01 - Transições com a View Transition API</title>
       <link>https://smvasconcelos.github.io/devlogs/pt/posts/371db62496872c2d/</link>
       <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
       
@@ -163,9 +163,9 @@ Além disso, podemos editar a animação de in e out, com os &lt;code&gt;pseudo-
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;transform&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;none&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Tive com inspiração, os efeitos de transição de jogos snes como super mario world, onde durante o carregamento de uma nova fase, a tela escurece e fica um pouco pixelada. Abaixo podemos observar o resultado.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Tive como inspiração, os efeitos de transição de jogos SNES como super mário world, onde durante o carregamento de uma nova fase, a tela escurece e fica um pouco pixelada. Abaixo podemos observar o resultado.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/e9fa79e34f8b3d20.gif&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;conclusão-e-próximos-passos&#34;&gt;Conclusão e Próximos Passos&lt;/h2&gt;
+&lt;h2 id=&#34;conclusão&#34;&gt;Conclusão&lt;/h2&gt;
 &lt;p&gt;A &lt;strong&gt;View Transition API&lt;/strong&gt; é uma ótima adição para a web. Ela democratiza as transições de página de alta qualidade, tornando-as acessíveis a qualquer projeto, de SPAs complexas a blogs estáticos simples. O fato de ser nativa e personalizável via CSS a torna uma ferramenta poderosa no arsenal de qualquer desenvolvedor.&lt;/p&gt;
 &lt;p&gt;Com a chegada do suporte ao Firefox, não há mais desculpas para não oferecer navegações mais coesas e agradáveis.&lt;/p&gt;
 </content>
