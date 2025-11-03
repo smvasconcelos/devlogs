@@ -8,7 +8,7 @@
     <language>en</language>
     <lastBuildDate>Sat, 01 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://smvasconcelos.github.io/devlogs/en/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>CSS #1 - Transitions with the View Transition API</title>
+      <title>CSS #01 - Transitions with the View Transition API</title>
       <link>https://smvasconcelos.github.io/devlogs/en/posts/371db62496872c2d/</link>
       <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
       
@@ -165,14 +165,14 @@ Furthermore, we can edit the in and out animation with the transition &lt;code&g
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I was inspired by the transition effects of SNES games like Super Mario World, where during the loading of a new stage, the screen darkens and becomes a bit pixelated. Below we can see the result.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/e9fa79e34f8b3d20.gif&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;conclusion-and-next-steps&#34;&gt;Conclusion and Next Steps&lt;/h2&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;The &lt;strong&gt;View Transition API&lt;/strong&gt; is a great addition to the web. It democratizes high-quality page transitions, making them accessible to any project, from complex SPAs to simple static blogs. The fact that it is native and customizable via CSS makes it a powerful tool in any developer&amp;rsquo;s arsenal.&lt;/p&gt;
 &lt;p&gt;With the arrival of Firefox support, there are no more excuses not to offer more cohesive and pleasant navigations.&lt;/p&gt;
 </content>
     </item>
     
     <item>
-      <title>Hugo #2 — Adding Improvements to Our Blog</title>
+      <title>Hugo #02 — Adding Improvements to Our Blog</title>
       <link>https://smvasconcelos.github.io/devlogs/en/posts/3262d6d38d70967d/</link>
       <pubDate>Mon, 20 Oct 2025 00:00:00 +0000</pubDate>
       
@@ -310,7 +310,7 @@ You can do this using the Pagefind command (see more details in the &lt;a href=&
     </item>
     
     <item>
-      <title>Hugo #1 — Setting Up Your First Blog</title>
+      <title>Hugo #01 — Setting Up Your First Blog</title>
       <link>https://smvasconcelos.github.io/devlogs/en/posts/40bd465b991e6fc6/</link>
       <pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
       
