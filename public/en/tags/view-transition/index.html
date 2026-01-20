@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><script src="/devlogs/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=devlogs/livereload" data-no-instant defer></script>
   
     <title>View-Transition :: smvasconcelos | DevLogs</title>
   
@@ -11,7 +11,7 @@
 
   <meta name="robots" content="noodp" />
 
-<link rel="canonical" href="https://smvasconcelos.github.io/devlogs/en/tags/view-transition/" />
+<link rel="canonical" href="http://localhost:1313/devlogs/en/tags/view-transition/" />
 
 
 
@@ -24,15 +24,15 @@
   
   
   
-  <link rel="stylesheet" href="https://smvasconcelos.github.io/devlogs/styles.css">
+  <link rel="stylesheet" href="http://localhost:1313/devlogs/styles.css">
 
 
 
-<link rel="stylesheet" href="https://smvasconcelos.github.io/devlogs/style.css">
+<link rel="stylesheet" href="http://localhost:1313/devlogs/style.css">
 
 
 
-  <link rel="shortcut icon" href="https://smvasconcelos.github.io/devlogs/favicon.png">
+  <link rel="shortcut icon" href="http://localhost:1313/devlogs/favicon.png">
 
 
 
@@ -44,11 +44,11 @@
 <meta property="og:type" content="website" />
 <meta property="og:title" content="View-Transition">
 <meta property="og:description" content="" />
-<meta property="og:url" content="https://smvasconcelos.github.io/devlogs/en/tags/view-transition/" />
+<meta property="og:url" content="http://localhost:1313/devlogs/en/tags/view-transition/" />
 <meta property="og:site_name" content="smvasconcelos | DevLogs" />
 
   
-    <meta property="og:image" content="https://smvasconcelos.github.io/devlogs/favicon.png">
+    <meta property="og:image" content="http://localhost:1313/devlogs/favicon.png">
   
 
 <meta property="og:image:width" content="1200">
@@ -98,6 +98,64 @@
       drawer.classList.add('pagefind-ui__hidden');
     }
   });
+
+
+  
+
+  
+  const transitionHelper = (callback) => {
+    if (!document.startViewTransition) {
+      callback();
+      return;
+    }
+    document.startViewTransition(callback);
+  };
+
+  
+  async function navigateTo(url) {
+    const response = await fetch(url);
+    const html = await response.text();
+    
+    
+    const parser = new DOMParser();
+    const newDoc = parser.parseFromString(html, "text/html");
+    const newContent = newDoc.querySelector("body").innerHTML;
+    const newTitle = newDoc.title;
+
+    transitionHelper(() => {
+      
+      document.body.innerHTML = newContent;
+      document.title = newTitle;
+      window.scrollTo(0, 0);
+      
+      
+      attachLinkListeners();
+    });
+    
+    
+    history.pushState({}, "", url);
+  }
+
+  
+  function attachLinkListeners() {
+    document.querySelectorAll('a[href^="/"], a[href^="' + location.origin + '"]').forEach(link => {
+      link.onclick = (e) => {
+        
+        if (e.metaKey || e.ctrlKey || link.hash || link.target === "_blank") return;
+        
+        e.preventDefault();
+        navigateTo(link.href);
+      };
+    });
+  }
+
+  
+  window.onpopstate = () => {
+    navigateTo(location.href);
+  };
+
+  
+  attachLinkListeners();
 
 </script>
 
@@ -153,21 +211,21 @@
   
   <article class="post on-list">
     <h1 class="post-title" view-transition-name="post-title-371db62496872c2d.en">
-      <a href="https://smvasconcelos.github.io/devlogs/en/posts/371db62496872c2d/">CSS #01 - Transitions with the View Transition API</a>
+      <a href="http://localhost:1313/devlogs/en/posts/371db62496872c2d/">CSS #01 - Transitions with the View Transition API</a>
     </h1>
 
     <div class="post-meta"><time class="post-date" view-transition-name="post-date-371db62496872c2d.en">2025-11-01</time>
       <span class="post-tags" view-transition-name="post-tags-371db62496872c2d.en">
         
-        #<a href="https://smvasconcelos.github.io/devlogs/en/tags/css/">css</a>
+        #<a href="http://localhost:1313/devlogs/en/tags/css/">css</a>
         
-        #<a href="https://smvasconcelos.github.io/devlogs/en/tags/animations/">animations</a>
+        #<a href="http://localhost:1313/devlogs/en/tags/animations/">animations</a>
         
-        #<a href="https://smvasconcelos.github.io/devlogs/en/tags/transitions/">transitions</a>
+        #<a href="http://localhost:1313/devlogs/en/tags/transitions/">transitions</a>
         
-        #<a href="https://smvasconcelos.github.io/devlogs/en/tags/view-transition/">view-transition</a>
+        #<a href="http://localhost:1313/devlogs/en/tags/view-transition/">view-transition</a>
         
-        #<a href="https://smvasconcelos.github.io/devlogs/en/tags/firefox/">firefox</a>
+        #<a href="http://localhost:1313/devlogs/en/tags/firefox/">firefox</a>
         
       </span>
       

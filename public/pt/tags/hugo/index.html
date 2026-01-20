@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt">
-<head>
+<head><script src="/devlogs/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=devlogs/livereload" data-no-instant defer></script>
   
     <title>Hugo :: smvasconcelos | DevLogs</title>
   
@@ -11,7 +11,7 @@
 
   <meta name="robots" content="noodp" />
 
-<link rel="canonical" href="https://smvasconcelos.github.io/devlogs/pt/tags/hugo/" />
+<link rel="canonical" href="http://localhost:1313/devlogs/pt/tags/hugo/" />
 
 
 
@@ -24,15 +24,15 @@
   
   
   
-  <link rel="stylesheet" href="https://smvasconcelos.github.io/devlogs/styles.css">
+  <link rel="stylesheet" href="http://localhost:1313/devlogs/styles.css">
 
 
 
-<link rel="stylesheet" href="https://smvasconcelos.github.io/devlogs/style.css">
+<link rel="stylesheet" href="http://localhost:1313/devlogs/style.css">
 
 
 
-  <link rel="shortcut icon" href="https://smvasconcelos.github.io/devlogs/favicon.png">
+  <link rel="shortcut icon" href="http://localhost:1313/devlogs/favicon.png">
 
 
 
@@ -44,11 +44,11 @@
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Hugo">
 <meta property="og:description" content="" />
-<meta property="og:url" content="https://smvasconcelos.github.io/devlogs/pt/tags/hugo/" />
+<meta property="og:url" content="http://localhost:1313/devlogs/pt/tags/hugo/" />
 <meta property="og:site_name" content="smvasconcelos | DevLogs" />
 
   
-    <meta property="og:image" content="https://smvasconcelos.github.io/devlogs/favicon.png">
+    <meta property="og:image" content="http://localhost:1313/devlogs/favicon.png">
   
 
 <meta property="og:image:width" content="1200">
@@ -99,6 +99,64 @@
     }
   });
 
+
+  
+
+  
+  const transitionHelper = (callback) => {
+    if (!document.startViewTransition) {
+      callback();
+      return;
+    }
+    document.startViewTransition(callback);
+  };
+
+  
+  async function navigateTo(url) {
+    const response = await fetch(url);
+    const html = await response.text();
+    
+    
+    const parser = new DOMParser();
+    const newDoc = parser.parseFromString(html, "text/html");
+    const newContent = newDoc.querySelector("body").innerHTML;
+    const newTitle = newDoc.title;
+
+    transitionHelper(() => {
+      
+      document.body.innerHTML = newContent;
+      document.title = newTitle;
+      window.scrollTo(0, 0);
+      
+      
+      attachLinkListeners();
+    });
+    
+    
+    history.pushState({}, "", url);
+  }
+
+  
+  function attachLinkListeners() {
+    document.querySelectorAll('a[href^="/"], a[href^="' + location.origin + '"]').forEach(link => {
+      link.onclick = (e) => {
+        
+        if (e.metaKey || e.ctrlKey || link.hash || link.target === "_blank") return;
+        
+        e.preventDefault();
+        navigateTo(link.href);
+      };
+    });
+  }
+
+  
+  window.onpopstate = () => {
+    navigateTo(location.href);
+  };
+
+  
+  attachLinkListeners();
+
 </script>
 
 
@@ -132,9 +190,9 @@
   <li>
     <ul class="menu__dropdown">
       
-        <li><a href="/devlogs/en/">English</a></li>
-      
         <li><a href="/devlogs/pt/">Português</a></li>
+      
+        <li><a href="/devlogs/en/">English</a></li>
       
     </ul>
   </li>
@@ -153,19 +211,19 @@
   
   <article class="post on-list">
     <h1 class="post-title" view-transition-name="post-title-3262d6d38d70967d.pt">
-      <a href="https://smvasconcelos.github.io/devlogs/pt/posts/3262d6d38d70967d/">Hugo #02 — Adicionando melhorias no nosso blog</a>
+      <a href="http://localhost:1313/devlogs/pt/posts/3262d6d38d70967d/">Hugo #02 — Adicionando melhorias no nosso blog</a>
     </h1>
 
     <div class="post-meta"><time class="post-date" view-transition-name="post-date-3262d6d38d70967d.pt">2025-10-20</time>
       <span class="post-tags" view-transition-name="post-tags-3262d6d38d70967d.pt">
         
-        #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/hugo/">hugo</a>
+        #<a href="http://localhost:1313/devlogs/pt/tags/hugo/">hugo</a>
         
-        #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/translation/">translation</a>
+        #<a href="http://localhost:1313/devlogs/pt/tags/translation/">translation</a>
         
-        #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/pagination/">pagination</a>
+        #<a href="http://localhost:1313/devlogs/pt/tags/pagination/">pagination</a>
         
-        #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/language/">language</a>
+        #<a href="http://localhost:1313/devlogs/pt/tags/language/">language</a>
         
       </span>
       
@@ -190,17 +248,17 @@
   
   <article class="post on-list">
     <h1 class="post-title" view-transition-name="post-title-40bd465b991e6fc6.pt">
-      <a href="https://smvasconcelos.github.io/devlogs/pt/posts/40bd465b991e6fc6/">Hugo #01 — Configurando seu primeiro blog</a>
+      <a href="http://localhost:1313/devlogs/pt/posts/40bd465b991e6fc6/">Hugo #01 — Configurando seu primeiro blog</a>
     </h1>
 
     <div class="post-meta"><time class="post-date" view-transition-name="post-date-40bd465b991e6fc6.pt">2025-10-06</time>
       <span class="post-tags" view-transition-name="post-tags-40bd465b991e6fc6.pt">
         
-        #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/blog/">blog</a>
+        #<a href="http://localhost:1313/devlogs/pt/tags/blog/">blog</a>
         
-        #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/hugo/">hugo</a>
+        #<a href="http://localhost:1313/devlogs/pt/tags/hugo/">hugo</a>
         
-        #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/re-terminal/">re-terminal</a>
+        #<a href="http://localhost:1313/devlogs/pt/tags/re-terminal/">re-terminal</a>
         
       </span>
       
