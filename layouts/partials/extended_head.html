@@ -49,6 +49,8 @@
       
       const text = await response.text();
       const data = new DOMParser().parseFromString(text, "text/html");
+      
+      // Tenta pegar o container principal, se não existir, usa o body
       const newContent = data.querySelector("#content") || data.body;
       const oldContent = document.querySelector("#content") || document.body;
 
@@ -56,31 +58,42 @@
         oldContent.innerHTML = newContent.innerHTML;
         document.title = data.title;
         window.scrollTo(0, 0);
+        
+        // Se a URL de destino tiver um hash, rola até o elemento após a transição
+        const hash = new URL(url).hash;
+        if (hash) {
+          const el = document.querySelector(hash);
+          if (el) el.scrollIntoView();
+        }
       });
 
       history.pushState({}, "", url);
     } catch (err) {
-      window.location.href = url; // Fallback se der erro
+      window.location.href = url;
     }
   };
 
-  // Interceptador global de cliques
   document.addEventListener("click", (e) => {
     const link = e.target.closest("a");
-    
-    // Só intercepta se for link interno e mesma aba
-    if (
-      link && 
-      link.href.startsWith(location.origin) && 
-      !link.getAttribute("target") &&
-      !e.metaKey && !e.ctrlKey
-    ) {
-      e.preventDefault();
-      handleNavigation(link.href);
+    if (!link) return;
+
+    const targetUrl = new URL(link.href, location.href);
+
+    // Verificações para ignorar o script:
+    const isExternal = targetUrl.origin !== location.origin;
+    const isSamePageHash = targetUrl.pathname === location.pathname && targetUrl.hash !== "";
+    const isNewTab = link.getAttribute("target") === "_blank" || e.metaKey || e.ctrlKey;
+
+    // Se for link externo, mesma página com hash, ou nova aba -> Deixa o navegador lidar
+    if (isExternal || isSamePageHash || isNewTab) {
+      return;
     }
+
+    // Caso contrário, impede o reload e faz a View Transition
+    e.preventDefault();
+    handleNavigation(link.href);
   });
 
-  // Botão voltar do navegador
   window.addEventListener("popstate", () => handleNavigation(location.href));
 
 </script>
