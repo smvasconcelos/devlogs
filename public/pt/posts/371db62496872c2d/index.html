@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt">
-<head>
+<head><script src="/devlogs/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=devlogs/livereload" data-no-instant defer></script>
   
     <title>CSS #01 - Transições com a View Transition API :: smvasconcelos | DevLogs</title>
   
@@ -12,7 +12,7 @@
 
   <meta name="robots" content="noodp" />
 
-<link rel="canonical" href="https://smvasconcelos.github.io/devlogs/pt/posts/371db62496872c2d/" />
+<link rel="canonical" href="http://localhost:1313/devlogs/pt/posts/371db62496872c2d/" />
 
 
 
@@ -25,15 +25,15 @@
   
   
   
-  <link rel="stylesheet" href="https://smvasconcelos.github.io/devlogs/styles.css">
+  <link rel="stylesheet" href="http://localhost:1313/devlogs/styles.css">
 
 
 
-<link rel="stylesheet" href="https://smvasconcelos.github.io/devlogs/style.css">
+<link rel="stylesheet" href="http://localhost:1313/devlogs/style.css">
 
 
 
-  <link rel="shortcut icon" href="https://smvasconcelos.github.io/devlogs/favicon.png">
+  <link rel="shortcut icon" href="http://localhost:1313/devlogs/favicon.png">
 
 
 
@@ -46,11 +46,11 @@
 <meta property="og:title" content="CSS #01 - Transições com a View Transition API">
 <meta property="og:description" content="A experiência do usuário (UX) em aplicações web modernas exige fluidez e continuidade, algo que historicamente era difícil de alcançar em sites tradicionais sem o uso de frameworks complexos de SPA. O recarregamento completo da página muitas vezes quebra o contexto do usuário com uma &ldquo;tela branca&rdquo; entre o carregamento de forma brusca.
 " />
-<meta property="og:url" content="https://smvasconcelos.github.io/devlogs/pt/posts/371db62496872c2d/" />
+<meta property="og:url" content="http://localhost:1313/devlogs/pt/posts/371db62496872c2d/" />
 <meta property="og:site_name" content="smvasconcelos | DevLogs" />
 
   
-    <meta property="og:image" content="https://smvasconcelos.github.io/devlogs/favicon.png">
+    <meta property="og:image" content="http://localhost:1313/devlogs/favicon.png">
   
 
 <meta property="og:image:width" content="1200">
@@ -101,6 +101,64 @@
     }
   });
 
+
+  
+
+  
+  const transitionHelper = (callback) => {
+    if (!document.startViewTransition) {
+      callback();
+      return;
+    }
+    document.startViewTransition(callback);
+  };
+
+  
+  async function navigateTo(url) {
+    const response = await fetch(url);
+    const html = await response.text();
+    
+    
+    const parser = new DOMParser();
+    const newDoc = parser.parseFromString(html, "text/html");
+    const newContent = newDoc.querySelector("body").innerHTML;
+    const newTitle = newDoc.title;
+
+    transitionHelper(() => {
+      
+      document.body.innerHTML = newContent;
+      document.title = newTitle;
+      window.scrollTo(0, 0);
+      
+      
+      attachLinkListeners();
+    });
+    
+    
+    history.pushState({}, "", url);
+  }
+
+  
+  function attachLinkListeners() {
+    document.querySelectorAll('a[href^="/"], a[href^="' + location.origin + '"]').forEach(link => {
+      link.onclick = (e) => {
+        
+        if (e.metaKey || e.ctrlKey || link.hash || link.target === "_blank") return;
+        
+        e.preventDefault();
+        navigateTo(link.href);
+      };
+    });
+  }
+
+  
+  window.onpopstate = () => {
+    navigateTo(location.href);
+  };
+
+  
+  attachLinkListeners();
+
 </script>
 
 
@@ -134,9 +192,9 @@
   <li>
     <ul class="menu__dropdown">
       
-        <li><a href="/devlogs/en/">English</a></li>
-      
         <li><a href="/devlogs/pt/">Português</a></li>
+      
+        <li><a href="/devlogs/en/">English</a></li>
       
     </ul>
   </li>
@@ -151,7 +209,7 @@
     
 <article class="post" data-pagefind-body>
   <h1 class="post-title typewriter" style="view-transition-name:post-title-371db62496872c2d.pt;">
-    <a data-pagefind-field="title" href="https://smvasconcelos.github.io/devlogs/pt/posts/371db62496872c2d/">CSS #01 - Transições com a View Transition API</a>
+    <a data-pagefind-field="title" href="http://localhost:1313/devlogs/pt/posts/371db62496872c2d/">CSS #01 - Transições com a View Transition API</a>
   </h1>
   <div class="post-meta"><time data-pagefind-field="date" class="post-date" style="view-transition-name:post-date-371db62496872c2d.pt;">2025-11-01</time>
     
@@ -159,15 +217,15 @@
       palavras)</span>
     <span class="post-tags" style="view-transition-name:post-tags-371db62496872c2d.pt;">
       
-      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/css/">css</a>
+      #<a href="http://localhost:1313/devlogs/pt/tags/css/">css</a>
       
-      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/animations/">animations</a>
+      #<a href="http://localhost:1313/devlogs/pt/tags/animations/">animations</a>
       
-      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/transitions/">transitions</a>
+      #<a href="http://localhost:1313/devlogs/pt/tags/transitions/">transitions</a>
       
-      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/view-transition/">view-transition</a>
+      #<a href="http://localhost:1313/devlogs/pt/tags/view-transition/">view-transition</a>
       
-      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/firefox/">firefox</a>
+      #<a href="http://localhost:1313/devlogs/pt/tags/firefox/">firefox</a>
       
     </span>
     
@@ -232,7 +290,8 @@
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">animation-timing-function</span>: <span style="color:#66d9ef">ease-in-out</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><blockquote>
-<p><strong>Nota:</strong> Esta única linha habilita a transição de visualização em todos os links do seu site para navegações de mesma origem (same-origin). Por padrão, ela aplica um efeito de <em>cross-fade</em> (dissolver suavemente), que já é uma grande melhoria.</p></blockquote>
+<p><strong>Nota:</strong> Esta única linha habilita a transição de visualização em todos os links do seu site para navegações de mesma origem (same-origin). Por padrão, ela aplica um efeito de <em>cross-fade</em> (dissolver suavemente), que já é uma grande melhoria.</p>
+</blockquote>
 <p><img src="/devlogs/images/3bbea15b7777c38d.gif" alt="Image Description"></p>
 <h3 id="passo-2-animar-elementos-específicos-shared-elements">Passo 2: Animar Elementos Específicos (Shared Elements)<a
           href="#passo-2-animar-elementos-específicos-shared-elements" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
@@ -246,7 +305,7 @@
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">h2</span>&gt;
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-CSS" data-lang="CSS"><span style="display:flex;"><span>.<span style="color:#a6e22e">post-card-title</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#75715e">/* O nome da transição precisa ser único por página! */</span>
-</span></span><span style="display:flex;"><span>  view-transition-name: post-title-123; 
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">view-transition-name</span>: post-title-123; 
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div></li>
 <li>
@@ -256,7 +315,7 @@
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">h1</span>&gt;
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-CSS" data-lang="CSS"><span style="display:flex;"><span>.<span style="color:#a6e22e">post-hero-title</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#75715e">/* Deve ter o MESMO nome na página de destino */</span>
-</span></span><span style="display:flex;"><span>  view-transition-name: post-title-123; 
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">view-transition-name</span>: post-title-123; 
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div></li>
 </ol>
@@ -380,7 +439,7 @@ Além disso, podemos editar a animação de in e out, com os <code>pseudo-elemen
         
         
         <span class="button next">
-            <a href="https://smvasconcelos.github.io/devlogs/pt/posts/3262d6d38d70967d/">
+            <a href="http://localhost:1313/devlogs/pt/posts/3262d6d38d70967d/">
                 <span class="button__text">Hugo #02 — Adicionando melhorias no nosso blog</span>
                 <span class="button__icon">→</span>
             </a>

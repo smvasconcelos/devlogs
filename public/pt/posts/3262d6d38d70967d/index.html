@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt">
-<head>
+<head><script src="/devlogs/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=devlogs/livereload" data-no-instant defer></script>
   
     <title>Hugo #02 — Adicionando melhorias no nosso blog :: smvasconcelos | DevLogs</title>
   
@@ -12,7 +12,7 @@
 
   <meta name="robots" content="noodp" />
 
-<link rel="canonical" href="https://smvasconcelos.github.io/devlogs/pt/posts/3262d6d38d70967d/" />
+<link rel="canonical" href="http://localhost:1313/devlogs/pt/posts/3262d6d38d70967d/" />
 
 
 
@@ -25,15 +25,15 @@
   
   
   
-  <link rel="stylesheet" href="https://smvasconcelos.github.io/devlogs/styles.css">
+  <link rel="stylesheet" href="http://localhost:1313/devlogs/styles.css">
 
 
 
-<link rel="stylesheet" href="https://smvasconcelos.github.io/devlogs/style.css">
+<link rel="stylesheet" href="http://localhost:1313/devlogs/style.css">
 
 
 
-  <link rel="shortcut icon" href="https://smvasconcelos.github.io/devlogs/favicon.png">
+  <link rel="shortcut icon" href="http://localhost:1313/devlogs/favicon.png">
 
 
 
@@ -46,11 +46,11 @@
 <meta property="og:title" content="Hugo #02 — Adicionando melhorias no nosso blog">
 <meta property="og:description" content="Neste artigo, vamos conhecer um pouco mais sobre a ferramenta Hugo, entender como funcionam algumas de suas APIs — pesquisa, paginação e linguagem — e descobrir como utilizá-las para aprimorar o nosso blog.
 " />
-<meta property="og:url" content="https://smvasconcelos.github.io/devlogs/pt/posts/3262d6d38d70967d/" />
+<meta property="og:url" content="http://localhost:1313/devlogs/pt/posts/3262d6d38d70967d/" />
 <meta property="og:site_name" content="smvasconcelos | DevLogs" />
 
   
-    <meta property="og:image" content="https://smvasconcelos.github.io/devlogs/favicon.png">
+    <meta property="og:image" content="http://localhost:1313/devlogs/favicon.png">
   
 
 <meta property="og:image:width" content="1200">
@@ -101,6 +101,64 @@
     }
   });
 
+
+  
+
+  
+  const transitionHelper = (callback) => {
+    if (!document.startViewTransition) {
+      callback();
+      return;
+    }
+    document.startViewTransition(callback);
+  };
+
+  
+  async function navigateTo(url) {
+    const response = await fetch(url);
+    const html = await response.text();
+    
+    
+    const parser = new DOMParser();
+    const newDoc = parser.parseFromString(html, "text/html");
+    const newContent = newDoc.querySelector("body").innerHTML;
+    const newTitle = newDoc.title;
+
+    transitionHelper(() => {
+      
+      document.body.innerHTML = newContent;
+      document.title = newTitle;
+      window.scrollTo(0, 0);
+      
+      
+      attachLinkListeners();
+    });
+    
+    
+    history.pushState({}, "", url);
+  }
+
+  
+  function attachLinkListeners() {
+    document.querySelectorAll('a[href^="/"], a[href^="' + location.origin + '"]').forEach(link => {
+      link.onclick = (e) => {
+        
+        if (e.metaKey || e.ctrlKey || link.hash || link.target === "_blank") return;
+        
+        e.preventDefault();
+        navigateTo(link.href);
+      };
+    });
+  }
+
+  
+  window.onpopstate = () => {
+    navigateTo(location.href);
+  };
+
+  
+  attachLinkListeners();
+
 </script>
 
 
@@ -134,9 +192,9 @@
   <li>
     <ul class="menu__dropdown">
       
-        <li><a href="/devlogs/en/">English</a></li>
-      
         <li><a href="/devlogs/pt/">Português</a></li>
+      
+        <li><a href="/devlogs/en/">English</a></li>
       
     </ul>
   </li>
@@ -151,7 +209,7 @@
     
 <article class="post" data-pagefind-body>
   <h1 class="post-title typewriter" style="view-transition-name:post-title-3262d6d38d70967d.pt;">
-    <a data-pagefind-field="title" href="https://smvasconcelos.github.io/devlogs/pt/posts/3262d6d38d70967d/">Hugo #02 — Adicionando melhorias no nosso blog</a>
+    <a data-pagefind-field="title" href="http://localhost:1313/devlogs/pt/posts/3262d6d38d70967d/">Hugo #02 — Adicionando melhorias no nosso blog</a>
   </h1>
   <div class="post-meta"><time data-pagefind-field="date" class="post-date" style="view-transition-name:post-date-3262d6d38d70967d.pt;">2025-10-20</time>
     
@@ -159,13 +217,13 @@
       palavras)</span>
     <span class="post-tags" style="view-transition-name:post-tags-3262d6d38d70967d.pt;">
       
-      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/hugo/">hugo</a>
+      #<a href="http://localhost:1313/devlogs/pt/tags/hugo/">hugo</a>
       
-      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/translation/">translation</a>
+      #<a href="http://localhost:1313/devlogs/pt/tags/translation/">translation</a>
       
-      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/pagination/">pagination</a>
+      #<a href="http://localhost:1313/devlogs/pt/tags/pagination/">pagination</a>
       
-      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/language/">language</a>
+      #<a href="http://localhost:1313/devlogs/pt/tags/language/">language</a>
       
     </span>
     
@@ -336,7 +394,7 @@ Podemos fazer isso com o comando do Pagefind (mais detalhes na <a href="https://
     <div class="pagination__buttons">
         
         <span class="button previous">
-            <a href="https://smvasconcelos.github.io/devlogs/pt/posts/371db62496872c2d/">
+            <a href="http://localhost:1313/devlogs/pt/posts/371db62496872c2d/">
                 <span class="button__icon">←</span>
                 <span class="button__text">CSS #01 - Transições com a View Transition API</span>
             </a>
@@ -344,7 +402,7 @@ Podemos fazer isso com o comando do Pagefind (mais detalhes na <a href="https://
         
         
         <span class="button next">
-            <a href="https://smvasconcelos.github.io/devlogs/pt/posts/40bd465b991e6fc6/">
+            <a href="http://localhost:1313/devlogs/pt/posts/40bd465b991e6fc6/">
                 <span class="button__text">Hugo #01 — Configurando seu primeiro blog</span>
                 <span class="button__icon">→</span>
             </a>
