@@ -110,9 +110,12 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-to-run&#34;&gt;How to Run&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;Open the project folder in VS Code.&lt;/li&gt;
-&lt;li&gt;With the &lt;strong&gt;Dev Containers&lt;/strong&gt; extension installed, click &lt;strong&gt;&amp;ldquo;Reopen in Container&amp;rdquo;&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;With the &lt;strong&gt;Dev Containers&lt;/strong&gt; extension installed, click &lt;strong&gt;&amp;ldquo;Reopen in Container&amp;rdquo;&lt;/strong&gt;.
+&lt;ol&gt;
 &lt;li&gt;Alternatively, you can start the container separately with &lt;code&gt;docker-compose up --build&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Then, use the VS Code command palette (&lt;code&gt;Ctrl + Shift + P&lt;/code&gt;) and type &lt;code&gt;Dev Containers: Reopen in Container&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
 &lt;li&gt;Wait for the build, and you&amp;rsquo;re done! Your environment is configured with code quality tools active.&lt;/li&gt;
 &lt;/ol&gt;
 </content>
