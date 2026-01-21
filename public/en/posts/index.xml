@@ -6,15 +6,6 @@
     <description>Recent content in Posts on smvasconcelos | DevLogs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-<<<<<<< Updated upstream
-    <lastBuildDate>Sat, 01 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/devlogs/en/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>CSS #01 - Transitions with the View Transition API</title>
-      <link>http://localhost:1313/devlogs/en/posts/371db62496872c2d/</link>
-      <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/devlogs/en/posts/371db62496872c2d/</guid>
-=======
     <lastBuildDate>Tue, 20 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/devlogs/en/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker #01 - How to dockerize a react app</title>
@@ -119,9 +110,12 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-to-run&#34;&gt;How to Run&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;Open the project folder in VS Code.&lt;/li&gt;
-&lt;li&gt;With the &lt;strong&gt;Dev Containers&lt;/strong&gt; extension installed, click &lt;strong&gt;&amp;ldquo;Reopen in Container&amp;rdquo;&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;With the &lt;strong&gt;Dev Containers&lt;/strong&gt; extension installed, click &lt;strong&gt;&amp;ldquo;Reopen in Container&amp;rdquo;&lt;/strong&gt;.
+&lt;ol&gt;
 &lt;li&gt;Alternatively, you can start the container separately with &lt;code&gt;docker-compose up --build&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Then, use the VS Code command palette (&lt;code&gt;Ctrl + Shift + P&lt;/code&gt;) and type &lt;code&gt;Dev Containers: Reopen in Container&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
 &lt;li&gt;Wait for the build, and you&amp;rsquo;re done! Your environment is configured with code quality tools active.&lt;/li&gt;
 &lt;/ol&gt;
 </content>
@@ -133,7 +127,6 @@
       <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/devlogs/en/posts/6f5b31e2c45762df/</guid>
->>>>>>> Stashed changes
       <description>&lt;p&gt;The user experience (UX) in modern web applications demands fluidity and continuity, something that was historically difficult to achieve on traditional websites without the use of complex SPA frameworks. The full page reload often breaks the user&amp;rsquo;s context with an abrupt &amp;ldquo;white screen&amp;rdquo; between loading.&lt;/p&gt;</description>
       <content>&lt;p&gt;The user experience (UX) in modern web applications demands fluidity and continuity, something that was historically difficult to achieve on traditional websites without the use of complex SPA frameworks. The full page reload often breaks the user&amp;rsquo;s context with an abrupt &amp;ldquo;white screen&amp;rdquo; between loading.&lt;/p&gt;
 &lt;p&gt;The &lt;strong&gt;View Transition API&lt;/strong&gt; emerges as the native web platform solution. It allows you to create smooth, animated transitions between different DOM states (on the same page - SPA) or even between different documents (during page navigation - MPA), all declaratively and with the power of CSS. Now, with expanded support (including Firefox, Chrome, and Safari), it is the ideal time to adopt it!&lt;/p&gt;

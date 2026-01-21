@@ -9,17 +9,10 @@
     <lastBuildDate>Sat, 01 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/devlogs/en/tags/view-transition/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CSS #01 - Transitions with the View Transition API</title>
-<<<<<<< Updated upstream
-      <link>http://localhost:1313/devlogs/en/posts/371db62496872c2d/</link>
-      <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/devlogs/en/posts/371db62496872c2d/</guid>
-=======
       <link>http://localhost:1313/devlogs/en/posts/6f5b31e2c45762df/</link>
       <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/devlogs/en/posts/6f5b31e2c45762df/</guid>
->>>>>>> Stashed changes
       <description>&lt;p&gt;The user experience (UX) in modern web applications demands fluidity and continuity, something that was historically difficult to achieve on traditional websites without the use of complex SPA frameworks. The full page reload often breaks the user&amp;rsquo;s context with an abrupt &amp;ldquo;white screen&amp;rdquo; between loading.&lt;/p&gt;</description>
       <content>&lt;p&gt;The user experience (UX) in modern web applications demands fluidity and continuity, something that was historically difficult to achieve on traditional websites without the use of complex SPA frameworks. The full page reload often breaks the user&amp;rsquo;s context with an abrupt &amp;ldquo;white screen&amp;rdquo; between loading.&lt;/p&gt;
 &lt;p&gt;The &lt;strong&gt;View Transition API&lt;/strong&gt; emerges as the native web platform solution. It allows you to create smooth, animated transitions between different DOM states (on the same page - SPA) or even between different documents (during page navigation - MPA), all declaratively and with the power of CSS. Now, with expanded support (including Firefox, Chrome, and Safari), it is the ideal time to adopt it!&lt;/p&gt;

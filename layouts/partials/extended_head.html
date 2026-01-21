@@ -40,7 +40,6 @@
       const text = await response.text();
       const data = new DOMParser().parseFromString(text, "text/html");
       
-      // Detecção de Hugo Alias (Redirect)
       if (data.querySelector('meta[http-equiv="refresh"]')) {
         window.location.href = finalUrl;
         return;
@@ -49,13 +48,28 @@
       const newContent = data.querySelector("#content") || data.body;
       const oldContent = document.querySelector("#content") || document.body;
 
-      // Inicia a transição
+      // Captura o hash da URL (ex: #meu-elemento)
+      const targetHash = new URL(finalUrl, location.origin).hash;
+
       const transition = useViewTransition(() => {
         oldContent.innerHTML = newContent.innerHTML;
         document.title = data.title;
-        window.scrollTo(0, 0);
+
+        // Lógica de Scroll inteligente:
+        if (targetHash) {
+          // Se houver hash, tenta encontrar o elemento no novo conteúdo
+          const el = document.querySelector(targetHash);
+          if (el) {
+            el.scrollIntoView(); 
+          } else {
+            window.scrollTo(0, 0);
+          }
+        } else {
+          // Se não houver hash, vai para o topo
+          window.scrollTo(0, 0);
+        }
         
-        // Re-executa scripts injetados (importante se houver outros scripts na página)
+        // Re-executa scripts
         Array.from(oldContent.querySelectorAll("script")).forEach((oldScript) => {
           const newScript = document.createElement("script");
           Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
@@ -64,10 +78,7 @@
         });
       });
 
-      // Espera a transição visual terminar para ativar o Pagefind
-      if (transition.finished) {
-        await transition.finished;
-      }
+      if (transition.finished) await transition.finished;
       
       initPagefind();
 

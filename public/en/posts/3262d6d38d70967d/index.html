@@ -109,7 +109,6 @@
       const text = await response.text();
       const data = new DOMParser().parseFromString(text, "text/html");
       
-      
       if (data.querySelector('meta[http-equiv="refresh"]')) {
         window.location.href = finalUrl;
         return;
@@ -119,10 +118,25 @@
       const oldContent = document.querySelector("#content") || document.body;
 
       
+      const targetHash = new URL(finalUrl, location.origin).hash;
+
       const transition = useViewTransition(() => {
         oldContent.innerHTML = newContent.innerHTML;
         document.title = data.title;
-        window.scrollTo(0, 0);
+
+        
+        if (targetHash) {
+          
+          const el = document.querySelector(targetHash);
+          if (el) {
+            el.scrollIntoView(); 
+          } else {
+            window.scrollTo(0, 0);
+          }
+        } else {
+          
+          window.scrollTo(0, 0);
+        }
         
         
         Array.from(oldContent.querySelectorAll("script")).forEach((oldScript) => {
@@ -133,10 +147,7 @@
         });
       });
 
-      
-      if (transition.finished) {
-        await transition.finished;
-      }
+      if (transition.finished) await transition.finished;
       
       initPagefind();
 
@@ -183,60 +194,6 @@
     }
   });
 
-<<<<<<< Updated upstream
-
-  
-  const useViewTransition = (callback) => {
-    if (document.startViewTransition) {
-      document.startViewTransition(callback);
-    } else {
-      callback();
-    }
-  };
-
-  const handleNavigation = async (url) => {
-    try {
-      const response = await fetch(url);
-      if (!response.ok) return (window.location.href = url);
-      
-      const text = await response.text();
-      const data = new DOMParser().parseFromString(text, "text/html");
-      const newContent = data.querySelector("#content") || data.body;
-      const oldContent = document.querySelector("#content") || document.body;
-
-      useViewTransition(() => {
-        oldContent.innerHTML = newContent.innerHTML;
-        document.title = data.title;
-        window.scrollTo(0, 0);
-      });
-
-      history.pushState({}, "", url);
-    } catch (err) {
-      window.location.href = url; 
-    }
-  };
-
-  
-  document.addEventListener("click", (e) => {
-    const link = e.target.closest("a");
-    
-    
-    if (
-      link && 
-      link.href.startsWith(location.origin) && 
-      !link.getAttribute("target") &&
-      !e.metaKey && !e.ctrlKey
-    ) {
-      e.preventDefault();
-      handleNavigation(link.href);
-    }
-  });
-
-  
-  window.addEventListener("popstate", () => handleNavigation(location.href));
-
-=======
->>>>>>> Stashed changes
 </script>
 
 
@@ -270,9 +227,9 @@
   <li>
     <ul class="menu__dropdown">
       
-        <li><a href="/devlogs/en/">English</a></li>
-      
         <li><a href="/devlogs/pt/">Português</a></li>
+      
+        <li><a href="/devlogs/en/">English</a></li>
       
     </ul>
   </li>
@@ -473,11 +430,7 @@ You can do this using the Pagefind command (see more details in the <a href="htt
     <div class="pagination__buttons">
         
         <span class="button previous">
-<<<<<<< Updated upstream
-            <a href="http://localhost:1313/devlogs/en/posts/371db62496872c2d/">
-=======
             <a href="http://localhost:1313/devlogs/en/posts/6f5b31e2c45762df/">
->>>>>>> Stashed changes
                 <span class="button__icon">←</span>
                 <span class="button__text">CSS #01 - Transitions with the View Transition API</span>
             </a>

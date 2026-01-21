@@ -105,7 +105,6 @@
       const text = await response.text();
       const data = new DOMParser().parseFromString(text, "text/html");
       
-      
       if (data.querySelector('meta[http-equiv="refresh"]')) {
         window.location.href = finalUrl;
         return;
@@ -115,10 +114,25 @@
       const oldContent = document.querySelector("#content") || document.body;
 
       
+      const targetHash = new URL(finalUrl, location.origin).hash;
+
       const transition = useViewTransition(() => {
         oldContent.innerHTML = newContent.innerHTML;
         document.title = data.title;
-        window.scrollTo(0, 0);
+
+        
+        if (targetHash) {
+          
+          const el = document.querySelector(targetHash);
+          if (el) {
+            el.scrollIntoView(); 
+          } else {
+            window.scrollTo(0, 0);
+          }
+        } else {
+          
+          window.scrollTo(0, 0);
+        }
         
         
         Array.from(oldContent.querySelectorAll("script")).forEach((oldScript) => {
@@ -129,10 +143,7 @@
         });
       });
 
-      
-      if (transition.finished) {
-        await transition.finished;
-      }
+      if (transition.finished) await transition.finished;
       
       initPagefind();
 

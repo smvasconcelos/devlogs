@@ -109,7 +109,6 @@
       const text = await response.text();
       const data = new DOMParser().parseFromString(text, "text/html");
       
-      
       if (data.querySelector('meta[http-equiv="refresh"]')) {
         window.location.href = finalUrl;
         return;
@@ -119,10 +118,25 @@
       const oldContent = document.querySelector("#content") || document.body;
 
       
+      const targetHash = new URL(finalUrl, location.origin).hash;
+
       const transition = useViewTransition(() => {
         oldContent.innerHTML = newContent.innerHTML;
         document.title = data.title;
-        window.scrollTo(0, 0);
+
+        
+        if (targetHash) {
+          
+          const el = document.querySelector(targetHash);
+          if (el) {
+            el.scrollIntoView(); 
+          } else {
+            window.scrollTo(0, 0);
+          }
+        } else {
+          
+          window.scrollTo(0, 0);
+        }
         
         
         Array.from(oldContent.querySelectorAll("script")).forEach((oldScript) => {
@@ -133,10 +147,7 @@
         });
       });
 
-      
-      if (transition.finished) {
-        await transition.finished;
-      }
+      if (transition.finished) await transition.finished;
       
       initPagefind();
 
@@ -216,9 +227,9 @@
   <li>
     <ul class="menu__dropdown">
       
-        <li><a href="/devlogs/en/">English</a></li>
-      
         <li><a href="/devlogs/pt/">Português</a></li>
+      
+        <li><a href="/devlogs/en/">English</a></li>
       
     </ul>
   </li>
@@ -384,9 +395,12 @@
           href="#how-to-run" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <ol>
 <li>Open the project folder in VS Code.</li>
-<li>With the <strong>Dev Containers</strong> extension installed, click <strong>&ldquo;Reopen in Container&rdquo;</strong>.</li>
+<li>With the <strong>Dev Containers</strong> extension installed, click <strong>&ldquo;Reopen in Container&rdquo;</strong>.
+<ol>
 <li>Alternatively, you can start the container separately with <code>docker-compose up --build</code>.</li>
 <li>Then, use the VS Code command palette (<code>Ctrl + Shift + P</code>) and type <code>Dev Containers: Reopen in Container</code>.</li>
+</ol>
+</li>
 <li>Wait for the build, and you&rsquo;re done! Your environment is configured with code quality tools active.</li>
 </ol>
 
