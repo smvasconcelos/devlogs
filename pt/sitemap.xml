@@ -2,6 +2,136 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://smvasconcelos.github.io/devlogs/pt/tags/container/</loc>
+    <lastmod>2026-01-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://smvasconcelos.github.io/devlogs/en/tags/container/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://smvasconcelos.github.io/devlogs/pt/tags/container/"
+                />
+  </url><url>
+    <loc>https://smvasconcelos.github.io/devlogs/pt/tags/devcontainers/</loc>
+    <lastmod>2026-01-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://smvasconcelos.github.io/devlogs/en/tags/devcontainers/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://smvasconcelos.github.io/devlogs/pt/tags/devcontainers/"
+                />
+  </url><url>
+    <loc>https://smvasconcelos.github.io/devlogs/pt/tags/docker/</loc>
+    <lastmod>2026-01-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://smvasconcelos.github.io/devlogs/en/tags/docker/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://smvasconcelos.github.io/devlogs/pt/tags/docker/"
+                />
+  </url><url>
+    <loc>https://smvasconcelos.github.io/devlogs/pt/posts/f2280863dbb456ab/</loc>
+    <lastmod>2026-01-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://smvasconcelos.github.io/devlogs/en/posts/f2280863dbb456ab/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://smvasconcelos.github.io/devlogs/pt/posts/f2280863dbb456ab/"
+                />
+  </url><url>
+    <loc>https://smvasconcelos.github.io/devlogs/pt/tags/frontend/</loc>
+    <lastmod>2026-01-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://smvasconcelos.github.io/devlogs/en/tags/frontend/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://smvasconcelos.github.io/devlogs/pt/tags/frontend/"
+                />
+  </url><url>
+    <loc>https://smvasconcelos.github.io/devlogs/pt/posts/</loc>
+    <lastmod>2026-01-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://smvasconcelos.github.io/devlogs/en/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://smvasconcelos.github.io/devlogs/pt/posts/"
+                />
+  </url><url>
+    <loc>https://smvasconcelos.github.io/devlogs/pt/tags/react/</loc>
+    <lastmod>2026-01-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://smvasconcelos.github.io/devlogs/en/tags/react/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://smvasconcelos.github.io/devlogs/pt/tags/react/"
+                />
+  </url><url>
+    <loc>https://smvasconcelos.github.io/devlogs/pt/</loc>
+    <lastmod>2026-01-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://smvasconcelos.github.io/devlogs/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://smvasconcelos.github.io/devlogs/pt/"
+                />
+  </url><url>
+    <loc>https://smvasconcelos.github.io/devlogs/pt/tags/</loc>
+    <lastmod>2026-01-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://smvasconcelos.github.io/devlogs/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://smvasconcelos.github.io/devlogs/pt/tags/"
+                />
+  </url><url>
+    <loc>https://smvasconcelos.github.io/devlogs/pt/tags/vite/</loc>
+    <lastmod>2026-01-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://smvasconcelos.github.io/devlogs/en/tags/vite/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://smvasconcelos.github.io/devlogs/pt/tags/vite/"
+                />
+  </url><url>
     <loc>https://smvasconcelos.github.io/devlogs/pt/tags/animations/</loc>
     <lastmod>2025-11-01T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -41,6 +171,19 @@
                 href="https://smvasconcelos.github.io/devlogs/pt/posts/371db62496872c2d/"
                 />
   </url><url>
+    <loc>https://smvasconcelos.github.io/devlogs/pt/posts/6f5b31e2c45762df/</loc>
+    <lastmod>2025-11-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://smvasconcelos.github.io/devlogs/en/posts/6f5b31e2c45762df/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://smvasconcelos.github.io/devlogs/pt/posts/6f5b31e2c45762df/"
+                />
+  </url><url>
     <loc>https://smvasconcelos.github.io/devlogs/pt/tags/firefox/</loc>
     <lastmod>2025-11-01T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -52,45 +195,6 @@
                 rel="alternate"
                 hreflang="pt"
                 href="https://smvasconcelos.github.io/devlogs/pt/tags/firefox/"
-                />
-  </url><url>
-    <loc>https://smvasconcelos.github.io/devlogs/pt/posts/</loc>
-    <lastmod>2025-11-01T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://smvasconcelos.github.io/devlogs/en/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://smvasconcelos.github.io/devlogs/pt/posts/"
-                />
-  </url><url>
-    <loc>https://smvasconcelos.github.io/devlogs/pt/</loc>
-    <lastmod>2025-11-01T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://smvasconcelos.github.io/devlogs/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://smvasconcelos.github.io/devlogs/pt/"
-                />
-  </url><url>
-    <loc>https://smvasconcelos.github.io/devlogs/pt/tags/</loc>
-    <lastmod>2025-11-01T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://smvasconcelos.github.io/devlogs/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://smvasconcelos.github.io/devlogs/pt/tags/"
                 />
   </url><url>
     <loc>https://smvasconcelos.github.io/devlogs/pt/tags/transitions/</loc>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  
+    <title>Docker #01 - How to dockerize a react app :: smvasconcelos | DevLogs</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Como desenvolvedor fullstack, sei que configurar o ambiente de desenvolvimento pode ser uma das tarefas mais repetitivas de um projeto. O objetivo deste guia é criar um ambiente padronizado onde qualquer desenvolvedor possa rodar o projeto em segundos, com todas as extensões do VS Code já configuradas. Como desenvolvedor fullstack, sei que configurar o ambiente de desenvolvimento pode ser uma das tarefas mais repetitivas de um projeto. O objetivo deste guia é criar um ambiente padronizado onde qualquer desenvolvedor possa rodar o projeto em segundos, com todas as extensões do VS Code já configuradas.
+" />
+<meta name="keywords" content="" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="https://smvasconcelos.github.io/devlogs/pt/posts/f2280863dbb456ab/" />
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://smvasconcelos.github.io/devlogs/styles.css">
+
+
+
+<link rel="stylesheet" href="https://smvasconcelos.github.io/devlogs/style.css">
+
+
+
+  <link rel="shortcut icon" href="https://smvasconcelos.github.io/devlogs/favicon.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+
+
+<meta property="og:locale" content="pt" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Docker #01 - How to dockerize a react app">
+<meta property="og:description" content="Como desenvolvedor fullstack, sei que configurar o ambiente de desenvolvimento pode ser uma das tarefas mais repetitivas de um projeto. O objetivo deste guia é criar um ambiente padronizado onde qualquer desenvolvedor possa rodar o projeto em segundos, com todas as extensões do VS Code já configuradas. Como desenvolvedor fullstack, sei que configurar o ambiente de desenvolvimento pode ser uma das tarefas mais repetitivas de um projeto. O objetivo deste guia é criar um ambiente padronizado onde qualquer desenvolvedor possa rodar o projeto em segundos, com todas as extensões do VS Code já configuradas.
+" />
+<meta property="og:url" content="https://smvasconcelos.github.io/devlogs/pt/posts/f2280863dbb456ab/" />
+<meta property="og:site_name" content="smvasconcelos | DevLogs" />
+
+  
+    <meta property="og:image" content="https://smvasconcelos.github.io/devlogs/favicon.png">
+  
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2026-01-20 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+<link href="/devlogs/pagefind/pagefind-ui.css" rel="stylesheet">
+<script src="/devlogs/pagefind/pagefind-ui.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    new PagefindUI({
+      element: "#search",
+      showSubResults: false,
+      showImages: false,
+      debounceTimeoutMs: 500,
+      sort: { date: "desc" },
+      showMeta: false,
+      excerptLength: 15
+    });
+  });
+
+  
+  document.addEventListener('focusin', (e) => {
+    if (e.target && e.target.matches('#search input')) {
+      const drawer = document.querySelector('.pagefind-ui__drawer');
+      if (drawer && e.target.value.trim() !== '' && drawer.classList.contains('pagefind-ui__hidden')) {
+        drawer.classList.remove('pagefind-ui__hidden');
+      }
+    }
+  });
+
+  
+  document.addEventListener('click', (e) => {
+    const searchEl = document.querySelector("#search");
+    const drawer = document.querySelector(".pagefind-ui__drawer");
+    if (searchEl && drawer && !searchEl.contains(e.target) && !drawer.classList.contains('pagefind-ui__hidden') && !e.target.classList.contains('pagefind-ui__button')) {
+      drawer.classList.add('pagefind-ui__hidden');
+    }
+  });
+
+
+  
+  const useViewTransition = (callback) => {
+    if (document.startViewTransition) {
+      document.startViewTransition(callback);
+    } else {
+      callback();
+    }
+  };
+
+  const handleNavigation = async (url) => {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) return (window.location.href = url);
+      
+      const text = await response.text();
+      const data = new DOMParser().parseFromString(text, "text/html");
+      
+      
+      const newContent = data.querySelector("#content") || data.body;
+      const oldContent = document.querySelector("#content") || document.body;
+
+      useViewTransition(() => {
+        oldContent.innerHTML = newContent.innerHTML;
+        document.title = data.title;
+        window.scrollTo(0, 0);
+        
+        
+        const hash = new URL(url).hash;
+        if (hash) {
+          const el = document.querySelector(hash);
+          if (el) el.scrollIntoView();
+        }
+      });
+
+      history.pushState({}, "", url);
+    } catch (err) {
+      window.location.href = url;
+    }
+  };
+
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest("a");
+    if (!link) return;
+
+    const targetUrl = new URL(link.href, location.href);
+
+    
+    const isExternal = targetUrl.origin !== location.origin;
+    const isSamePageHash = targetUrl.pathname === location.pathname && targetUrl.hash !== "";
+    const isNewTab = link.getAttribute("target") === "_blank" || e.metaKey || e.ctrlKey;
+
+    
+    if (isExternal || isSamePageHash || isNewTab) {
+      return;
+    }
+
+    
+    e.preventDefault();
+    handleNavigation(link.href);
+  });
+
+  window.addEventListener("popstate", () => handleNavigation(location.href));
+
+</script>
+
+
+
+  
+
+
+</head>
+<body class="crt">
+
+
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/devlogs/pt">
+  <div class="logo">
+    smvasconcelos | DevLogs
+  </div>
+</a>
+
+    </div>
+    
+    <div id="search"></div>
+    
+    <ul class="menu menu--desktop menu--language-selector">
+  <li class="menu__trigger">Português&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        <li><a href="/devlogs/en/">English</a></li>
+      
+        <li><a href="/devlogs/pt/">Português</a></li>
+      
+    </ul>
+  </li>
+</ul>
+
+    
+  </div>
+</header>
+
+
+  <div class="content">
+    
+<article class="post" data-pagefind-body>
+  <h1 class="post-title typewriter" style="view-transition-name:post-title-f2280863dbb456ab.pt;">
+    <a data-pagefind-field="title" href="https://smvasconcelos.github.io/devlogs/pt/posts/f2280863dbb456ab/">Docker #01 - How to dockerize a react app</a>
+  </h1>
+  <div class="post-meta"><time data-pagefind-field="date" class="post-date" style="view-transition-name:post-date-f2280863dbb456ab.pt;">2026-01-20</time>
+    
+<span class="post-reading-time">3 min - leitura (476
+      palavras)</span>
+    <span class="post-tags" style="view-transition-name:post-tags-f2280863dbb456ab.pt;">
+      
+      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/docker/">docker</a>
+      
+      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/react/">react</a>
+      
+      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/vite/">vite</a>
+      
+      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/devcontainers/">devcontainers</a>
+      
+      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/container/">container</a>
+      
+      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/frontend/">frontend</a>
+      
+    </span>
+    
+  </div>
+
+  
+
+
+
+  
+  <div class="table-of-contents">
+    <h2>
+      Sumário
+    </h2>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#por-que-dockerizar-o-seu-frontend">Por que Dockerizar o seu Frontend?</a></li>
+    <li><a href="#1-dockerfile-o-coração-do-ambiente">1. Dockerfile (O Coração do Ambiente)</a></li>
+    <li><a href="#2-docker-compose-orquestração">2. Docker Compose (Orquestração)</a></li>
+    <li><a href="#3-arquivo-dockerignore">3. Arquivo .dockerignore</a></li>
+    <li><a href="#4-dev-containers-a-mágica-do-vs-code">4. Dev Containers (A Mágica do VS Code)</a></li>
+    <li><a href="#5--ajuste-no-vite-atenção-aqui">5 . Ajuste no Vite (Atenção aqui!)</a></li>
+    <li><a href="#6-como-executar">6. Como Executar</a></li>
+  </ul>
+</nav>
+  </div>
+  
+
+  <div  class="post-content" style="view-transition-name:post-content-f2280863dbb456ab.pt;"><div>
+      <p>Como desenvolvedor fullstack, sei que configurar o ambiente de desenvolvimento pode ser uma das tarefas mais repetitivas de um projeto. O objetivo deste guia é criar um ambiente padronizado onde qualquer desenvolvedor possa rodar o projeto em segundos, com todas as extensões do VS Code já configuradas.
+Como desenvolvedor fullstack, sei que configurar o ambiente de desenvolvimento pode ser uma das tarefas mais repetitivas de um projeto. O objetivo deste guia é criar um ambiente padronizado onde qualquer desenvolvedor possa rodar o projeto em segundos, com todas as extensões do VS Code já configuradas.</p>
+<h2 id="por-que-dockerizar-o-seu-frontend">Por que Dockerizar o seu Frontend?<a
+          href="#por-que-dockerizar-o-seu-frontend" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<ol>
+<li><strong>Consistência Total:</strong> A mesma versão do Node.js e Package Manager (yarn, npm, pnpm, etc) para todos.</li>
+<li><strong>Setup Zero:</strong> Esqueça o &ldquo;npm install&rdquo; demorado no host; o container resolve tudo.</li>
+<li><strong>Isolamento:</strong> Evite conflitos de bibliotecas globais na sua máquina.</li>
+<li><strong>Dev Containers:</strong> Sincronize extensões como ESLint e Prettier diretamente pelo container.</li>
+</ol>
+<h2 id="1-dockerfile-o-coração-do-ambiente">1. Dockerfile (O Coração do Ambiente)<a
+          href="#1-dockerfile-o-coração-do-ambiente" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Utilizamos a imagem <code>node:24-alpine</code> para manter o ambiente leve e seguro. Observe que configuramos o usuário <code>node</code> para evitar problemas de permissão de arquivos no Linux/Mac.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#75715e"># Dockerfile</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">node:24-alpine</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> apk add --no-cache libc6-compat git<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span> <span style="color:#e6db74">/app</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> chown -R node:node /app<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">USER</span> <span style="color:#e6db74">node</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> --chown<span style="color:#f92672">=</span>node:node package*.json yarn.lock ./<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> --chown<span style="color:#f92672">=</span>node:node tsconfig*.json ./<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> yarn install<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> --chown<span style="color:#f92672">=</span>node:node . .<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">EXPOSE</span> <span style="color:#e6db74">5173</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> [<span style="color:#e6db74">&#34;yarn&#34;</span>, <span style="color:#e6db74">&#34;dev&#34;</span>]<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><h2 id="2-docker-compose-orquestração">2. Docker Compose (Orquestração)<a
+          href="#2-docker-compose-orquestração" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>O Compose gerencia o mapeamento das portas e os volumes. O volume <code>/app/node_modules</code> é essencial para que o Docker não tente usar os módulos instalados na sua máquina host (caso existam).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># docker-compose.yml</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">app</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">build</span>: <span style="color:#ae81ff">.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">react-docker:dev</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">react-docker</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">5173</span>:<span style="color:#ae81ff">5173</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">.:/app</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/app/node_modules</span>
+</span></span></code></pre></div><h2 id="3-arquivo-dockerignore">3. Arquivo .dockerignore<a
+          href="#3-arquivo-dockerignore" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Não queremos enviar lixo para dentro da imagem. Este arquivo garante um build rápido.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span># .dockerignore
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>node_modules
+</span></span><span style="display:flex;"><span>dist
+</span></span><span style="display:flex;"><span>.git
+</span></span><span style="display:flex;"><span>.devcontainer
+</span></span></code></pre></div><hr>
+<h2 id="4-dev-containers-a-mágica-do-vs-code">4. Dev Containers (A Mágica do VS Code)<a
+          href="#4-dev-containers-a-mágica-do-vs-code" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>O arquivo <code>.devcontainer/devcontainer.json</code> garante que, ao abrir o projeto, o VS Code já sugira e instale as extensões de linting e formatação.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span><span style="color:#75715e">// devcontainer.json
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;React Docker&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;dockerComposeFile&#34;</span>: <span style="color:#e6db74">&#34;../docker-compose.yml&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;service&#34;</span>: <span style="color:#e6db74">&#34;app&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;workspaceFolder&#34;</span>: <span style="color:#e6db74">&#34;/app&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;remoteUser&#34;</span>: <span style="color:#e6db74">&#34;node&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;customizations&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;vscode&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;settings&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;editor.defaultFormatter&#34;</span>: <span style="color:#e6db74">&#34;esbenp.prettier-vscode&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;editor.formatOnSave&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;editor.codeActionsOnSave&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;source.fixAll.eslint&#34;</span>: <span style="color:#e6db74">&#34;explicit&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;extensions&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;esbenp.prettier-vscode&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;dbaeumer.vscode-eslint&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;styled-components.vscode-styled-components&#34;</span>
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="5--ajuste-no-vite-atenção-aqui">5 . Ajuste no Vite (Atenção aqui!)<a
+          href="#5--ajuste-no-vite-atenção-aqui" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Para que o Vite aceite conexões vindas do Docker (rede externa ao localhost do container), altere seu script no <code>package.json</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span><span style="color:#75715e">// package.json (scripts)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">...</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&#34;scripts&#34;</span>: {
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">&#34;dev&#34;</span>: <span style="color:#e6db74">&#34;vite --host 0.0.0.0&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#960050;background-color:#1e0010">...</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="6-como-executar">6. Como Executar<a
+          href="#6-como-executar" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<ol>
+<li>Abra a pasta do projeto no VS Code.</li>
+<li>Com a extensão <strong>Dev Containers</strong> instalada, clique em &ldquo;Reopen in Container&rdquo;.
+<ol>
+<li>Se preferir pode subir o container separadamente com <code>docker-compose up --build</code></li>
+<li>E após no script do vscode <code>ctrl + shift + p</code> e digitar <code>Dev Containers: Reopen in COntainer</code></li>
+</ol>
+</li>
+<li>Aguarde o build e pronto! Seu ambiente está configurado e com as ferramentas de qualidade de código ativas.</li>
+</ol>
+
+      </div></div>
+
+    
+    
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Leia outras postagens</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        
+        <span class="button next">
+            <a href="https://smvasconcelos.github.io/devlogs/pt/posts/371db62496872c2d/">
+                <span class="button__text">CSS #01 - Transições com a View Transition API</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+    
+
+    
+    
+
+    
+  </article>
+  
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+    <div class="copyright copyright--user">
+      <span>© 2025 <a href='https://smvasconcelos.github.io/resume/'>Samuel Vasconcelos</a>. Todos os direitos reservados.</span>
+      
+      </div>
+    </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/devlogs/bundle.min.js"></script>
+
+
+
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>
