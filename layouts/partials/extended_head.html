@@ -1,17 +1,99 @@
 <link href="/devlogs/pagefind/pagefind-ui.css" rel="stylesheet">
 <script src="/devlogs/pagefind/pagefind-ui.js"></script>
 <script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    new PagefindUI({
-      element: "#search",
-      showSubResults: false,
-      showImages: false,
-      debounceTimeoutMs: 500,
-      sort: { date: "desc" },
-      showMeta: false,
-      excerptLength: 15
-    });
+  // Firefox view transition api
+  // 1. Função de inicialização com as SUAS configurações
+  const initPagefind = () => {
+    const searchElement = document.querySelector("#search");
+    
+    // Só inicializa se o elemento existir e o script do Pagefind estiver carregado
+    if (searchElement && window.PagefindUI) {
+      searchElement.innerHTML = ""; // Limpa lixo de navegações anteriores
+      
+      new PagefindUI({
+        element: "#search",
+        showSubResults: false,
+        showImages: false,
+        debounceTimeoutMs: 500,
+        sort: { date: "desc" },
+        showMeta: false,
+        excerptLength: 15
+      });
+    }
+  };
+
+  const useViewTransition = (callback) => {
+    if (document.startViewTransition) {
+      return document.startViewTransition(callback);
+    } else {
+      callback();
+      return { finished: Promise.resolve() };
+    }
+  };
+
+  const handleNavigation = async (url) => {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) return (window.location.href = url);
+      
+      const finalUrl = response.url;
+      const text = await response.text();
+      const data = new DOMParser().parseFromString(text, "text/html");
+      
+      // Detecção de Hugo Alias (Redirect)
+      if (data.querySelector('meta[http-equiv="refresh"]')) {
+        window.location.href = finalUrl;
+        return;
+      }
+
+      const newContent = data.querySelector("#content") || data.body;
+      const oldContent = document.querySelector("#content") || document.body;
+
+      // Inicia a transição
+      const transition = useViewTransition(() => {
+        oldContent.innerHTML = newContent.innerHTML;
+        document.title = data.title;
+        window.scrollTo(0, 0);
+        
+        // Re-executa scripts injetados (importante se houver outros scripts na página)
+        Array.from(oldContent.querySelectorAll("script")).forEach((oldScript) => {
+          const newScript = document.createElement("script");
+          Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+          newScript.textContent = oldScript.textContent;
+          oldScript.replaceWith(newScript);
+        });
+      });
+
+      // Espera a transição visual terminar para ativar o Pagefind
+      if (transition.finished) {
+        await transition.finished;
+      }
+      
+      initPagefind();
+
+      if (location.href !== finalUrl) {
+        history.pushState({}, "", finalUrl);
+      }
+    } catch (err) {
+      window.location.href = url;
+    }
+  };
+
+  // Listeners de evento
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest("a");
+    if (!link) return;
+    const targetUrl = new URL(link.href, location.href);
+    if (targetUrl.origin !== location.origin || link.getAttribute("target") === "_blank" || e.metaKey || e.ctrlKey) return;
+    
+    e.preventDefault();
+    handleNavigation(link.href);
   });
+
+  window.addEventListener("popstate", () => handleNavigation(location.href));
+
+  // Inicialização na primeira carga da página
+  document.addEventListener("DOMContentLoaded", initPagefind);
 
   // Reabre o drawer quando o input tem valor
   document.addEventListener('focusin', (e) => {
@@ -31,69 +113,5 @@
       drawer.classList.add('pagefind-ui__hidden');
     }
   });
-
-
-  // Firefox View Transiction
-  const useViewTransition = (callback) => {
-    if (document.startViewTransition) {
-      document.startViewTransition(callback);
-    } else {
-      callback();
-    }
-  };
-
-  const handleNavigation = async (url) => {
-    try {
-      const response = await fetch(url);
-      if (!response.ok) return (window.location.href = url);
-      
-      const text = await response.text();
-      const data = new DOMParser().parseFromString(text, "text/html");
-      
-      // Tenta pegar o container principal, se não existir, usa o body
-      const newContent = data.querySelector("#content") || data.body;
-      const oldContent = document.querySelector("#content") || document.body;
-
-      useViewTransition(() => {
-        oldContent.innerHTML = newContent.innerHTML;
-        document.title = data.title;
-        window.scrollTo(0, 0);
-        
-        // Se a URL de destino tiver um hash, rola até o elemento após a transição
-        const hash = new URL(url).hash;
-        if (hash) {
-          const el = document.querySelector(hash);
-          if (el) el.scrollIntoView();
-        }
-      });
-
-      history.pushState({}, "", url);
-    } catch (err) {
-      window.location.href = url;
-    }
-  };
-
-  document.addEventListener("click", (e) => {
-    const link = e.target.closest("a");
-    if (!link) return;
-
-    const targetUrl = new URL(link.href, location.href);
-
-    // Verificações para ignorar o script:
-    const isExternal = targetUrl.origin !== location.origin;
-    const isSamePageHash = targetUrl.pathname === location.pathname && targetUrl.hash !== "";
-    const isNewTab = link.getAttribute("target") === "_blank" || e.metaKey || e.ctrlKey;
-
-    // Se for link externo, mesma página com hash, ou nova aba -> Deixa o navegador lidar
-    if (isExternal || isSamePageHash || isNewTab) {
-      return;
-    }
-
-    // Caso contrário, impede o reload e faz a View Transition
-    e.preventDefault();
-    handleNavigation(link.href);
-  });
-
-  window.addEventListener("popstate", () => handleNavigation(location.href));
 
 </script>

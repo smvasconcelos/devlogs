@@ -9,10 +9,17 @@
     <lastBuildDate>Sat, 01 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/devlogs/pt/tags/firefox/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CSS #01 - Transições com a View Transition API</title>
+<<<<<<< Updated upstream
       <link>http://localhost:1313/devlogs/pt/posts/371db62496872c2d/</link>
       <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/devlogs/pt/posts/371db62496872c2d/</guid>
+=======
+      <link>http://localhost:1313/devlogs/pt/posts/6f5b31e2c45762df/</link>
+      <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/devlogs/pt/posts/6f5b31e2c45762df/</guid>
+>>>>>>> Stashed changes
       <description>&lt;p&gt;A experiência do usuário (UX) em aplicações web modernas exige fluidez e continuidade, algo que historicamente era difícil de alcançar em sites tradicionais  sem o uso de frameworks complexos de SPA. O recarregamento completo da página muitas vezes quebra o contexto do usuário com uma &amp;ldquo;tela branca&amp;rdquo; entre o carregamento de forma brusca.&lt;/p&gt;</description>
       <content>&lt;p&gt;A experiência do usuário (UX) em aplicações web modernas exige fluidez e continuidade, algo que historicamente era difícil de alcançar em sites tradicionais  sem o uso de frameworks complexos de SPA. O recarregamento completo da página muitas vezes quebra o contexto do usuário com uma &amp;ldquo;tela branca&amp;rdquo; entre o carregamento de forma brusca.&lt;/p&gt;
 &lt;p&gt;A &lt;strong&gt;View Transition API&lt;/strong&gt; surge como a solução nativa da plataforma web. Ela permite criar transições animadas e suaves entre diferentes estados do DOM (na mesma página - SPA) ou até mesmo entre diferentes documentos (na navegação entre páginas - MPA), tudo de forma declarativa e com o poder do CSS. Agora, com o suporte expandido (incluindo Firefox, Chrome e Safari), é o momento ideal para adotá-la!&lt;/p&gt;

@@ -2,6 +2,139 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+<<<<<<< Updated upstream
+=======
+    <loc>http://localhost:1313/devlogs/en/tags/container/</loc>
+    <lastmod>2026-01-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="http://localhost:1313/devlogs/pt/tags/container/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/devlogs/en/tags/container/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/devlogs/en/tags/devcontainers/</loc>
+    <lastmod>2026-01-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="http://localhost:1313/devlogs/pt/tags/devcontainers/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/devlogs/en/tags/devcontainers/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/devlogs/en/tags/docker/</loc>
+    <lastmod>2026-01-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="http://localhost:1313/devlogs/pt/tags/docker/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/devlogs/en/tags/docker/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/devlogs/en/posts/f2280863dbb456ab/</loc>
+    <lastmod>2026-01-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="http://localhost:1313/devlogs/pt/posts/f2280863dbb456ab/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/devlogs/en/posts/f2280863dbb456ab/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/devlogs/en/tags/frontend/</loc>
+    <lastmod>2026-01-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="http://localhost:1313/devlogs/pt/tags/frontend/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/devlogs/en/tags/frontend/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/devlogs/en/posts/</loc>
+    <lastmod>2026-01-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="http://localhost:1313/devlogs/pt/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/devlogs/en/posts/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/devlogs/en/tags/react/</loc>
+    <lastmod>2026-01-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="http://localhost:1313/devlogs/pt/tags/react/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/devlogs/en/tags/react/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/devlogs/en/</loc>
+    <lastmod>2026-01-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="http://localhost:1313/devlogs/pt/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/devlogs/en/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/devlogs/en/tags/</loc>
+    <lastmod>2026-01-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="http://localhost:1313/devlogs/pt/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/devlogs/en/tags/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/devlogs/en/tags/vite/</loc>
+    <lastmod>2026-01-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="http://localhost:1313/devlogs/pt/tags/vite/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/devlogs/en/tags/vite/"
+                />
+  </url><url>
+>>>>>>> Stashed changes
     <loc>http://localhost:1313/devlogs/en/tags/animations/</loc>
     <lastmod>2025-11-01T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -28,17 +161,29 @@
                 href="http://localhost:1313/devlogs/en/tags/css/"
                 />
   </url><url>
+<<<<<<< Updated upstream
     <loc>http://localhost:1313/devlogs/en/posts/371db62496872c2d/</loc>
+=======
+    <loc>http://localhost:1313/devlogs/en/posts/6f5b31e2c45762df/</loc>
+>>>>>>> Stashed changes
     <lastmod>2025-11-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
+<<<<<<< Updated upstream
                 href="http://localhost:1313/devlogs/pt/posts/371db62496872c2d/"
+=======
+                href="http://localhost:1313/devlogs/pt/posts/6f5b31e2c45762df/"
+>>>>>>> Stashed changes
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
+<<<<<<< Updated upstream
                 href="http://localhost:1313/devlogs/en/posts/371db62496872c2d/"
+=======
+                href="http://localhost:1313/devlogs/en/posts/6f5b31e2c45762df/"
+>>>>>>> Stashed changes
                 />
   </url><url>
     <loc>http://localhost:1313/devlogs/en/tags/firefox/</loc>
@@ -54,29 +199,49 @@
                 href="http://localhost:1313/devlogs/en/tags/firefox/"
                 />
   </url><url>
+<<<<<<< Updated upstream
     <loc>http://localhost:1313/devlogs/en/posts/</loc>
+=======
+    <loc>http://localhost:1313/devlogs/en/tags/transitions/</loc>
+>>>>>>> Stashed changes
     <lastmod>2025-11-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
+<<<<<<< Updated upstream
                 href="http://localhost:1313/devlogs/pt/posts/"
+=======
+                href="http://localhost:1313/devlogs/pt/tags/transitions/"
+>>>>>>> Stashed changes
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
+<<<<<<< Updated upstream
                 href="http://localhost:1313/devlogs/en/posts/"
                 />
   </url><url>
     <loc>http://localhost:1313/devlogs/en/</loc>
+=======
+                href="http://localhost:1313/devlogs/en/tags/transitions/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/devlogs/en/tags/view-transition/</loc>
+>>>>>>> Stashed changes
     <lastmod>2025-11-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
+<<<<<<< Updated upstream
                 href="http://localhost:1313/devlogs/pt/"
+=======
+                href="http://localhost:1313/devlogs/pt/tags/view-transition/"
+>>>>>>> Stashed changes
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
+<<<<<<< Updated upstream
                 href="http://localhost:1313/devlogs/en/"
                 />
   </url><url>
@@ -119,6 +284,11 @@
                 href="http://localhost:1313/devlogs/en/tags/view-transition/"
                 />
   </url><url>
+=======
+                href="http://localhost:1313/devlogs/en/tags/view-transition/"
+                />
+  </url><url>
+>>>>>>> Stashed changes
     <loc>http://localhost:1313/devlogs/en/tags/hugo/</loc>
     <lastmod>2025-10-20T00:00:00+00:00</lastmod>
     <xhtml:link

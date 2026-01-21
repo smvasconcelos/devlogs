@@ -69,17 +69,99 @@
 <link href="/devlogs/pagefind/pagefind-ui.css" rel="stylesheet">
 <script src="/devlogs/pagefind/pagefind-ui.js"></script>
 <script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    new PagefindUI({
-      element: "#search",
-      showSubResults: false,
-      showImages: false,
-      debounceTimeoutMs: 500,
-      sort: { date: "desc" },
-      showMeta: false,
-      excerptLength: 15
-    });
+  
+  
+  const initPagefind = () => {
+    const searchElement = document.querySelector("#search");
+    
+    
+    if (searchElement && window.PagefindUI) {
+      searchElement.innerHTML = ""; 
+      
+      new PagefindUI({
+        element: "#search",
+        showSubResults: false,
+        showImages: false,
+        debounceTimeoutMs: 500,
+        sort: { date: "desc" },
+        showMeta: false,
+        excerptLength: 15
+      });
+    }
+  };
+
+  const useViewTransition = (callback) => {
+    if (document.startViewTransition) {
+      return document.startViewTransition(callback);
+    } else {
+      callback();
+      return { finished: Promise.resolve() };
+    }
+  };
+
+  const handleNavigation = async (url) => {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) return (window.location.href = url);
+      
+      const finalUrl = response.url;
+      const text = await response.text();
+      const data = new DOMParser().parseFromString(text, "text/html");
+      
+      
+      if (data.querySelector('meta[http-equiv="refresh"]')) {
+        window.location.href = finalUrl;
+        return;
+      }
+
+      const newContent = data.querySelector("#content") || data.body;
+      const oldContent = document.querySelector("#content") || document.body;
+
+      
+      const transition = useViewTransition(() => {
+        oldContent.innerHTML = newContent.innerHTML;
+        document.title = data.title;
+        window.scrollTo(0, 0);
+        
+        
+        Array.from(oldContent.querySelectorAll("script")).forEach((oldScript) => {
+          const newScript = document.createElement("script");
+          Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+          newScript.textContent = oldScript.textContent;
+          oldScript.replaceWith(newScript);
+        });
+      });
+
+      
+      if (transition.finished) {
+        await transition.finished;
+      }
+      
+      initPagefind();
+
+      if (location.href !== finalUrl) {
+        history.pushState({}, "", finalUrl);
+      }
+    } catch (err) {
+      window.location.href = url;
+    }
+  };
+
+  
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest("a");
+    if (!link) return;
+    const targetUrl = new URL(link.href, location.href);
+    if (targetUrl.origin !== location.origin || link.getAttribute("target") === "_blank" || e.metaKey || e.ctrlKey) return;
+    
+    e.preventDefault();
+    handleNavigation(link.href);
   });
+
+  window.addEventListener("popstate", () => handleNavigation(location.href));
+
+  
+  document.addEventListener("DOMContentLoaded", initPagefind);
 
   
   document.addEventListener('focusin', (e) => {
@@ -99,70 +181,6 @@
       drawer.classList.add('pagefind-ui__hidden');
     }
   });
-
-
-  
-  const useViewTransition = (callback) => {
-    if (document.startViewTransition) {
-      document.startViewTransition(callback);
-    } else {
-      callback();
-    }
-  };
-
-  const handleNavigation = async (url) => {
-    try {
-      const response = await fetch(url);
-      if (!response.ok) return (window.location.href = url);
-      
-      const text = await response.text();
-      const data = new DOMParser().parseFromString(text, "text/html");
-      
-      
-      const newContent = data.querySelector("#content") || data.body;
-      const oldContent = document.querySelector("#content") || document.body;
-
-      useViewTransition(() => {
-        oldContent.innerHTML = newContent.innerHTML;
-        document.title = data.title;
-        window.scrollTo(0, 0);
-        
-        
-        const hash = new URL(url).hash;
-        if (hash) {
-          const el = document.querySelector(hash);
-          if (el) el.scrollIntoView();
-        }
-      });
-
-      history.pushState({}, "", url);
-    } catch (err) {
-      window.location.href = url;
-    }
-  };
-
-  document.addEventListener("click", (e) => {
-    const link = e.target.closest("a");
-    if (!link) return;
-
-    const targetUrl = new URL(link.href, location.href);
-
-    
-    const isExternal = targetUrl.origin !== location.origin;
-    const isSamePageHash = targetUrl.pathname === location.pathname && targetUrl.hash !== "";
-    const isNewTab = link.getAttribute("target") === "_blank" || e.metaKey || e.ctrlKey;
-
-    
-    if (isExternal || isSamePageHash || isNewTab) {
-      return;
-    }
-
-    
-    e.preventDefault();
-    handleNavigation(link.href);
-  });
-
-  window.addEventListener("popstate", () => handleNavigation(location.href));
 
 </script>
 
@@ -225,12 +243,72 @@
 
   
   <article class="post on-list">
+<<<<<<< Updated upstream
     <h1 class="post-title" style="view-transition-name:post-title-371db62496872c2d.en;">
       <a href="http://localhost:1313/devlogs/en/posts/371db62496872c2d/">CSS #01 - Transitions with the View Transition API</a>
+=======
+    <h1 class="post-title" style="view-transition-name:post-title-f2280863dbb456ab.en;">
+      <a href="http://localhost:1313/devlogs/en/posts/f2280863dbb456ab/">Docker #01 - How to dockerize a react app</a>
+>>>>>>> Stashed changes
     </h1>
 
     <div class="post-meta"><time class="post-date" style="view-transition-name:post-date-371db62496872c2d.en;">2025-11-01</time>
       <span class="post-tags" style="view-transition-name:post-tags-371db62496872c2d.en;">
+        
+<<<<<<< Updated upstream
+        #<a href="http://localhost:1313/devlogs/en/tags/css/">css</a>
+        
+        #<a href="http://localhost:1313/devlogs/en/tags/animations/">animations</a>
+        
+        #<a href="http://localhost:1313/devlogs/en/tags/transitions/">transitions</a>
+        
+        #<a href="http://localhost:1313/devlogs/en/tags/view-transition/">view-transition</a>
+        
+        #<a href="http://localhost:1313/devlogs/en/tags/firefox/">firefox</a>
+=======
+        #<a href="http://localhost:1313/devlogs/en/tags/docker/">docker</a>
+        
+        #<a href="http://localhost:1313/devlogs/en/tags/react/">react</a>
+        
+        #<a href="http://localhost:1313/devlogs/en/tags/vite/">vite</a>
+        
+        #<a href="http://localhost:1313/devlogs/en/tags/devcontainers/">devcontainers</a>
+        
+        #<a href="http://localhost:1313/devlogs/en/tags/container/">container</a>
+        
+        #<a href="http://localhost:1313/devlogs/en/tags/frontend/">frontend</a>
+>>>>>>> Stashed changes
+        
+      </span>
+      
+    </div>
+
+    
+
+
+
+<<<<<<< Updated upstream
+    <div class="post-content" style="view-transition-name:post-content-371db62496872c2d.en;">
+=======
+    <div class="post-content" style="view-transition-name:post-content-f2280863dbb456ab.en;">
+      
+      <p>As a fullstack developer, I know that setting up a development environment can be one of the most repetitive tasks in a project. The goal of this guide is to create a standardized environment where any developer can run the project in seconds, with all VS Code extensions pre-configured.</p>
+      
+    </div>
+
+    
+    <a class="read-more button"
+      href="/devlogs/en/posts/f2280863dbb456ab/">Read more →</a>
+    
+  </article>
+  
+  <article class="post on-list">
+    <h1 class="post-title" style="view-transition-name:post-title-6f5b31e2c45762df.en;">
+      <a href="http://localhost:1313/devlogs/en/posts/6f5b31e2c45762df/">CSS #01 - Transitions with the View Transition API</a>
+    </h1>
+
+    <div class="post-meta"><time class="post-date" style="view-transition-name:post-date-6f5b31e2c45762df.en;">2025-11-01</time>
+      <span class="post-tags" style="view-transition-name:post-tags-6f5b31e2c45762df.en;">
         
         #<a href="http://localhost:1313/devlogs/en/tags/css/">css</a>
         
@@ -250,7 +328,8 @@
 
 
 
-    <div class="post-content" style="view-transition-name:post-content-371db62496872c2d.en;">
+    <div class="post-content" style="view-transition-name:post-content-6f5b31e2c45762df.en;">
+>>>>>>> Stashed changes
       
       <p>The user experience (UX) in modern web applications demands fluidity and continuity, something that was historically difficult to achieve on traditional websites without the use of complex SPA frameworks. The full page reload often breaks the user&rsquo;s context with an abrupt &ldquo;white screen&rdquo; between loading.</p>
       
