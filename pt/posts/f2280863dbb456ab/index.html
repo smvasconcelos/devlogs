@@ -2,7 +2,7 @@
 <html lang="pt">
 <head>
   
-    <title>Docker #01 - How to dockerize a react app :: smvasconcelos | DevLogs</title>
+    <title>Docker #01 - Como dockerizar uma aplicação react :: smvasconcelos | DevLogs</title>
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,7 +43,7 @@
 
 <meta property="og:locale" content="pt" />
 <meta property="og:type" content="article" />
-<meta property="og:title" content="Docker #01 - How to dockerize a react app">
+<meta property="og:title" content="Docker #01 - Como dockerizar uma aplicação react">
 <meta property="og:description" content="Como desenvolvedor fullstack, sei que configurar o ambiente de desenvolvimento pode ser uma das tarefas mais repetitivas de um projeto. O objetivo deste guia é criar um ambiente padronizado onde qualquer desenvolvedor possa rodar o projeto em segundos, com todas as extensões do VS Code já configuradas. Como desenvolvedor fullstack, sei que configurar o ambiente de desenvolvimento pode ser uma das tarefas mais repetitivas de um projeto. O objetivo deste guia é criar um ambiente padronizado onde qualquer desenvolvedor possa rodar o projeto em segundos, com todas as extensões do VS Code já configuradas.
 " />
 <meta property="og:url" content="https://smvasconcelos.github.io/devlogs/pt/posts/f2280863dbb456ab/" />
@@ -215,11 +215,11 @@
     
 <article class="post" data-pagefind-body>
   <h1 class="post-title typewriter" style="view-transition-name:post-title-f2280863dbb456ab.pt;">
-    <a data-pagefind-field="title" href="https://smvasconcelos.github.io/devlogs/pt/posts/f2280863dbb456ab/">Docker #01 - How to dockerize a react app</a>
+    <a data-pagefind-field="title" href="https://smvasconcelos.github.io/devlogs/pt/posts/f2280863dbb456ab/">Docker #01 - Como dockerizar uma aplicação react</a>
   </h1>
   <div class="post-meta"><time data-pagefind-field="date" class="post-date" style="view-transition-name:post-date-f2280863dbb456ab.pt;">2026-01-20</time>
     
-<span class="post-reading-time">3 min - leitura (476
+<span class="post-reading-time">3 min - leitura (469
       palavras)</span>
     <span class="post-tags" style="view-transition-name:post-tags-f2280863dbb456ab.pt;">
       
@@ -251,12 +251,12 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#por-que-dockerizar-o-seu-frontend">Por que Dockerizar o seu Frontend?</a></li>
-    <li><a href="#1-dockerfile-o-coração-do-ambiente">1. Dockerfile (O Coração do Ambiente)</a></li>
-    <li><a href="#2-docker-compose-orquestração">2. Docker Compose (Orquestração)</a></li>
-    <li><a href="#3-arquivo-dockerignore">3. Arquivo .dockerignore</a></li>
-    <li><a href="#4-dev-containers-a-mágica-do-vs-code">4. Dev Containers (A Mágica do VS Code)</a></li>
-    <li><a href="#5--ajuste-no-vite-atenção-aqui">5 . Ajuste no Vite (Atenção aqui!)</a></li>
-    <li><a href="#6-como-executar">6. Como Executar</a></li>
+    <li><a href="#dockerfile-o-coração-do-ambiente">Dockerfile (O Coração do Ambiente)</a></li>
+    <li><a href="#docker-compose-orquestração">Docker Compose (Orquestração)</a></li>
+    <li><a href="#arquivo-dockerignore">Arquivo .dockerignore</a></li>
+    <li><a href="#dev-containers-a-mágica-do-vs-code">Dev Containers (A Mágica do VS Code)</a></li>
+    <li><a href="#ajuste-no-vite-atenção-aqui">Ajuste no Vite (Atenção aqui!)</a></li>
+    <li><a href="#como-executar">Como Executar</a></li>
   </ul>
 </nav>
   </div>
@@ -273,8 +273,8 @@ Como desenvolvedor fullstack, sei que configurar o ambiente de desenvolvimento p
 <li><strong>Isolamento:</strong> Evite conflitos de bibliotecas globais na sua máquina.</li>
 <li><strong>Dev Containers:</strong> Sincronize extensões como ESLint e Prettier diretamente pelo container.</li>
 </ol>
-<h2 id="1-dockerfile-o-coração-do-ambiente">1. Dockerfile (O Coração do Ambiente)<a
-          href="#1-dockerfile-o-coração-do-ambiente" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="dockerfile-o-coração-do-ambiente">Dockerfile (O Coração do Ambiente)<a
+          href="#dockerfile-o-coração-do-ambiente" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>Utilizamos a imagem <code>node:24-alpine</code> para manter o ambiente leve e seguro. Observe que configuramos o usuário <code>node</code> para evitar problemas de permissão de arquivos no Linux/Mac.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#75715e"># Dockerfile</span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
@@ -298,8 +298,8 @@ Como desenvolvedor fullstack, sei que configurar o ambiente de desenvolvimento p
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">EXPOSE</span> <span style="color:#e6db74">5173</span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> [<span style="color:#e6db74">&#34;yarn&#34;</span>, <span style="color:#e6db74">&#34;dev&#34;</span>]<span style="color:#960050;background-color:#1e0010">
-</span></span></span></code></pre></div><h2 id="2-docker-compose-orquestração">2. Docker Compose (Orquestração)<a
-          href="#2-docker-compose-orquestração" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+</span></span></span></code></pre></div><h2 id="docker-compose-orquestração">Docker Compose (Orquestração)<a
+          href="#docker-compose-orquestração" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>O Compose gerencia o mapeamento das portas e os volumes. O volume <code>/app/node_modules</code> é essencial para que o Docker não tente usar os módulos instalados na sua máquina host (caso existam).</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># docker-compose.yml</span>
@@ -314,8 +314,8 @@ Como desenvolvedor fullstack, sei que configurar o ambiente de desenvolvimento p
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">.:/app</span>
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/app/node_modules</span>
-</span></span></code></pre></div><h2 id="3-arquivo-dockerignore">3. Arquivo .dockerignore<a
-          href="#3-arquivo-dockerignore" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+</span></span></code></pre></div><h2 id="arquivo-dockerignore">Arquivo .dockerignore<a
+          href="#arquivo-dockerignore" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>Não queremos enviar lixo para dentro da imagem. Este arquivo garante um build rápido.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span># .dockerignore
 </span></span><span style="display:flex;"><span>
@@ -324,8 +324,8 @@ Como desenvolvedor fullstack, sei que configurar o ambiente de desenvolvimento p
 </span></span><span style="display:flex;"><span>.git
 </span></span><span style="display:flex;"><span>.devcontainer
 </span></span></code></pre></div><hr>
-<h2 id="4-dev-containers-a-mágica-do-vs-code">4. Dev Containers (A Mágica do VS Code)<a
-          href="#4-dev-containers-a-mágica-do-vs-code" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="dev-containers-a-mágica-do-vs-code">Dev Containers (A Mágica do VS Code)<a
+          href="#dev-containers-a-mágica-do-vs-code" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>O arquivo <code>.devcontainer/devcontainer.json</code> garante que, ao abrir o projeto, o VS Code já sugira e instale as extensões de linting e formatação.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span><span style="color:#75715e">// devcontainer.json
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
@@ -352,8 +352,8 @@ Como desenvolvedor fullstack, sei que configurar o ambiente de desenvolvimento p
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="5--ajuste-no-vite-atenção-aqui">5 . Ajuste no Vite (Atenção aqui!)<a
-          href="#5--ajuste-no-vite-atenção-aqui" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+</span></span></code></pre></div><h2 id="ajuste-no-vite-atenção-aqui">Ajuste no Vite (Atenção aqui!)<a
+          href="#ajuste-no-vite-atenção-aqui" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>Para que o Vite aceite conexões vindas do Docker (rede externa ao localhost do container), altere seu script no <code>package.json</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span><span style="color:#75715e">// package.json (scripts)
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
@@ -364,8 +364,8 @@ Como desenvolvedor fullstack, sei que configurar o ambiente de desenvolvimento p
 </span></span><span style="display:flex;"><span>		<span style="color:#960050;background-color:#1e0010">...</span>
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="6-como-executar">6. Como Executar<a
-          href="#6-como-executar" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+</span></span></code></pre></div><h2 id="como-executar">Como Executar<a
+          href="#como-executar" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <ol>
 <li>Abra a pasta do projeto no VS Code.</li>
 <li>Com a extensão <strong>Dev Containers</strong> instalada, clique em &ldquo;Reopen in Container&rdquo;.

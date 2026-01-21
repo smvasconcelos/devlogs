@@ -219,7 +219,7 @@
   </h1>
   <div class="post-meta"><time data-pagefind-field="date" class="post-date" style="view-transition-name:post-date-f2280863dbb456ab.en;">2026-01-20</time>
     
-<span class="post-reading-time">2 min read (423
+<span class="post-reading-time">2 min read (417
       words)</span>
     <span class="post-tags" style="view-transition-name:post-tags-f2280863dbb456ab.en;">
       
@@ -251,12 +251,12 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#why-dockerize-your-frontend">Why Dockerize Your Frontend?</a></li>
-    <li><a href="#1-dockerfile-the-heart-of-the-environment">1. Dockerfile (The Heart of the Environment)</a></li>
-    <li><a href="#2-docker-compose-orchestration">2. Docker Compose (Orchestration)</a></li>
-    <li><a href="#3-dockerignore-file">3. .dockerignore File</a></li>
-    <li><a href="#4-dev-containers-the-vs-code-magic">4. Dev Containers (The VS Code Magic)</a></li>
-    <li><a href="#5-vite-adjustment-pay-attention-here">5. Vite Adjustment (Pay attention here!)</a></li>
-    <li><a href="#6-how-to-run">6. How to Run</a></li>
+    <li><a href="#dockerfile-the-heart-of-the-environment">Dockerfile (The Heart of the Environment)</a></li>
+    <li><a href="#docker-compose-orchestration">Docker Compose (Orchestration)</a></li>
+    <li><a href="#dockerignore-file">.dockerignore File</a></li>
+    <li><a href="#dev-containers-the-vs-code-magic">Dev Containers (The VS Code Magic)</a></li>
+    <li><a href="#vite-adjustment-pay-attention-here">Vite Adjustment (Pay attention here!)</a></li>
+    <li><a href="#how-to-run">How to Run</a></li>
   </ul>
 </nav>
   </div>
@@ -272,8 +272,8 @@
 <li><strong>Isolation:</strong> Avoid global library conflicts on your machine.</li>
 <li><strong>Dev Containers:</strong> Sync extensions like ESLint and Prettier directly through the container.</li>
 </ol>
-<h2 id="1-dockerfile-the-heart-of-the-environment">1. Dockerfile (The Heart of the Environment)<a
-          href="#1-dockerfile-the-heart-of-the-environment" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="dockerfile-the-heart-of-the-environment">Dockerfile (The Heart of the Environment)<a
+          href="#dockerfile-the-heart-of-the-environment" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>We use the <code>node:24-alpine</code> image to keep the environment lightweight and secure. Note that we configure the <code>node</code> user to avoid file permission issues on Linux/Mac.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#75715e"># Dockerfile</span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
@@ -297,8 +297,8 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">EXPOSE</span> <span style="color:#e6db74">5173</span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> [<span style="color:#e6db74">&#34;yarn&#34;</span>, <span style="color:#e6db74">&#34;dev&#34;</span>]<span style="color:#960050;background-color:#1e0010">
-</span></span></span></code></pre></div><h2 id="2-docker-compose-orchestration">2. Docker Compose (Orchestration)<a
-          href="#2-docker-compose-orchestration" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+</span></span></span></code></pre></div><h2 id="docker-compose-orchestration">Docker Compose (Orchestration)<a
+          href="#docker-compose-orchestration" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>Compose manages port mapping and volumes. The <code>/app/node_modules</code> volume is essential so that Docker doesn&rsquo;t attempt to use modules installed on your host machine (if they exist).</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># docker-compose.yml</span>
 </span></span><span style="display:flex;"><span>
@@ -312,8 +312,8 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">.:/app</span>
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/app/node_modules</span>
-</span></span></code></pre></div><h2 id="3-dockerignore-file">3. .dockerignore File<a
-          href="#3-dockerignore-file" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+</span></span></code></pre></div><h2 id="dockerignore-file">.dockerignore File<a
+          href="#dockerignore-file" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>We don&rsquo;t want to send unnecessary files into the image. This file ensures a fast build.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span># .dockerignore
 </span></span><span style="display:flex;"><span>
@@ -322,8 +322,8 @@
 </span></span><span style="display:flex;"><span>.git
 </span></span><span style="display:flex;"><span>.devcontainer
 </span></span></code></pre></div><hr>
-<h2 id="4-dev-containers-the-vs-code-magic">4. Dev Containers (The VS Code Magic)<a
-          href="#4-dev-containers-the-vs-code-magic" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="dev-containers-the-vs-code-magic">Dev Containers (The VS Code Magic)<a
+          href="#dev-containers-the-vs-code-magic" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>The <code>.devcontainer/devcontainer.json</code> file ensures that when the project is opened, VS Code automatically suggests and installs linting and formatting extensions.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#75715e">// devcontainer.json
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
@@ -350,8 +350,8 @@
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="5-vite-adjustment-pay-attention-here">5. Vite Adjustment (Pay attention here!)<a
-          href="#5-vite-adjustment-pay-attention-here" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+</span></span></code></pre></div><h2 id="vite-adjustment-pay-attention-here">Vite Adjustment (Pay attention here!)<a
+          href="#vite-adjustment-pay-attention-here" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>For Vite to accept connections coming from Docker (external network relative to the container&rsquo;s localhost), update your script in <code>package.json</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#75715e">// package.json (scripts)
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
@@ -362,8 +362,8 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">...</span>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="6-how-to-run">6. How to Run<a
-          href="#6-how-to-run" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+</span></span></code></pre></div><h2 id="how-to-run">How to Run<a
+          href="#how-to-run" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <ol>
 <li>Open the project folder in VS Code.</li>
 <li>With the <strong>Dev Containers</strong> extension installed, click <strong>&ldquo;Reopen in Container&rdquo;</strong>.</li>
