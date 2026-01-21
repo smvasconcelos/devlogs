@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><script src="/devlogs/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=devlogs/livereload" data-no-instant defer></script>
   
     <title>Hugo #01 — Setting Up Your First Blog :: smvasconcelos | DevLogs</title>
   
@@ -13,7 +13,7 @@ However, I realized I was missing a space to document my learning process — a 
 
   <meta name="robots" content="noodp" />
 
-<link rel="canonical" href="https://smvasconcelos.github.io/devlogs/en/posts/40bd465b991e6fc6/" />
+<link rel="canonical" href="http://localhost:1313/devlogs/en/posts/40bd465b991e6fc6/" />
 
 
 
@@ -26,15 +26,15 @@ However, I realized I was missing a space to document my learning process — a 
   
   
   
-  <link rel="stylesheet" href="https://smvasconcelos.github.io/devlogs/styles.css">
+  <link rel="stylesheet" href="http://localhost:1313/devlogs/styles.css">
 
 
 
-<link rel="stylesheet" href="https://smvasconcelos.github.io/devlogs/style.css">
+<link rel="stylesheet" href="http://localhost:1313/devlogs/style.css">
 
 
 
-  <link rel="shortcut icon" href="https://smvasconcelos.github.io/devlogs/favicon.png">
+  <link rel="shortcut icon" href="http://localhost:1313/devlogs/favicon.png">
 
 
 
@@ -48,11 +48,11 @@ However, I realized I was missing a space to document my learning process — a 
 <meta property="og:description" content="Motivation Throughout most of my career, I’ve always focused on growing technically through study and applying what I’ve learned in the best way possible.
 However, I realized I was missing a space to document my learning process — a devlog — that could serve both as a personal knowledge base and a way to share insights with other developers.
 " />
-<meta property="og:url" content="https://smvasconcelos.github.io/devlogs/en/posts/40bd465b991e6fc6/" />
+<meta property="og:url" content="http://localhost:1313/devlogs/en/posts/40bd465b991e6fc6/" />
 <meta property="og:site_name" content="smvasconcelos | DevLogs" />
 
   
-    <meta property="og:image" content="https://smvasconcelos.github.io/devlogs/favicon.png">
+    <meta property="og:image" content="http://localhost:1313/devlogs/favicon.png">
   
 
 <meta property="og:image:width" content="1200">
@@ -72,17 +72,110 @@ However, I realized I was missing a space to document my learning process — a 
 <link href="/devlogs/pagefind/pagefind-ui.css" rel="stylesheet">
 <script src="/devlogs/pagefind/pagefind-ui.js"></script>
 <script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    new PagefindUI({
-      element: "#search",
-      showSubResults: false,
-      showImages: false,
-      debounceTimeoutMs: 500,
-      sort: { date: "desc" },
-      showMeta: false,
-      excerptLength: 15
-    });
+  
+  
+  const initPagefind = () => {
+    const searchElement = document.querySelector("#search");
+    
+    
+    if (searchElement && window.PagefindUI) {
+      searchElement.innerHTML = ""; 
+      
+      new PagefindUI({
+        element: "#search",
+        showSubResults: false,
+        showImages: false,
+        debounceTimeoutMs: 500,
+        sort: { date: "desc" },
+        showMeta: false,
+        excerptLength: 15
+      });
+    }
+  };
+
+  const useViewTransition = (callback) => {
+    if (document.startViewTransition) {
+      return document.startViewTransition(callback);
+    } else {
+      callback();
+      return { finished: Promise.resolve() };
+    }
+  };
+
+  const handleNavigation = async (url) => {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) return (window.location.href = url);
+      
+      const finalUrl = response.url;
+      const text = await response.text();
+      const data = new DOMParser().parseFromString(text, "text/html");
+      
+      if (data.querySelector('meta[http-equiv="refresh"]')) {
+        window.location.href = finalUrl;
+        return;
+      }
+
+      const newContent = data.querySelector("#content") || data.body;
+      const oldContent = document.querySelector("#content") || document.body;
+
+      
+      const targetHash = new URL(finalUrl, location.origin).hash;
+
+      const transition = useViewTransition(() => {
+        oldContent.innerHTML = newContent.innerHTML;
+        document.title = data.title;
+
+        
+        if (targetHash) {
+          
+          const el = document.querySelector(targetHash);
+          if (el) {
+            el.scrollIntoView(); 
+          } else {
+            window.scrollTo(0, 0);
+          }
+        } else {
+          
+          window.scrollTo(0, 0);
+        }
+        
+        
+        Array.from(oldContent.querySelectorAll("script")).forEach((oldScript) => {
+          const newScript = document.createElement("script");
+          Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+          newScript.textContent = oldScript.textContent;
+          oldScript.replaceWith(newScript);
+        });
+      });
+
+      if (transition.finished) await transition.finished;
+      
+      initPagefind();
+
+      if (location.href !== finalUrl) {
+        history.pushState({}, "", finalUrl);
+      }
+    } catch (err) {
+      window.location.href = url;
+    }
+  };
+
+  
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest("a");
+    if (!link) return;
+    const targetUrl = new URL(link.href, location.href);
+    if (targetUrl.origin !== location.origin || link.getAttribute("target") === "_blank" || e.metaKey || e.ctrlKey) return;
+    
+    e.preventDefault();
+    handleNavigation(link.href);
   });
+
+  window.addEventListener("popstate", () => handleNavigation(location.href));
+
+  
+  document.addEventListener("DOMContentLoaded", initPagefind);
 
   
   document.addEventListener('focusin', (e) => {
@@ -102,70 +195,6 @@ However, I realized I was missing a space to document my learning process — a 
       drawer.classList.add('pagefind-ui__hidden');
     }
   });
-
-
-  
-  const useViewTransition = (callback) => {
-    if (document.startViewTransition) {
-      document.startViewTransition(callback);
-    } else {
-      callback();
-    }
-  };
-
-  const handleNavigation = async (url) => {
-    try {
-      const response = await fetch(url);
-      if (!response.ok) return (window.location.href = url);
-      
-      const text = await response.text();
-      const data = new DOMParser().parseFromString(text, "text/html");
-      
-      
-      const newContent = data.querySelector("#content") || data.body;
-      const oldContent = document.querySelector("#content") || document.body;
-
-      useViewTransition(() => {
-        oldContent.innerHTML = newContent.innerHTML;
-        document.title = data.title;
-        window.scrollTo(0, 0);
-        
-        
-        const hash = new URL(url).hash;
-        if (hash) {
-          const el = document.querySelector(hash);
-          if (el) el.scrollIntoView();
-        }
-      });
-
-      history.pushState({}, "", url);
-    } catch (err) {
-      window.location.href = url;
-    }
-  };
-
-  document.addEventListener("click", (e) => {
-    const link = e.target.closest("a");
-    if (!link) return;
-
-    const targetUrl = new URL(link.href, location.href);
-
-    
-    const isExternal = targetUrl.origin !== location.origin;
-    const isSamePageHash = targetUrl.pathname === location.pathname && targetUrl.hash !== "";
-    const isNewTab = link.getAttribute("target") === "_blank" || e.metaKey || e.ctrlKey;
-
-    
-    if (isExternal || isSamePageHash || isNewTab) {
-      return;
-    }
-
-    
-    e.preventDefault();
-    handleNavigation(link.href);
-  });
-
-  window.addEventListener("popstate", () => handleNavigation(location.href));
 
 </script>
 
@@ -200,9 +229,9 @@ However, I realized I was missing a space to document my learning process — a 
   <li>
     <ul class="menu__dropdown">
       
-        <li><a href="/devlogs/en/">English</a></li>
-      
         <li><a href="/devlogs/pt/">Português</a></li>
+      
+        <li><a href="/devlogs/en/">English</a></li>
       
     </ul>
   </li>
@@ -217,7 +246,7 @@ However, I realized I was missing a space to document my learning process — a 
     
 <article class="post" data-pagefind-body>
   <h1 class="post-title typewriter" style="view-transition-name:post-title-40bd465b991e6fc6.en;">
-    <a data-pagefind-field="title" href="https://smvasconcelos.github.io/devlogs/en/posts/40bd465b991e6fc6/">Hugo #01 — Setting Up Your First Blog</a>
+    <a data-pagefind-field="title" href="http://localhost:1313/devlogs/en/posts/40bd465b991e6fc6/">Hugo #01 — Setting Up Your First Blog</a>
   </h1>
   <div class="post-meta"><time data-pagefind-field="date" class="post-date" style="view-transition-name:post-date-40bd465b991e6fc6.en;">2025-10-06</time>
     
@@ -225,11 +254,11 @@ However, I realized I was missing a space to document my learning process — a 
       words)</span>
     <span class="post-tags" style="view-transition-name:post-tags-40bd465b991e6fc6.en;">
       
-      #<a href="https://smvasconcelos.github.io/devlogs/en/tags/blog/">blog</a>
+      #<a href="http://localhost:1313/devlogs/en/tags/blog/">blog</a>
       
-      #<a href="https://smvasconcelos.github.io/devlogs/en/tags/hugo/">hugo</a>
+      #<a href="http://localhost:1313/devlogs/en/tags/hugo/">hugo</a>
       
-      #<a href="https://smvasconcelos.github.io/devlogs/en/tags/re-terminal/">re-terminal</a>
+      #<a href="http://localhost:1313/devlogs/en/tags/re-terminal/">re-terminal</a>
       
     </span>
     
@@ -380,7 +409,7 @@ After testing them all, I found <strong>option 3</strong> to be the easiest:</p>
     <div class="pagination__buttons">
         
         <span class="button previous">
-            <a href="https://smvasconcelos.github.io/devlogs/en/posts/3262d6d38d70967d/">
+            <a href="http://localhost:1313/devlogs/en/posts/3262d6d38d70967d/">
                 <span class="button__icon">←</span>
                 <span class="button__text">Hugo #02 — Adding Improvements to Our Blog</span>
             </a>

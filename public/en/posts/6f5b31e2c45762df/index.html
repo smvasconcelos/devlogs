@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><script src="/devlogs/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=devlogs/livereload" data-no-instant defer></script>
   
     <title>CSS #01 - Transitions with the View Transition API :: smvasconcelos | DevLogs</title>
   
@@ -12,7 +12,7 @@
 
   <meta name="robots" content="noodp" />
 
-<link rel="canonical" href="https://smvasconcelos.github.io/devlogs/en/posts/6f5b31e2c45762df/" />
+<link rel="canonical" href="http://localhost:1313/devlogs/en/posts/6f5b31e2c45762df/" />
 
 
 
@@ -25,15 +25,15 @@
   
   
   
-  <link rel="stylesheet" href="https://smvasconcelos.github.io/devlogs/styles.css">
+  <link rel="stylesheet" href="http://localhost:1313/devlogs/styles.css">
 
 
 
-<link rel="stylesheet" href="https://smvasconcelos.github.io/devlogs/style.css">
+<link rel="stylesheet" href="http://localhost:1313/devlogs/style.css">
 
 
 
-  <link rel="shortcut icon" href="https://smvasconcelos.github.io/devlogs/favicon.png">
+  <link rel="shortcut icon" href="http://localhost:1313/devlogs/favicon.png">
 
 
 
@@ -46,11 +46,11 @@
 <meta property="og:title" content="CSS #01 - Transitions with the View Transition API">
 <meta property="og:description" content="The user experience (UX) in modern web applications demands fluidity and continuity, something that was historically difficult to achieve on traditional websites without the use of complex SPA frameworks. The full page reload often breaks the user&rsquo;s context with an abrupt &ldquo;white screen&rdquo; between loading.
 " />
-<meta property="og:url" content="https://smvasconcelos.github.io/devlogs/en/posts/6f5b31e2c45762df/" />
+<meta property="og:url" content="http://localhost:1313/devlogs/en/posts/6f5b31e2c45762df/" />
 <meta property="og:site_name" content="smvasconcelos | DevLogs" />
 
   
-    <meta property="og:image" content="https://smvasconcelos.github.io/devlogs/favicon.png">
+    <meta property="og:image" content="http://localhost:1313/devlogs/favicon.png">
   
 
 <meta property="og:image:width" content="1200">
@@ -70,17 +70,110 @@
 <link href="/devlogs/pagefind/pagefind-ui.css" rel="stylesheet">
 <script src="/devlogs/pagefind/pagefind-ui.js"></script>
 <script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    new PagefindUI({
-      element: "#search",
-      showSubResults: false,
-      showImages: false,
-      debounceTimeoutMs: 500,
-      sort: { date: "desc" },
-      showMeta: false,
-      excerptLength: 15
-    });
+  
+  
+  const initPagefind = () => {
+    const searchElement = document.querySelector("#search");
+    
+    
+    if (searchElement && window.PagefindUI) {
+      searchElement.innerHTML = ""; 
+      
+      new PagefindUI({
+        element: "#search",
+        showSubResults: false,
+        showImages: false,
+        debounceTimeoutMs: 500,
+        sort: { date: "desc" },
+        showMeta: false,
+        excerptLength: 15
+      });
+    }
+  };
+
+  const useViewTransition = (callback) => {
+    if (document.startViewTransition) {
+      return document.startViewTransition(callback);
+    } else {
+      callback();
+      return { finished: Promise.resolve() };
+    }
+  };
+
+  const handleNavigation = async (url) => {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) return (window.location.href = url);
+      
+      const finalUrl = response.url;
+      const text = await response.text();
+      const data = new DOMParser().parseFromString(text, "text/html");
+      
+      if (data.querySelector('meta[http-equiv="refresh"]')) {
+        window.location.href = finalUrl;
+        return;
+      }
+
+      const newContent = data.querySelector("#content") || data.body;
+      const oldContent = document.querySelector("#content") || document.body;
+
+      
+      const targetHash = new URL(finalUrl, location.origin).hash;
+
+      const transition = useViewTransition(() => {
+        oldContent.innerHTML = newContent.innerHTML;
+        document.title = data.title;
+
+        
+        if (targetHash) {
+          
+          const el = document.querySelector(targetHash);
+          if (el) {
+            el.scrollIntoView(); 
+          } else {
+            window.scrollTo(0, 0);
+          }
+        } else {
+          
+          window.scrollTo(0, 0);
+        }
+        
+        
+        Array.from(oldContent.querySelectorAll("script")).forEach((oldScript) => {
+          const newScript = document.createElement("script");
+          Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+          newScript.textContent = oldScript.textContent;
+          oldScript.replaceWith(newScript);
+        });
+      });
+
+      if (transition.finished) await transition.finished;
+      
+      initPagefind();
+
+      if (location.href !== finalUrl) {
+        history.pushState({}, "", finalUrl);
+      }
+    } catch (err) {
+      window.location.href = url;
+    }
+  };
+
+  
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest("a");
+    if (!link) return;
+    const targetUrl = new URL(link.href, location.href);
+    if (targetUrl.origin !== location.origin || link.getAttribute("target") === "_blank" || e.metaKey || e.ctrlKey) return;
+    
+    e.preventDefault();
+    handleNavigation(link.href);
   });
+
+  window.addEventListener("popstate", () => handleNavigation(location.href));
+
+  
+  document.addEventListener("DOMContentLoaded", initPagefind);
 
   
   document.addEventListener('focusin', (e) => {
@@ -100,70 +193,6 @@
       drawer.classList.add('pagefind-ui__hidden');
     }
   });
-
-
-  
-  const useViewTransition = (callback) => {
-    if (document.startViewTransition) {
-      document.startViewTransition(callback);
-    } else {
-      callback();
-    }
-  };
-
-  const handleNavigation = async (url) => {
-    try {
-      const response = await fetch(url);
-      if (!response.ok) return (window.location.href = url);
-      
-      const text = await response.text();
-      const data = new DOMParser().parseFromString(text, "text/html");
-      
-      
-      const newContent = data.querySelector("#content") || data.body;
-      const oldContent = document.querySelector("#content") || document.body;
-
-      useViewTransition(() => {
-        oldContent.innerHTML = newContent.innerHTML;
-        document.title = data.title;
-        window.scrollTo(0, 0);
-        
-        
-        const hash = new URL(url).hash;
-        if (hash) {
-          const el = document.querySelector(hash);
-          if (el) el.scrollIntoView();
-        }
-      });
-
-      history.pushState({}, "", url);
-    } catch (err) {
-      window.location.href = url;
-    }
-  };
-
-  document.addEventListener("click", (e) => {
-    const link = e.target.closest("a");
-    if (!link) return;
-
-    const targetUrl = new URL(link.href, location.href);
-
-    
-    const isExternal = targetUrl.origin !== location.origin;
-    const isSamePageHash = targetUrl.pathname === location.pathname && targetUrl.hash !== "";
-    const isNewTab = link.getAttribute("target") === "_blank" || e.metaKey || e.ctrlKey;
-
-    
-    if (isExternal || isSamePageHash || isNewTab) {
-      return;
-    }
-
-    
-    e.preventDefault();
-    handleNavigation(link.href);
-  });
-
-  window.addEventListener("popstate", () => handleNavigation(location.href));
 
 </script>
 
@@ -198,9 +227,9 @@
   <li>
     <ul class="menu__dropdown">
       
-        <li><a href="/devlogs/en/">English</a></li>
-      
         <li><a href="/devlogs/pt/">Português</a></li>
+      
+        <li><a href="/devlogs/en/">English</a></li>
       
     </ul>
   </li>
@@ -215,7 +244,7 @@
     
 <article class="post" data-pagefind-body>
   <h1 class="post-title typewriter" style="view-transition-name:post-title-6f5b31e2c45762df.en;">
-    <a data-pagefind-field="title" href="https://smvasconcelos.github.io/devlogs/en/posts/6f5b31e2c45762df/">CSS #01 - Transitions with the View Transition API</a>
+    <a data-pagefind-field="title" href="http://localhost:1313/devlogs/en/posts/6f5b31e2c45762df/">CSS #01 - Transitions with the View Transition API</a>
   </h1>
   <div class="post-meta"><time data-pagefind-field="date" class="post-date" style="view-transition-name:post-date-6f5b31e2c45762df.en;">2025-11-01</time>
     
@@ -223,15 +252,15 @@
       words)</span>
     <span class="post-tags" style="view-transition-name:post-tags-6f5b31e2c45762df.en;">
       
-      #<a href="https://smvasconcelos.github.io/devlogs/en/tags/css/">css</a>
+      #<a href="http://localhost:1313/devlogs/en/tags/css/">css</a>
       
-      #<a href="https://smvasconcelos.github.io/devlogs/en/tags/animations/">animations</a>
+      #<a href="http://localhost:1313/devlogs/en/tags/animations/">animations</a>
       
-      #<a href="https://smvasconcelos.github.io/devlogs/en/tags/transitions/">transitions</a>
+      #<a href="http://localhost:1313/devlogs/en/tags/transitions/">transitions</a>
       
-      #<a href="https://smvasconcelos.github.io/devlogs/en/tags/view-transition/">view-transition</a>
+      #<a href="http://localhost:1313/devlogs/en/tags/view-transition/">view-transition</a>
       
-      #<a href="https://smvasconcelos.github.io/devlogs/en/tags/firefox/">firefox</a>
+      #<a href="http://localhost:1313/devlogs/en/tags/firefox/">firefox</a>
       
     </span>
     
@@ -444,7 +473,7 @@ Furthermore, we can edit the in and out animation with the transition <code>pseu
     <div class="pagination__buttons">
         
         <span class="button previous">
-            <a href="https://smvasconcelos.github.io/devlogs/en/posts/f2280863dbb456ab/">
+            <a href="http://localhost:1313/devlogs/en/posts/f2280863dbb456ab/">
                 <span class="button__icon">←</span>
                 <span class="button__text">Docker #01 - How to dockerize a react app</span>
             </a>
@@ -452,7 +481,7 @@ Furthermore, we can edit the in and out animation with the transition <code>pseu
         
         
         <span class="button next">
-            <a href="https://smvasconcelos.github.io/devlogs/en/posts/3262d6d38d70967d/">
+            <a href="http://localhost:1313/devlogs/en/posts/3262d6d38d70967d/">
                 <span class="button__text">Hugo #02 — Adding Improvements to Our Blog</span>
                 <span class="button__icon">→</span>
             </a>

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Devcontainers on smvasconcelos | DevLogs</title>
-    <link>https://smvasconcelos.github.io/devlogs/pt/tags/devcontainers/</link>
+    <link>http://localhost:1313/devlogs/pt/tags/devcontainers/</link>
     <description>Recent content in Devcontainers on smvasconcelos | DevLogs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt</language>
-    <lastBuildDate>Tue, 20 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smvasconcelos.github.io/devlogs/pt/tags/devcontainers/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/devlogs/pt/tags/devcontainers/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker #01 - Como dockerizar um app react</title>
-      <link>https://smvasconcelos.github.io/devlogs/pt/posts/f2280863dbb456ab/</link>
+      <link>http://localhost:1313/devlogs/pt/posts/f2280863dbb456ab/</link>
       <pubDate>Tue, 20 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://smvasconcelos.github.io/devlogs/pt/posts/f2280863dbb456ab/</guid>
+      <guid>http://localhost:1313/devlogs/pt/posts/f2280863dbb456ab/</guid>
       <description>&lt;p&gt;Como desenvolvedor fullstack, sei que configurar o ambiente de desenvolvimento pode ser uma das tarefas mais repetitivas de um projeto. O objetivo deste guia é criar um ambiente padronizado onde qualquer desenvolvedor possa rodar o projeto em segundos, com todas as extensões do VS Code já configuradas.
 Como desenvolvedor fullstack, sei que configurar o ambiente de desenvolvimento pode ser uma das tarefas mais repetitivas de um projeto. O objetivo deste guia é criar um ambiente padronizado onde qualquer desenvolvedor possa rodar o projeto em segundos, com todas as extensões do VS Code já configuradas.&lt;/p&gt;</description>
       <content>&lt;p&gt;Como desenvolvedor fullstack, sei que configurar o ambiente de desenvolvimento pode ser uma das tarefas mais repetitivas de um projeto. O objetivo deste guia é criar um ambiente padronizado onde qualquer desenvolvedor possa rodar o projeto em segundos, com todas as extensões do VS Code já configuradas.

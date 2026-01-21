@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker on smvasconcelos | DevLogs</title>
-    <link>https://smvasconcelos.github.io/devlogs/en/tags/docker/</link>
+    <link>http://localhost:1313/devlogs/en/tags/docker/</link>
     <description>Recent content in Docker on smvasconcelos | DevLogs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 20 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smvasconcelos.github.io/devlogs/en/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/devlogs/en/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker #01 - How to dockerize a react app</title>
-      <link>https://smvasconcelos.github.io/devlogs/en/posts/f2280863dbb456ab/</link>
+      <link>http://localhost:1313/devlogs/en/posts/f2280863dbb456ab/</link>
       <pubDate>Tue, 20 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://smvasconcelos.github.io/devlogs/en/posts/f2280863dbb456ab/</guid>
+      <guid>http://localhost:1313/devlogs/en/posts/f2280863dbb456ab/</guid>
       <description>&lt;p&gt;As a fullstack developer, I know that setting up a development environment can be one of the most repetitive tasks in a project. The goal of this guide is to create a standardized environment where any developer can run the project in seconds, with all VS Code extensions pre-configured.&lt;/p&gt;</description>
       <content>&lt;p&gt;As a fullstack developer, I know that setting up a development environment can be one of the most repetitive tasks in a project. The goal of this guide is to create a standardized environment where any developer can run the project in seconds, with all VS Code extensions pre-configured.&lt;/p&gt;
 &lt;h2 id=&#34;why-dockerize-your-frontend&#34;&gt;Why Dockerize Your Frontend?&lt;/h2&gt;

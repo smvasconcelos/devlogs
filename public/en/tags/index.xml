@@ -2,177 +2,177 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on smvasconcelos | DevLogs</title>
-    <link>https://smvasconcelos.github.io/devlogs/en/tags/</link>
+    <link>http://localhost:1313/devlogs/en/tags/</link>
     <description>Recent content in Tags on smvasconcelos | DevLogs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 20 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smvasconcelos.github.io/devlogs/en/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/devlogs/en/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Container</title>
-      <link>https://smvasconcelos.github.io/devlogs/en/tags/container/</link>
+      <link>http://localhost:1313/devlogs/en/tags/container/</link>
       <pubDate>Tue, 20 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://smvasconcelos.github.io/devlogs/en/tags/container/</guid>
+      <guid>http://localhost:1313/devlogs/en/tags/container/</guid>
       <description></description>
       <content></content>
     </item>
     
     <item>
       <title>Devcontainers</title>
-      <link>https://smvasconcelos.github.io/devlogs/en/tags/devcontainers/</link>
+      <link>http://localhost:1313/devlogs/en/tags/devcontainers/</link>
       <pubDate>Tue, 20 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://smvasconcelos.github.io/devlogs/en/tags/devcontainers/</guid>
+      <guid>http://localhost:1313/devlogs/en/tags/devcontainers/</guid>
       <description></description>
       <content></content>
     </item>
     
     <item>
       <title>Docker</title>
-      <link>https://smvasconcelos.github.io/devlogs/en/tags/docker/</link>
+      <link>http://localhost:1313/devlogs/en/tags/docker/</link>
       <pubDate>Tue, 20 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://smvasconcelos.github.io/devlogs/en/tags/docker/</guid>
+      <guid>http://localhost:1313/devlogs/en/tags/docker/</guid>
       <description></description>
       <content></content>
     </item>
     
     <item>
       <title>Frontend</title>
-      <link>https://smvasconcelos.github.io/devlogs/en/tags/frontend/</link>
+      <link>http://localhost:1313/devlogs/en/tags/frontend/</link>
       <pubDate>Tue, 20 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://smvasconcelos.github.io/devlogs/en/tags/frontend/</guid>
+      <guid>http://localhost:1313/devlogs/en/tags/frontend/</guid>
       <description></description>
       <content></content>
     </item>
     
     <item>
       <title>React</title>
-      <link>https://smvasconcelos.github.io/devlogs/en/tags/react/</link>
+      <link>http://localhost:1313/devlogs/en/tags/react/</link>
       <pubDate>Tue, 20 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://smvasconcelos.github.io/devlogs/en/tags/react/</guid>
+      <guid>http://localhost:1313/devlogs/en/tags/react/</guid>
       <description></description>
       <content></content>
     </item>
     
     <item>
       <title>Vite</title>
-      <link>https://smvasconcelos.github.io/devlogs/en/tags/vite/</link>
+      <link>http://localhost:1313/devlogs/en/tags/vite/</link>
       <pubDate>Tue, 20 Jan 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://smvasconcelos.github.io/devlogs/en/tags/vite/</guid>
+      <guid>http://localhost:1313/devlogs/en/tags/vite/</guid>
       <description></description>
       <content></content>
     </item>
     
     <item>
       <title>Animations</title>
-      <link>https://smvasconcelos.github.io/devlogs/en/tags/animations/</link>
+      <link>http://localhost:1313/devlogs/en/tags/animations/</link>
       <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://smvasconcelos.github.io/devlogs/en/tags/animations/</guid>
+      <guid>http://localhost:1313/devlogs/en/tags/animations/</guid>
       <description></description>
       <content></content>
     </item>
     
     <item>
       <title>Css</title>
-      <link>https://smvasconcelos.github.io/devlogs/en/tags/css/</link>
+      <link>http://localhost:1313/devlogs/en/tags/css/</link>
       <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://smvasconcelos.github.io/devlogs/en/tags/css/</guid>
+      <guid>http://localhost:1313/devlogs/en/tags/css/</guid>
       <description></description>
       <content></content>
     </item>
     
     <item>
       <title>Firefox</title>
-      <link>https://smvasconcelos.github.io/devlogs/en/tags/firefox/</link>
+      <link>http://localhost:1313/devlogs/en/tags/firefox/</link>
       <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://smvasconcelos.github.io/devlogs/en/tags/firefox/</guid>
+      <guid>http://localhost:1313/devlogs/en/tags/firefox/</guid>
       <description></description>
       <content></content>
     </item>
     
     <item>
       <title>Transitions</title>
-      <link>https://smvasconcelos.github.io/devlogs/en/tags/transitions/</link>
+      <link>http://localhost:1313/devlogs/en/tags/transitions/</link>
       <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://smvasconcelos.github.io/devlogs/en/tags/transitions/</guid>
+      <guid>http://localhost:1313/devlogs/en/tags/transitions/</guid>
       <description></description>
       <content></content>
     </item>
     
     <item>
       <title>View-Transition</title>
-      <link>https://smvasconcelos.github.io/devlogs/en/tags/view-transition/</link>
+      <link>http://localhost:1313/devlogs/en/tags/view-transition/</link>
       <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://smvasconcelos.github.io/devlogs/en/tags/view-transition/</guid>
+      <guid>http://localhost:1313/devlogs/en/tags/view-transition/</guid>
       <description></description>
       <content></content>
     </item>
     
     <item>
       <title>Hugo</title>
-      <link>https://smvasconcelos.github.io/devlogs/en/tags/hugo/</link>
+      <link>http://localhost:1313/devlogs/en/tags/hugo/</link>
       <pubDate>Mon, 20 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://smvasconcelos.github.io/devlogs/en/tags/hugo/</guid>
+      <guid>http://localhost:1313/devlogs/en/tags/hugo/</guid>
       <description></description>
       <content></content>
     </item>
     
     <item>
       <title>Language</title>
-      <link>https://smvasconcelos.github.io/devlogs/en/tags/language/</link>
+      <link>http://localhost:1313/devlogs/en/tags/language/</link>
       <pubDate>Mon, 20 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://smvasconcelos.github.io/devlogs/en/tags/language/</guid>
+      <guid>http://localhost:1313/devlogs/en/tags/language/</guid>
       <description></description>
       <content></content>
     </item>
     
     <item>
       <title>Pagination</title>
-      <link>https://smvasconcelos.github.io/devlogs/en/tags/pagination/</link>
+      <link>http://localhost:1313/devlogs/en/tags/pagination/</link>
       <pubDate>Mon, 20 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://smvasconcelos.github.io/devlogs/en/tags/pagination/</guid>
+      <guid>http://localhost:1313/devlogs/en/tags/pagination/</guid>
       <description></description>
       <content></content>
     </item>
     
     <item>
       <title>Translation</title>
-      <link>https://smvasconcelos.github.io/devlogs/en/tags/translation/</link>
+      <link>http://localhost:1313/devlogs/en/tags/translation/</link>
       <pubDate>Mon, 20 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://smvasconcelos.github.io/devlogs/en/tags/translation/</guid>
+      <guid>http://localhost:1313/devlogs/en/tags/translation/</guid>
       <description></description>
       <content></content>
     </item>
     
     <item>
       <title>Blog</title>
-      <link>https://smvasconcelos.github.io/devlogs/en/tags/blog/</link>
+      <link>http://localhost:1313/devlogs/en/tags/blog/</link>
       <pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://smvasconcelos.github.io/devlogs/en/tags/blog/</guid>
+      <guid>http://localhost:1313/devlogs/en/tags/blog/</guid>
       <description></description>
       <content></content>
     </item>
     
     <item>
       <title>Re-Terminal</title>
-      <link>https://smvasconcelos.github.io/devlogs/en/tags/re-terminal/</link>
+      <link>http://localhost:1313/devlogs/en/tags/re-terminal/</link>
       <pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://smvasconcelos.github.io/devlogs/en/tags/re-terminal/</guid>
+      <guid>http://localhost:1313/devlogs/en/tags/re-terminal/</guid>
       <description></description>
       <content></content>
     </item>
