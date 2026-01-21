@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt">
-<head><script src="/devlogs/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=devlogs/livereload" data-no-instant defer></script>
+<head>
   
     <title>Hugo #01 — Configurando seu primeiro blog :: smvasconcelos | DevLogs</title>
   
@@ -13,7 +13,7 @@ Mas percebi que faltava um espaço para documentar esse processo de aprendizado 
 
   <meta name="robots" content="noodp" />
 
-<link rel="canonical" href="http://localhost:1313/devlogs/pt/posts/40bd465b991e6fc6/" />
+<link rel="canonical" href="https://smvasconcelos.github.io/devlogs/pt/posts/40bd465b991e6fc6/" />
 
 
 
@@ -26,15 +26,15 @@ Mas percebi que faltava um espaço para documentar esse processo de aprendizado 
   
   
   
-  <link rel="stylesheet" href="http://localhost:1313/devlogs/styles.css">
+  <link rel="stylesheet" href="https://smvasconcelos.github.io/devlogs/styles.css">
 
 
 
-<link rel="stylesheet" href="http://localhost:1313/devlogs/style.css">
+<link rel="stylesheet" href="https://smvasconcelos.github.io/devlogs/style.css">
 
 
 
-  <link rel="shortcut icon" href="http://localhost:1313/devlogs/favicon.png">
+  <link rel="shortcut icon" href="https://smvasconcelos.github.io/devlogs/favicon.png">
 
 
 
@@ -48,11 +48,11 @@ Mas percebi que faltava um espaço para documentar esse processo de aprendizado 
 <meta property="og:description" content="Motivação Durante a maior parte da minha carreira, sempre foquei em evoluir tecnicamente por meio de estudos e em aplicar da melhor forma possível o que aprendi.
 Mas percebi que faltava um espaço para documentar esse processo de aprendizado — um devlog — que servisse tanto como repositório de consulta quanto como uma forma de compartilhar conhecimento com outros profissionais.
 " />
-<meta property="og:url" content="http://localhost:1313/devlogs/pt/posts/40bd465b991e6fc6/" />
+<meta property="og:url" content="https://smvasconcelos.github.io/devlogs/pt/posts/40bd465b991e6fc6/" />
 <meta property="og:site_name" content="smvasconcelos | DevLogs" />
 
   
-    <meta property="og:image" content="http://localhost:1313/devlogs/favicon.png">
+    <meta property="og:image" content="https://smvasconcelos.github.io/devlogs/favicon.png">
   
 
 <meta property="og:image:width" content="1200">
@@ -120,6 +120,8 @@ Mas percebi que faltava um espaço para documentar esse processo de aprendizado 
       
       const text = await response.text();
       const data = new DOMParser().parseFromString(text, "text/html");
+      
+      
       const newContent = data.querySelector("#content") || data.body;
       const oldContent = document.querySelector("#content") || document.body;
 
@@ -127,31 +129,42 @@ Mas percebi que faltava um espaço para documentar esse processo de aprendizado 
         oldContent.innerHTML = newContent.innerHTML;
         document.title = data.title;
         window.scrollTo(0, 0);
+        
+        
+        const hash = new URL(url).hash;
+        if (hash) {
+          const el = document.querySelector(hash);
+          if (el) el.scrollIntoView();
+        }
       });
 
       history.pushState({}, "", url);
     } catch (err) {
-      window.location.href = url; 
+      window.location.href = url;
     }
   };
 
-  
   document.addEventListener("click", (e) => {
     const link = e.target.closest("a");
+    if (!link) return;
+
+    const targetUrl = new URL(link.href, location.href);
+
     
+    const isExternal = targetUrl.origin !== location.origin;
+    const isSamePageHash = targetUrl.pathname === location.pathname && targetUrl.hash !== "";
+    const isNewTab = link.getAttribute("target") === "_blank" || e.metaKey || e.ctrlKey;
+
     
-    if (
-      link && 
-      link.href.startsWith(location.origin) && 
-      !link.getAttribute("target") &&
-      !e.metaKey && !e.ctrlKey
-    ) {
-      e.preventDefault();
-      handleNavigation(link.href);
+    if (isExternal || isSamePageHash || isNewTab) {
+      return;
     }
+
+    
+    e.preventDefault();
+    handleNavigation(link.href);
   });
 
-  
   window.addEventListener("popstate", () => handleNavigation(location.href));
 
 </script>
@@ -204,7 +217,7 @@ Mas percebi que faltava um espaço para documentar esse processo de aprendizado 
     
 <article class="post" data-pagefind-body>
   <h1 class="post-title typewriter" style="view-transition-name:post-title-40bd465b991e6fc6.pt;">
-    <a data-pagefind-field="title" href="http://localhost:1313/devlogs/pt/posts/40bd465b991e6fc6/">Hugo #01 — Configurando seu primeiro blog</a>
+    <a data-pagefind-field="title" href="https://smvasconcelos.github.io/devlogs/pt/posts/40bd465b991e6fc6/">Hugo #01 — Configurando seu primeiro blog</a>
   </h1>
   <div class="post-meta"><time data-pagefind-field="date" class="post-date" style="view-transition-name:post-date-40bd465b991e6fc6.pt;">2025-10-06</time>
     
@@ -212,11 +225,11 @@ Mas percebi que faltava um espaço para documentar esse processo de aprendizado 
       palavras)</span>
     <span class="post-tags" style="view-transition-name:post-tags-40bd465b991e6fc6.pt;">
       
-      #<a href="http://localhost:1313/devlogs/pt/tags/blog/">blog</a>
+      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/blog/">blog</a>
       
-      #<a href="http://localhost:1313/devlogs/pt/tags/hugo/">hugo</a>
+      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/hugo/">hugo</a>
       
-      #<a href="http://localhost:1313/devlogs/pt/tags/re-terminal/">re-terminal</a>
+      #<a href="https://smvasconcelos.github.io/devlogs/pt/tags/re-terminal/">re-terminal</a>
       
     </span>
     
@@ -367,7 +380,7 @@ Após testar todas, a <strong>opção 3</strong> se mostrou a mais prática:</p>
     <div class="pagination__buttons">
         
         <span class="button previous">
-            <a href="http://localhost:1313/devlogs/pt/posts/3262d6d38d70967d/">
+            <a href="https://smvasconcelos.github.io/devlogs/pt/posts/3262d6d38d70967d/">
                 <span class="button__icon">←</span>
                 <span class="button__text">Hugo #02 — Adicionando melhorias no nosso blog</span>
             </a>

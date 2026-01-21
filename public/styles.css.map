@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "styles.css",
-	"sourceRoot": "/run/media/smvasconcelos/8480FA7880FA7052/Downloads/Programs/Programming/devlogs",
+	"sourceRoot": "/mnt/Games/Programming/Blog/devlogs",
 	"sources": [
 		"css/base.scss",
 		"themes/re-terminal/assets/css/variables.scss",

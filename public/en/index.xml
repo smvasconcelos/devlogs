@@ -2,17 +2,128 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>smvasconcelos | DevLogs</title>
-    <link>http://localhost:1313/devlogs/en/</link>
+    <link>https://smvasconcelos.github.io/devlogs/en/</link>
     <description>Recent content on smvasconcelos | DevLogs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 01 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/devlogs/en/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://smvasconcelos.github.io/devlogs/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker #01 - How to dockerize a react app</title>
+      <link>https://smvasconcelos.github.io/devlogs/en/posts/f2280863dbb456ab/</link>
+      <pubDate>Tue, 20 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://smvasconcelos.github.io/devlogs/en/posts/f2280863dbb456ab/</guid>
+      <description>&lt;p&gt;As a fullstack developer, I know that setting up a development environment can be one of the most repetitive tasks in a project. The goal of this guide is to create a standardized environment where any developer can run the project in seconds, with all VS Code extensions pre-configured.&lt;/p&gt;</description>
+      <content>&lt;p&gt;As a fullstack developer, I know that setting up a development environment can be one of the most repetitive tasks in a project. The goal of this guide is to create a standardized environment where any developer can run the project in seconds, with all VS Code extensions pre-configured.&lt;/p&gt;
+&lt;h2 id=&#34;why-dockerize-your-frontend&#34;&gt;Why Dockerize Your Frontend?&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Total Consistency:&lt;/strong&gt; The same version of Node.js and Package Manager (yarn, npm, pnpm, etc.) for everyone.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Zero Setup:&lt;/strong&gt; Forget time-consuming &amp;ldquo;npm install&amp;rdquo; on the host machine; the container handles everything.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Isolation:&lt;/strong&gt; Avoid global library conflicts on your machine.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dev Containers:&lt;/strong&gt; Sync extensions like ESLint and Prettier directly through the container.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;1-dockerfile-the-heart-of-the-environment&#34;&gt;1. Dockerfile (The Heart of the Environment)&lt;/h2&gt;
+&lt;p&gt;We use the &lt;code&gt;node:24-alpine&lt;/code&gt; image to keep the environment lightweight and secure. Note that we configure the &lt;code&gt;node&lt;/code&gt; user to avoid file permission issues on Linux/Mac.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-dockerfile&#34; data-lang=&#34;dockerfile&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Dockerfile&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;node:24-alpine&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;RUN&lt;/span&gt; apk add --no-cache libc6-compat git&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;WORKDIR&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;/app&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;RUN&lt;/span&gt; chown -R node:node /app&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;USER&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;node&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;COPY&lt;/span&gt; --chown&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;node:node package*.json yarn.lock ./&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;COPY&lt;/span&gt; --chown&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;node:node tsconfig*.json ./&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;RUN&lt;/span&gt; yarn install&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;COPY&lt;/span&gt; --chown&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;node:node . .&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;EXPOSE&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;5173&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;CMD&lt;/span&gt; [&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;yarn&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;dev&amp;#34;&lt;/span&gt;]&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;2-docker-compose-orchestration&#34;&gt;2. Docker Compose (Orchestration)&lt;/h2&gt;
+&lt;p&gt;Compose manages port mapping and volumes. The &lt;code&gt;/app/node_modules&lt;/code&gt; volume is essential so that Docker doesn&amp;rsquo;t attempt to use modules installed on your host machine (if they exist).&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# docker-compose.yml&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;services&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;app&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;build&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;react-docker:dev&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;container_name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;react-docker&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;ports&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;5173&lt;/span&gt;:&lt;span style=&#34;color:#ae81ff&#34;&gt;5173&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;volumes&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;.:/app&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;/app/node_modules&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;3-dockerignore-file&#34;&gt;3. .dockerignore File&lt;/h2&gt;
+&lt;p&gt;We don&amp;rsquo;t want to send unnecessary files into the image. This file ensures a fast build.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# .dockerignore
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;node_modules
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;dist
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.git
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.devcontainer
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;4-dev-containers-the-vs-code-magic&#34;&gt;4. Dev Containers (The VS Code Magic)&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;.devcontainer/devcontainer.json&lt;/code&gt; file ensures that when the project is opened, VS Code automatically suggests and installs linting and formatting extensions.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// devcontainer.json
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;React Docker&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;dockerComposeFile&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;../docker-compose.yml&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;service&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;app&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;workspaceFolder&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/app&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;remoteUser&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;node&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;customizations&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;vscode&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;settings&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;editor.defaultFormatter&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;esbenp.prettier-vscode&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;editor.formatOnSave&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;editor.codeActionsOnSave&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;source.fixAll.eslint&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;explicit&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;extensions&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;esbenp.prettier-vscode&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;dbaeumer.vscode-eslint&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;styled-components.vscode-styled-components&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;5-vite-adjustment-pay-attention-here&#34;&gt;5. Vite Adjustment (Pay attention here!)&lt;/h2&gt;
+&lt;p&gt;For Vite to accept connections coming from Docker (external network relative to the container&amp;rsquo;s localhost), update your script in &lt;code&gt;package.json&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// package.json (scripts)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;scripts&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;dev&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;vite --host 0.0.0.0&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;6-how-to-run&#34;&gt;6. How to Run&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Open the project folder in VS Code.&lt;/li&gt;
+&lt;li&gt;With the &lt;strong&gt;Dev Containers&lt;/strong&gt; extension installed, click &lt;strong&gt;&amp;ldquo;Reopen in Container&amp;rdquo;&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Alternatively, you can start the container separately with &lt;code&gt;docker-compose up --build&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Then, use the VS Code command palette (&lt;code&gt;Ctrl + Shift + P&lt;/code&gt;) and type &lt;code&gt;Dev Containers: Reopen in Container&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Wait for the build, and you&amp;rsquo;re done! Your environment is configured with code quality tools active.&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    </item>
+    
     <item>
       <title>CSS #01 - Transitions with the View Transition API</title>
-      <link>http://localhost:1313/devlogs/en/posts/371db62496872c2d/</link>
+      <link>https://smvasconcelos.github.io/devlogs/en/posts/371db62496872c2d/</link>
       <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/devlogs/en/posts/371db62496872c2d/</guid>
+      <guid>https://smvasconcelos.github.io/devlogs/en/posts/371db62496872c2d/</guid>
       <description>&lt;p&gt;The user experience (UX) in modern web applications demands fluidity and continuity, something that was historically difficult to achieve on traditional websites without the use of complex SPA frameworks. The full page reload often breaks the user&amp;rsquo;s context with an abrupt &amp;ldquo;white screen&amp;rdquo; between loading.&lt;/p&gt;</description>
       <content>&lt;p&gt;The user experience (UX) in modern web applications demands fluidity and continuity, something that was historically difficult to achieve on traditional websites without the use of complex SPA frameworks. The full page reload often breaks the user&amp;rsquo;s context with an abrupt &amp;ldquo;white screen&amp;rdquo; between loading.&lt;/p&gt;
 &lt;p&gt;The &lt;strong&gt;View Transition API&lt;/strong&gt; emerges as the native web platform solution. It allows you to create smooth, animated transitions between different DOM states (on the same page - SPA) or even between different documents (during page navigation - MPA), all declaratively and with the power of CSS. Now, with expanded support (including Firefox, Chrome, and Safari), it is the ideal time to adopt it!&lt;/p&gt;
@@ -41,7 +152,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; This single line enables view transitions on all same-origin links on your site. By default, it applies a &lt;em&gt;cross-fade&lt;/em&gt; effect (a soft dissolve), which is already a significant improvement.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/devlogs/images/3bbea15b7777c38d.gif&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/3bbea15b7777c38d.gif&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;step-2-animate-specific-elements-shared-elements&#34;&gt;Step 2: Animate Specific Elements (Shared Elements)&lt;/h3&gt;
 &lt;p&gt;To create more complex transitions that move specific elements (like a title or an image), you need to give the element a &amp;ldquo;name&amp;rdquo; in both the old state and the new state.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Example (Post Title Transition):&lt;/strong&gt;&lt;/p&gt;
@@ -165,7 +276,172 @@ Furthermore, we can edit the in and out animation with the transition &lt;code&g
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I was inspired by the transition effects of SNES games like Super Mario World, where during the loading of a new stage, the screen darkens and becomes a bit pixelated. Below we can see the result.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/devlogs/images/e9fa79e34f8b3d20.gif&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/e9fa79e34f8b3d20.gif&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;The &lt;strong&gt;View Transition API&lt;/strong&gt; is a great addition to the web. It democratizes high-quality page transitions, making them accessible to any project, from complex SPAs to simple static blogs. The fact that it is native and customizable via CSS makes it a powerful tool in any developer&amp;rsquo;s arsenal.&lt;/p&gt;
+&lt;p&gt;With the arrival of Firefox support, there are no more excuses not to offer more cohesive and pleasant navigations.&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>CSS #01 - Transitions with the View Transition API</title>
+      <link>https://smvasconcelos.github.io/devlogs/en/posts/6f5b31e2c45762df/</link>
+      <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://smvasconcelos.github.io/devlogs/en/posts/6f5b31e2c45762df/</guid>
+      <description>&lt;p&gt;The user experience (UX) in modern web applications demands fluidity and continuity, something that was historically difficult to achieve on traditional websites without the use of complex SPA frameworks. The full page reload often breaks the user&amp;rsquo;s context with an abrupt &amp;ldquo;white screen&amp;rdquo; between loading.&lt;/p&gt;</description>
+      <content>&lt;p&gt;The user experience (UX) in modern web applications demands fluidity and continuity, something that was historically difficult to achieve on traditional websites without the use of complex SPA frameworks. The full page reload often breaks the user&amp;rsquo;s context with an abrupt &amp;ldquo;white screen&amp;rdquo; between loading.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;View Transition API&lt;/strong&gt; emerges as the native web platform solution. It allows you to create smooth, animated transitions between different DOM states (on the same page - SPA) or even between different documents (during page navigation - MPA), all declaratively and with the power of CSS. Now, with expanded support (including Firefox, Chrome, and Safari), it is the ideal time to adopt it!&lt;/p&gt;
+&lt;h2 id=&#34;how-does-the-view-transition-api-work&#34;&gt;How Does the View Transition API Work?&lt;/h2&gt;
+&lt;p&gt;The working principle is ingenious and based on snapshots and CSS pseudo-elements. The transition process occurs in 4 main steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Transition Trigger:&lt;/strong&gt; The transition is initiated, either by a JavaScript call (&lt;code&gt;document.startViewTransition()&lt;/code&gt;) in SPAs, or automatically during navigation between pages in MPAs.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Snapshot Capture (Old View):&lt;/strong&gt; The browser freezes and captures an image (snapshot) of the current visual state of the page.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DOM Update:&lt;/strong&gt; The page content is updated (the DOM is modified, or the new page is loaded) &lt;strong&gt;without the user seeing it&lt;/strong&gt;, as the previous snapshot is being displayed.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Animated Transition:&lt;/strong&gt; The browser inserts the transition&amp;rsquo;s pseudo-elements and uses CSS animations to smoothly transition from the &amp;ldquo;old snapshot&amp;rdquo; to the &amp;ldquo;new state.&amp;rdquo;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The result is a visually smooth transition, where content changes elegantly, keeping the user immersed.&lt;/p&gt;
+&lt;h2 id=&#34;how-to-implement-it-on-your-blog-mpa&#34;&gt;How to Implement it on Your Blog (MPA)&lt;/h2&gt;
+&lt;p&gt;The beauty of the View Transition API for multi-page sites (MPA) — like most CMS-based blogs — is that it requires &lt;strong&gt;almost no JavaScript&lt;/strong&gt; for the standard transition!&lt;/p&gt;
+&lt;h3 id=&#34;step-1-enable-the-transition-opt-in&#34;&gt;Step 1: Enable the Transition (Opt-in)&lt;/h3&gt;
+&lt;p&gt;For the browser to know that you want transitions between pages, add this CSS rule to your global stylesheet:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/* Your global CSS file (style.css, for example) */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;@&lt;span style=&#34;color:#66d9ef&#34;&gt;view-transition&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;navigation&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;auto&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;::&lt;span style=&#34;color:#a6e22e&#34;&gt;view-transition-group&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;root&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;animation-duration&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;800&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ms&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;animation-timing-function&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;ease-in-out&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; This single line enables view transitions on all same-origin links on your site. By default, it applies a &lt;em&gt;cross-fade&lt;/em&gt; effect (a soft dissolve), which is already a significant improvement.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/3bbea15b7777c38d.gif&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;step-2-animate-specific-elements-shared-elements&#34;&gt;Step 2: Animate Specific Elements (Shared Elements)&lt;/h3&gt;
+&lt;p&gt;To create more complex transitions that move specific elements (like a title or an image), you need to give the element a &amp;ldquo;name&amp;rdquo; in both the old state and the new state.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Example (Post Title Transition):&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;In the HTML/CSS of the Title on the Post List (Page A):&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;h2&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;post-card-title&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Post Title
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;h2&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;post-card-title&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;/* The transition name must be unique per page! */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;view-transition-name&lt;/span&gt;: post-title-123; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;In the HTML/CSS of the Title on the Post Page (Page B):&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;h1&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;post-hero-title&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Post Title
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;h1&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;post-hero-title&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;/* Must have the SAME name on the destination page */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;view-transition-name&lt;/span&gt;: post-title-123; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;When you click the link, the browser will smoothly transition the position, size, and shape of the element with the &lt;code&gt;view-transition-name&lt;/code&gt; between the two pages!&lt;/p&gt;
+&lt;h2 id=&#34;customization-and-the-relationship-with-css&#34;&gt;Customization and the Relationship with CSS&lt;/h2&gt;
+&lt;p&gt;This is where the View Transition API becomes a powerhouse. Customization is done purely with CSS, using specific pseudo-elements injected by the browser during the transition.&lt;/p&gt;
+&lt;h3 id=&#34;the-transition-structure-pseudo-elements&#34;&gt;The Transition Structure (Pseudo-elements)&lt;/h3&gt;
+&lt;p&gt;During the transition, the browser creates the following structure (hidden) at the top of your page:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;::view-transition
+└── ::view-transition-group(root) or ::view-transition-group(custom-name)
+    ├── ::view-transition-image-pair(root) or ::view-transition-image-pair(custom-name)
+    │   ├── ::view-transition-old(root) or ::view-transition-old(custom-name)
+    │   └── ::view-transition-new(root) or ::view-transition-new(custom-name)
+&lt;/code&gt;&lt;/pre&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Pseudo-element&lt;/strong&gt;&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;::view-transition&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;The &lt;em&gt;overlay&lt;/em&gt; that covers the entire viewport.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;::view-transition-group(name)&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Contains the image pair, with the position and size of the named element.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;::view-transition-old(name)&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;The snapshot of the old view. It is animated to &lt;strong&gt;exit&lt;/strong&gt;.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;::view-transition-new(name)&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;The snapshot of the new view. It is animated to &lt;strong&gt;enter&lt;/strong&gt;.&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;customizing-the-default-animation&#34;&gt;Customizing the Default Animation&lt;/h3&gt;
+&lt;p&gt;By default, the global transition (&lt;code&gt;root&lt;/code&gt;) is a &lt;code&gt;cross-fade&lt;/code&gt; that lasts &lt;code&gt;500ms&lt;/code&gt;. You can change this using &lt;code&gt;@keyframes&lt;/code&gt; and targeting the &lt;code&gt;pseudo-elements&lt;/code&gt;.
+Furthermore, we can edit the in and out animation with the transition &lt;code&gt;pseudo-elements&lt;/code&gt;. Below we observe the effect used in this blog on the date of publication.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/* Define global duration and easing */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;::&lt;span style=&#34;color:#a6e22e&#34;&gt;view-transition-group&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;root&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;animation-duration&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;800&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ms&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;animation-timing-function&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;ease-in-out&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/* Old page — screen darkens and becomes pixelated */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;::&lt;span style=&#34;color:#a6e22e&#34;&gt;view-transition-old&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;root&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;animation-name&lt;/span&gt;: pixel-fade-out;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/* New page — screen emerges from black and becomes sharp again */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;::&lt;span style=&#34;color:#a6e22e&#34;&gt;view-transition-new&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;root&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;animation-name&lt;/span&gt;: pixel-fade-in;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/* --- Keyframes --- */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/* Fading out &amp;#34;phasing out&amp;#34; style */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;@&lt;span style=&#34;color:#66d9ef&#34;&gt;keyframes&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;pixel-fade-out&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;opacity&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;filter&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;none&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;transform&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;none&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;40&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;filter&lt;/span&gt;: brightness(&lt;span style=&#34;color:#ae81ff&#34;&gt;70&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;%&lt;/span&gt;) saturate(&lt;span style=&#34;color:#ae81ff&#34;&gt;80&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;%&lt;/span&gt;) blur(&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;px&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;70&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;filter&lt;/span&gt;: brightness(&lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;%&lt;/span&gt;) saturate(&lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;%&lt;/span&gt;) blur(&lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;px&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;100&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;opacity&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;filter&lt;/span&gt;: brightness(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;%&lt;/span&gt;) blur(&lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;px&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/* Reappearing from darkness, as if emerging from the black screen */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;@&lt;span style=&#34;color:#66d9ef&#34;&gt;keyframes&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;pixel-fade-in&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;opacity&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;filter&lt;/span&gt;: brightness(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;%&lt;/span&gt;) blur(&lt;span style=&#34;color:#ae81ff&#34;&gt;12&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;px&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;transform&lt;/span&gt;: scale(&lt;span style=&#34;color:#ae81ff&#34;&gt;1.02&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;30&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;opacity&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;0.5&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;filter&lt;/span&gt;: brightness(&lt;span style=&#34;color:#ae81ff&#34;&gt;40&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;%&lt;/span&gt;) blur(&lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;px&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;60&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;opacity&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;0.8&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;filter&lt;/span&gt;: brightness(&lt;span style=&#34;color:#ae81ff&#34;&gt;80&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;%&lt;/span&gt;) blur(&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;px&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;100&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;opacity&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;filter&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;none&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;transform&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;none&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I was inspired by the transition effects of SNES games like Super Mario World, where during the loading of a new stage, the screen darkens and becomes a bit pixelated. Below we can see the result.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/e9fa79e34f8b3d20.gif&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;The &lt;strong&gt;View Transition API&lt;/strong&gt; is a great addition to the web. It democratizes high-quality page transitions, making them accessible to any project, from complex SPAs to simple static blogs. The fact that it is native and customizable via CSS makes it a powerful tool in any developer&amp;rsquo;s arsenal.&lt;/p&gt;
 &lt;p&gt;With the arrival of Firefox support, there are no more excuses not to offer more cohesive and pleasant navigations.&lt;/p&gt;
@@ -174,10 +450,10 @@ Furthermore, we can edit the in and out animation with the transition &lt;code&g
     
     <item>
       <title>Hugo #02 — Adding Improvements to Our Blog</title>
-      <link>http://localhost:1313/devlogs/en/posts/3262d6d38d70967d/</link>
+      <link>https://smvasconcelos.github.io/devlogs/en/posts/3262d6d38d70967d/</link>
       <pubDate>Mon, 20 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/devlogs/en/posts/3262d6d38d70967d/</guid>
+      <guid>https://smvasconcelos.github.io/devlogs/en/posts/3262d6d38d70967d/</guid>
       <description>&lt;p&gt;In this article, we’ll take a closer look at the &lt;strong&gt;Hugo&lt;/strong&gt; tool, understand how some of its &lt;strong&gt;APIs&lt;/strong&gt; work — search, pagination, and language — and learn how to use them to enhance our blog.&lt;/p&gt;</description>
       <content>&lt;p&gt;In this article, we’ll take a closer look at the &lt;strong&gt;Hugo&lt;/strong&gt; tool, understand how some of its &lt;strong&gt;APIs&lt;/strong&gt; work — search, pagination, and language — and learn how to use them to enhance our blog.&lt;/p&gt;
 &lt;hr&gt;
@@ -200,7 +476,7 @@ Furthermore, we can edit the in and out animation with the transition &lt;code&g
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;showLanguageSelector&lt;/span&gt; = &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Once this option is enabled and translations are properly configured, the language selection menu will appear according to your theme’s design.&lt;/p&gt;
 &lt;p&gt;For the &lt;strong&gt;re-terminal&lt;/strong&gt; theme, for example, the expected result will look like this:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/devlogs/images/c959be8f943e49e2.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/c959be8f943e49e2.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;default-pagination-and-how-to-customize-it&#34;&gt;Default Pagination and How to Customize It&lt;/h2&gt;
 &lt;p&gt;Hugo also provides native support for &lt;strong&gt;pagination&lt;/strong&gt;, allowing full control over its appearance and behavior.&lt;br&gt;
@@ -208,7 +484,7 @@ One of the most important parameters is the number of items displayed per page:&
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;pagination&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;pagerSize&lt;/span&gt; = &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After setting this configuration, when the number of items exceeds the defined limit, Hugo will automatically display the pagination menu according to your theme’s style.&lt;/p&gt;
 &lt;p&gt;With the &lt;strong&gt;re-terminal&lt;/strong&gt; theme, and after some styling adjustments, the result might look like this:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/devlogs/images/37473a1eeb87066d.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/37473a1eeb87066d.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;p&gt;In the example above, the pagination elements of the default theme were customized.&lt;br&gt;
 To achieve the same result, you can create a file called &lt;code&gt;layouts/partials/pagination.html&lt;/code&gt; with the following content:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{{ $p := .Paginator }}
@@ -287,7 +563,7 @@ Create a file called &lt;code&gt;partials/header.html&lt;/code&gt; and reimpleme
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;header&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The &lt;strong&gt;div&lt;/strong&gt; with the attribute &lt;strong&gt;id=&amp;ldquo;search&amp;rdquo;&lt;/strong&gt; is where the search interface will be rendered.&lt;br&gt;
 After adding the code, the result should look similar to this:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/devlogs/images/727449facc34d02c.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/727449facc34d02c.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;p&gt;However, for the posts to appear correctly in the search results, you’ll need to &lt;strong&gt;index your site&lt;/strong&gt;.&lt;br&gt;
 You can do this using the Pagefind command (see more details in the &lt;a href=&#34;https://pagefind.app/docs/running-pagefind/&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;
   official documentation
@@ -300,7 +576,7 @@ You can do this using the Pagefind command (see more details in the &lt;a href=&
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npx pagefind --site public
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In the command above, we run &lt;strong&gt;Pagefind&lt;/strong&gt; on the site located in the &lt;code&gt;public/&lt;/code&gt; folder, which contains the current build with all the posts. To filter exactly what we want, it is necessary to set the &lt;code&gt;data-pagefind-body&lt;/code&gt; attribute in the &lt;code&gt;layouts\_default\single.html&lt;/code&gt; file so that Pagefind can correctly locate the data it needs to index.&lt;/p&gt;
 &lt;p&gt;After running the command, Pagefind will display a summary of the indexing process — including the number of files indexed, detected languages, and other details.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/devlogs/images/442d46f8057d7699.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/442d46f8057d7699.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;With the configurations presented in this article, we’ve made Hugo even more powerful and flexible, adding essential features like &lt;strong&gt;multi-language support&lt;/strong&gt;, &lt;strong&gt;custom pagination&lt;/strong&gt;, and an &lt;strong&gt;efficient local search&lt;/strong&gt; with Pagefind.&lt;/p&gt;
@@ -312,10 +588,10 @@ You can do this using the Pagefind command (see more details in the &lt;a href=&
     
     <item>
       <title>Hugo #01 — Setting Up Your First Blog</title>
-      <link>http://localhost:1313/devlogs/en/posts/40bd465b991e6fc6/</link>
+      <link>https://smvasconcelos.github.io/devlogs/en/posts/40bd465b991e6fc6/</link>
       <pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/devlogs/en/posts/40bd465b991e6fc6/</guid>
+      <guid>https://smvasconcelos.github.io/devlogs/en/posts/40bd465b991e6fc6/</guid>
       <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;Throughout most of my career, I’ve always focused on growing technically through study and applying what I’ve learned in the best way possible.&lt;br&gt;
 However, I realized I was missing a space to document my learning process — a &lt;strong&gt;devlog&lt;/strong&gt; — that could serve both as a personal knowledge base and a way to share insights with other developers.&lt;/p&gt;</description>
@@ -347,7 +623,7 @@ According to the &lt;a href=&#34;https://themes.gohugo.io/&#34;target=&#34;_blan
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;theme = &amp;#39;ananke&amp;#39;&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; hugo.toml
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo server
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The command above starts a local server, and your site will be available at &lt;code&gt;http://localhost:1313/&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/devlogs/images/74cf69439eb846a0.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smvasconcelos.github.io/devlogs/images/74cf69439eb846a0.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;choosing-the-theme-and-configuring-the-project&#34;&gt;Choosing the theme and configuring the project&lt;/h2&gt;
 &lt;p&gt;For the initial setup, I used the &lt;strong&gt;Ananke&lt;/strong&gt; theme just for demonstration.&lt;br&gt;
 Then, I browsed through the &lt;a href=&#34;https://themes.gohugo.io/tags/blog/&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;
